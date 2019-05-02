@@ -20,5 +20,5 @@ jobs:
     - stage: publish
       script: 
         - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
-        - docker build -t Condensate ./Condensate_API/
-        - docker push 
+        - docker build --tag jukebox1412/condensate:1.0 ./Condensate_API/
+        - docker push jukebox1412/condensate
