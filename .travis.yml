@@ -2,8 +2,25 @@ language: csharp
 solution: Condensate_API.sln
 mono: none
 dotnet: 2.2.104
+jobs:
+  include:
+    - stage: build
+      script: 
+        - dotnet restore
+        - dotnet build ./Condensate_API/Condensate_API.csproj
+    
+    - stage: test
+      script: dotnet test ./XUnitTests/XUnitTests.csproj
+
+    - stage: publish
+      script: 
+        - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
+        - docker build ./Condensate_API
+
 script:
  - dotnet restore
  - dotnet build ./Condensate_API/Condensate_API.csproj
  - dotnet test ./XUnitTests/XUnitTests.csproj
+ - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
+ - docker build 
  
