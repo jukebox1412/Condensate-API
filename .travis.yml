@@ -1,3 +1,5 @@
+services:
+  - docker
 language: csharp
 solution: Condensate_API.sln
 mono: none
@@ -11,16 +13,12 @@ jobs:
     
     - stage: test
       script: dotnet test ./XUnitTests/XUnitTests.csproj
+    
+    - stage: login
+      script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
     - stage: publish
       script: 
         - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
-        - docker build ./Condensate_API
-
-script:
- - dotnet restore
- - dotnet build ./Condensate_API/Condensate_API.csproj
- - dotnet test ./XUnitTests/XUnitTests.csproj
- - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
- - docker build 
- 
+        - docker build -t Condensate ./Condensate_API/
+        - docker push 
