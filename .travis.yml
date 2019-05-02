@@ -1,0 +1,9 @@
+language: csharp
+solution: Condensate_API.sln
+mono: none
+dotnet: 2.2.104
+script:
+ - dotnet restore
+ - dotnet build ./Condensate_API/Condensate_API.csproj
+ - dotnet test ./XUnitTests/XUnitTests.csproj
+ 

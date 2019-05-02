@@ -1,0 +1,16 @@
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\bin\Release\netcoreapp2.2\Condensate_API.deps.json
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\bin\Release\netcoreapp2.2\Condensate_API.runtimeconfig.json
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\bin\Release\netcoreapp2.2\Condensate_API.runtimeconfig.dev.json
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\bin\Release\netcoreapp2.2\Condensate_API.dll
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\bin\Release\netcoreapp2.2\Condensate_API.pdb
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\bin\Release\netcoreapp2.2\Condensate_API.xml
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.csprojAssemblyReference.cache
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.csproj.CoreCompileInputs.cache
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.RazorAssemblyInfo.cache
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.RazorAssemblyInfo.cs
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.AssemblyInfoInputs.cache
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.AssemblyInfo.cs
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.RazorTargetAssemblyInfo.cache
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.dll
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.xml
+F:\Users\Jukebox\Documents\AAA\Programming\Condensate-API\Condensate_API\obj\Release\netcoreapp2.2\Condensate_API.pdb
