@@ -1,9 +1,8 @@
-dist: bionic
 services:
   - docker
 language: csharp
 solution: Condensate_API.sln
-mono: none
+os: linux
 dotnet: 2.2.104
 jobs:
   include:
@@ -17,6 +16,7 @@ jobs:
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
         - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
-        # - docker build --tag jukebox1412/condensate:1.1.$TRAVIS_BUILD_NUMBER ./Condensate_API/
-        - docker build --tag jukebox1412/condensate:1.1.latest ./Condensate_API/
+        - docker build --tag jukebox1412/condensate:1.1.$TRAVIS_BUILD_NUMBER ./Condensate_API/
+        # also push this as latest
+        - docker build --tag jukebox1412/condensate:latest ./Condensate_API/
         - docker push jukebox1412/condensate
