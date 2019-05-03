@@ -8,9 +8,7 @@ dotnet: 2.2.104
 jobs:
   include:
     - stage: build
-      script: 
-        - dotnet restore
-        - dotnet build ./Condensate_API/Condensate_API.csproj
+      script: dotnet build ./Condensate_API/Condensate_API.csproj
     
     - stage: test
       script: dotnet test ./XUnitTests/XUnitTests.csproj
@@ -19,5 +17,6 @@ jobs:
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
         - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
-        - docker build --tag jukebox1412/condensate:1.1.$TRAVIS_BUILD_NUMBER ./Condensate_API/
+        # - docker build --tag jukebox1412/condensate:1.1.$TRAVIS_BUILD_NUMBER ./Condensate_API/
+        - docker build --tag jukebox1412/condensate:1.1.latest ./Condensate_API/
         - docker push jukebox1412/condensate
