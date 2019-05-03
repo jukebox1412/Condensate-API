@@ -1,9 +1,9 @@
+dist: bionic
 services:
   - docker
 language: csharp
-mono: none
 solution: Condensate_API.sln
-os: linux
+mono: none
 dotnet: 2.2.104
 jobs:
   include:
