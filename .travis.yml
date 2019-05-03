@@ -1,6 +1,7 @@
 services:
   - docker
 language: csharp
+mono: none
 solution: Condensate_API.sln
 os: linux
 dotnet: 2.2.104
