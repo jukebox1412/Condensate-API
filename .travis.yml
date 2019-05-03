@@ -15,11 +15,9 @@ jobs:
     - stage: test
       script: dotnet test ./XUnitTests/XUnitTests.csproj
     
-    - stage: login
-      script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-
     - stage: publish
-      script: 
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
         - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
         - docker build --tag jukebox1412/condensate:1.0 ./Condensate_API/
         - docker push jukebox1412/condensate
