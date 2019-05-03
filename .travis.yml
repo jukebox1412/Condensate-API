@@ -19,5 +19,5 @@ jobs:
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
         - dotnet publish -c Release ./Condensate_API/Condensate_API.csproj
-        - docker build --tag jukebox1412/condensate:1.0 ./Condensate_API/
+        - docker build --tag jukebox1412/condensate:1.1.$TRAVIS_BUILD_NUMBER ./Condensate_API/
         - docker push jukebox1412/condensate
