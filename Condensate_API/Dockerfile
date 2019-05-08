@@ -1,6 +1,6 @@
 FROM microsoft/dotnet:2.2-aspnetcore-runtime
 
 # the publish folder is copied to a folder named bin in the container.
-COPY bin/Release/netcoreapp2.2/publish/ app/
+COPY bin/Release/netcoreapp2.2/publish/ bin/
 
-ENTRYPOINT ["dotnet", "app/Condensate_API.dll"]
+ENTRYPOINT ["dotnet", "bin/Condensate_API.dll"]
