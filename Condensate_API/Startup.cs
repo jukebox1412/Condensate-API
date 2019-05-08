@@ -59,7 +59,6 @@ namespace Condensate_API
                 options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
                 if (_env.IsDevelopment())
                     options.HttpsPort = 5001;
-
             });
         }
 
