@@ -54,23 +54,13 @@ namespace Condensate_API
                 });
             });
 
-            // IHostingEnvironment (stored in _env) is injected into the Startup class.
-            if (!_env.IsDevelopment())
+            services.AddHttpsRedirection(options =>
             {
-                services.AddHttpsRedirection(options =>
-                {
-                    options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
-                    options.HttpsPort = 443;
-                });
-            }
-            else
-            {
-                services.AddHttpsRedirection(options =>
-                {
-                    options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
+                options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
+                if (_env.IsDevelopment())
                     options.HttpsPort = 5001;
-                });
-            }
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
