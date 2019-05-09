@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    # build:
+    #   context: ./Condensate_API
+    #   dockerfile: Dockerfile
+    image: jukebox1412/condensate
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+        - ASPNETCORE_URLS="https://+;http://+"
+        - ASPNETCORE_HTTPS_PORT=443
+        - ASPNETCORE_Kestrel__Certificates__Default__Password="$CERT_PW"
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/condensate_cert.pfx
+    volumes:
+      - ${HOME}/.aspnet/https:/https/
