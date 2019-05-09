@@ -17,4 +17,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+  <!-- including this fixes wwwroot when publishing... maybe -->
+      <None Include="wwwroot\*" />
+  </ItemGroup>
 </Project>
