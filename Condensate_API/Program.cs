@@ -14,23 +14,14 @@ namespace Condensate_API
     {
         public static void Main(string[] args)
         {
-            //Console.WriteLine(args.Length);
-            //foreach (string arg in args)
-            //{
-            //    Console.WriteLine(arg);
-            //}
-
             CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-            var host = WebHost.CreateDefaultBuilder(args)
+            var host =  WebHost.CreateDefaultBuilder(args)
                  .UseStartup<Startup>();
-            if (host.GetSetting("environment") == "Development")
-                host.UseUrls("http://localhost:5000", "https://localhost:5001");
-            else
-                host.UseUrls("http://localhost:80", "https://localhost:443");
+                 //.UseUrls("http://localhost:5000", "https://localhost:5001")
             return host;
         }
     }
