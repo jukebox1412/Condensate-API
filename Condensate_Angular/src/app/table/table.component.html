@@ -1,0 +1,48 @@
+ <!-- code taken from https://ng-bootstrap.github.io/#/components/table/examples -->
+<form>
+  <div class="form-group form-inline">
+    Search Games: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+  </div>
+  
+  <div class="form-group">
+    <span class="ml-3" *ngIf="service.loading$ | async; else games_owned">Loading...</span>
+    <ng-template  #games_owned>
+      Games Owned: {{service.total$ | async}}
+    </ng-template >
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col" sortable="id" (sort)="onSort($event)">#</th>
+      <th scope="col" sortable="name" (sort)="onSort($event)">Game</th>
+      <th scope="col" sortable="hours" (sort)="onSort($event)">Hours Played</th>
+      <th scope="col" sortable="price" (sort)="onSort($event)">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries">
+        <th scope="row">{{ country.id }}</th>
+        <td>
+          <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.icon" class="mr-2" style="width: 40px">
+          <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+        <td><ngb-highlight [result]="country.hours | number" [term]="service.searchTerm"></ngb-highlight></td>
+        <td><ngb-highlight [result]="country.price | number" [term]="service.searchTerm"></ngb-highlight></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="total" [(page)]="service.page" [pageSize]="service.pageSize">
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+      <option [ngValue]="4">4 items per page</option>
+      <option [ngValue]="6">6 items per page</option>
+      <option [ngValue]="8">8 items per page</option>
+    </select>
+  </div>
+
+</form>
