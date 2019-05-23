@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row-fluid">
-    <form class="form-group" (ngSubmit)="onSubmit(searchForm.valid)" #searchForm="ngForm">
+    <form class="form-group" (ngSubmit)="onSearchSubmit(searchForm.valid)" #searchForm="ngForm">
       <label class="col-md-8">Steam ID:</label>
       <div class="input-group">
         <input class="form-control col-md-10" [(ngModel)]="steam_id" id="search_input" name="search_input" required #name="ngModel" />

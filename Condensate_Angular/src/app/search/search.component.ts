@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompileMetadataResolver } from '@angular/compiler';
+import { ApiService } from '../api.service';
 
 export const compare = (v1, v2) => v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
 
@@ -12,15 +13,14 @@ export const compare = (v1, v2) => v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
 export class SearchComponent implements OnInit {
   steam_id: string;
   submit_touched: boolean;
-  constructor() { }
+  constructor(private api_service: ApiService) { }
 
   ngOnInit() {
     this.submit_touched = false;
   }
 
-  onSubmit(isValid) {
+  onSearchSubmit(isValid: boolean) {
     if (isValid)
-      this.steam_id = "whatup";
+      this.api_service.getUserGames(this.steam_id).subscribe(res => console.log(res));
   }
-
 }

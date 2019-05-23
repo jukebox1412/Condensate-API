@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.HttpOverrides;
+using Condensate_API.Services;
 
 namespace Condensate_API
 {
@@ -23,6 +24,11 @@ namespace Condensate_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+
+            services.AddSingleton<MongoClientService>();
+            services.AddScoped<GameService>();
+            services.AddHostedService<ScraperService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Register the Swagger generator, defining 1 or more Swagger documents
