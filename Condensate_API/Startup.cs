@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.HttpOverrides;
 using Condensate_API.Services;
+using System.Net.Http;
+using System.Net;
 
 namespace Condensate_API
 {
@@ -24,7 +26,19 @@ namespace Condensate_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient();
+            services.AddHttpClient("steam", c =>
+            {
+                c.BaseAddress = new System.Uri("https://store.steampowered.com/api/appdetails/");
+                c.DefaultRequestHeaders.Add("User-Agent", "Condensate/0.1");
+                c.DefaultRequestHeaders.Add("Accept", "application/json");
+                c.DefaultRequestHeaders.Add("Host", "store.steampowered.com");
+                c.DefaultRequestHeaders.Add("accept-encoding", "gzip, deflate");
+                c.DefaultRequestHeaders.Add("Connection", "keep-alive");
+            }).ConfigurePrimaryHttpMessageHandler(() =>
+             new HttpClientHandler()
+             {
+                 AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+             });
 
             services.AddSingleton<MongoClientService>();
             services.AddScoped<GameService>();
@@ -53,7 +67,7 @@ namespace Condensate_API
                 });
             });
 
-        
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +77,7 @@ namespace Condensate_API
             {
                 app.UseDeveloperExceptionPage();
             }
-           
+
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

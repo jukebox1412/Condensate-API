@@ -16,24 +16,28 @@ namespace Condensate_API.Services
         private Timer _timer;
         private readonly ILogger _logger;
         private readonly IMongoCollection<Game> _games;
-        private readonly IHttpClientFactory _clientFactory;
-
+        private readonly HttpClient _client;
+        private const string _URL_PARAMETERS = "?filters=basic,type,price_overview,genres&appids=";
 
         public ScraperService(ILogger<ScraperService> logger, MongoClientService mongoClientService, IHttpClientFactory clientFactory)
         {
             _logger = logger;
             _games = mongoClientService.database.GetCollection<Game>("Games");
-            _clientFactory = clientFactory;
+            _client= clientFactory.CreateClient("steam");
         }
 
         public void Dispose()
         {
             _timer?.Dispose();
+            _client?.Dispose();
         }
 
-        private void ScrapeSteam(object state)
+        private async void ScrapeSteam(object state)
         {
             
+            //HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"?filters=basic,price_overview,genres&appids={205633}");
+            //var response = await _client.SendAsync(request);
+
         }
 
         private Game Create(Game game)
@@ -51,7 +55,7 @@ namespace Condensate_API.Services
         {
             _logger.LogInformation("Steam Scraper Service is starting.");
             _timer?.Dispose();
-            _timer = new Timer(ScrapeSteam, null, TimeSpan.Zero, TimeSpan.FromSeconds(4));
+            _timer = new Timer(ScrapeSteam, null, TimeSpan.Zero, TimeSpan.FromSeconds(2));
             return Task.CompletedTask;
         }
 

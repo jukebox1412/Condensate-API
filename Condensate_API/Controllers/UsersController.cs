@@ -9,6 +9,9 @@ using MongoDB.Driver;
 using Condensate_API.Services;
 using System.Net.Http;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Text;
+using Newtonsoft.Json.Linq;
 
 namespace Condensate_API.Controllers
 {
@@ -19,31 +22,27 @@ namespace Condensate_API.Controllers
         private readonly GameService _gameService;
         private readonly ILogger _logger;
         private readonly HttpClient _client;
-        private const string _APP_DETAILS_URL = "https://store.steampowered.com/api/appdetails/?appids=";
-        private HttpRequestMessage _request;
         public UsersController(GameService gameService, IHttpClientFactory clientFactory, ILogger<UsersController> logger)
         {
             _gameService = gameService;
             _logger = logger;
-            _client = clientFactory.CreateClient();
-
-            // save request so we can reuse it
-            _request = new HttpRequestMessage();
-            _request.Method = HttpMethod.Get;
-            _request.Headers.Add("User-Agent", "Condensate/0.1");
-            _request.Headers.Add("Accept", "application/json");
-            _request.Headers.Add("Host", "store.steampowered.com");
-            _request.Headers.Add("accept-encoding", "gzip, deflate");
-            _request.Headers.Add("Connection", "keep-alive");
+            _client = clientFactory.CreateClient("steam");
         }
 
         // GET: api/users
         [HttpGet]
-        public async Task<ActionResult<User>> GetUser()
+        public async Task<ActionResult<Game>> Get()
         {
-            _request.RequestUri = new Uri(_APP_DETAILS_URL + "205633");
-            var response = await _client.SendAsync(_request);
-            return new User();
+            var response = await _client.GetAsync($"?filters=basic,type,price_overview,genres&appids={205633}");
+
+            Game g = new Game();
+            if (response.IsSuccessStatusCode)
+            {
+                JToken json = JToken.Parse(await response.Content.ReadAsStringAsync());
+                _logger.LogInformation("\n\n" + json["205633"]);
+            }
+
+            return g;
         }
 
         // GET: api/users/GetUserGamesById?id=5
