@@ -26,22 +26,33 @@ namespace Condensate_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient("steam", c =>
+            var decompHandler = new HttpClientHandler()
             {
-                c.BaseAddress = new System.Uri("https://store.steampowered.com/api/appdetails/");
+                AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+            };
+            services.AddHttpClient("steam-store", c =>
+            {
+                c.BaseAddress = new System.Uri("https://store.steampowered.com/api/");
                 c.DefaultRequestHeaders.Add("User-Agent", "Condensate/0.1");
                 c.DefaultRequestHeaders.Add("Accept", "application/json");
                 c.DefaultRequestHeaders.Add("Host", "store.steampowered.com");
                 c.DefaultRequestHeaders.Add("accept-encoding", "gzip, deflate");
                 c.DefaultRequestHeaders.Add("Connection", "keep-alive");
-            }).ConfigurePrimaryHttpMessageHandler(() =>
-             new HttpClientHandler()
-             {
-                 AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
-             });
+            }).ConfigurePrimaryHttpMessageHandler(() => decompHandler);
+
+            services.AddHttpClient("steam-api", c =>
+            {
+                c.BaseAddress = new System.Uri("https://api.steampowered.com/");
+                c.DefaultRequestHeaders.Add("User-Agent", "Condensate/0.1");
+                c.DefaultRequestHeaders.Add("Accept", "application/json");
+                c.DefaultRequestHeaders.Add("Host", "api.steampowered.com");
+                c.DefaultRequestHeaders.Add("accept-encoding", "gzip, deflate");
+                c.DefaultRequestHeaders.Add("Connection", "keep-alive");
+            }).ConfigurePrimaryHttpMessageHandler(() => decompHandler);
 
             services.AddSingleton<MongoClientService>();
-            services.AddScoped<GameService>();
+            services.AddSingleton<GameService>();
+            services.AddSingleton<AppService>();
             services.AddHostedService<ScraperService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

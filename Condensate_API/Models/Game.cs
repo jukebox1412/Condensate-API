@@ -11,7 +11,7 @@ namespace Condensate_API.Models
         public string Id { get; set; }
 
         [BsonElement("appid")]
-        public long appid { get; set; }
+        public uint appid { get; set; }
 
         [BsonElement("header_image")]
         public string header_image { get; set; }
@@ -23,7 +23,7 @@ namespace Condensate_API.Models
         public string name { get; set; }
 
         [BsonElement("genres")]
-        public List<string> genres { get; set; }
+        public HashSet<string> genres { get; set; }
 
         [BsonElement("store_link")]
         public string store_link { get; set; }

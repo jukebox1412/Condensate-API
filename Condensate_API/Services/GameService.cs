@@ -32,6 +32,20 @@ namespace Condensate_API.Services
             return game;
         }
 
+        public void Update(Game gameIn)
+        {
+            Game found = _games.Find<Game>(game => game.appid == gameIn.appid).FirstOrDefault();
+            if (found != null)
+            {
+                gameIn.Id = found.Id;
+                _games.ReplaceOne(game => game.appid == gameIn.appid, gameIn);
+            }
+            else
+            {
+                Create(gameIn);
+            }
+        }
+
         public void Update(string id, Game gameIn)
         {
             _games.ReplaceOne(game => game.Id == id, gameIn);
