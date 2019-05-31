@@ -33,7 +33,7 @@ namespace Condensate_API.Services
             _client = clientFactory.CreateClient("steam-store");
 
             // start async update for all apps... takes a while.
-            _ = _appService.UpdateAllApps();
+            //_ = _appService.UpdateAllApps();
         }
 
         public void Dispose()
@@ -101,7 +101,9 @@ namespace Condensate_API.Services
             // set interval period to 2 seconds so steam doesn't ban me. 
             // can call steam api at most 200 times per 5 minutes
             // can be 1.5 seconds but don't want to risk it.
-            _timer = new Timer(ScrapeSteam, null, TimeSpan.Zero, TimeSpan.FromSeconds(2));
+
+            //_timer = new Timer(ScrapeSteam, null, TimeSpan.Zero, TimeSpan.FromSeconds(2));
+            
             return Task.CompletedTask;
         }
 

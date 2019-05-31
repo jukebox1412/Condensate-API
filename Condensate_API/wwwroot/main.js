@@ -36,6 +36,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
 
 
 
@@ -49,12 +53,25 @@ var ApiService = /** @class */ (function () {
             this.baseUrl = "https://condensate.me/" + this.baseUrl;
         }
     }
+    ApiService.prototype.handleError = function (operation, result) {
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            // TODO: send the error to remote logging infrastructure
+            console.error(error); // log to console instead
+            // TODO: better job of transforming error for user consumption
+            // this.log(`${operation} failed: ${error.message}`);
+            // Let the app keep running by returning an empty result.
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    };
     ApiService.prototype.getUserGames = function (searchQuery) {
         return this.http.get(this.baseUrl + this.getUserUrl, {
             params: {
                 id: searchQuery
             }
-        });
+        }).pipe(
+        // tap(res => this.userService.sourceGamePlaytimes$.next(res)),
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUserGames", [])));
     };
     ApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -63,6 +80,49 @@ var ApiService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], ApiService);
     return ApiService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/app-routing.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/app-routing.module.ts ***!
+  \***************************************/
+/*! exports provided: AppRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _table_table_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./table/table.component */ "./src/app/table/table.component.ts");
+/* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
+
+
+
+
+
+var routes = [
+    { path: 'table', component: _table_table_component__WEBPACK_IMPORTED_MODULE_3__["TableComponent"] },
+    { path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_4__["SearchComponent"] },
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [],
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)
+            ],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
 }());
 
 
@@ -87,7 +147,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n</div>\n  \n<app-search></app-search>"
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n</div>\n\n<app-search></app-search>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -143,10 +203,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
 /* harmony import */ var _table_table_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./table/table.component */ "./src/app/table/table.component.ts");
 /* harmony import */ var _table_sortable_directive__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./table/sortable.directive */ "./src/app/table/sortable.directive.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 
 
 
  // <-- NgModel lives here
+
+
 
 
 
@@ -161,7 +225,7 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
                 _search_search_component__WEBPACK_IMPORTED_MODULE_7__["SearchComponent"],
-                _table_table_component__WEBPACK_IMPORTED_MODULE_8__["NgbdTableComplete"],
+                _table_table_component__WEBPACK_IMPORTED_MODULE_8__["TableComponent"],
                 _table_sortable_directive__WEBPACK_IMPORTED_MODULE_9__["NgbdSortableHeader"],
             ],
             imports: [
@@ -169,9 +233,10 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"].forRoot()
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"].forRoot(),
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"]
             ],
-            providers: [],
+            providers: [_angular_common__WEBPACK_IMPORTED_MODULE_10__["DecimalPipe"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
@@ -200,7 +265,7 @@ module.exports = ".ng-valid[required],\r\n.ng-valid.required {\r\n  border-left:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\" (click)=\"submit_touched=true;\"/>\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID is required\n      </div>\n    </form>\n\n    <hr>\n    <!-- TODO: Uncomment this: -->\n    <!-- <ngbd-table-complete *ngIf=\"submit_touched && searchForm.valid\"></ngbd-table-complete> -->\n    <ngbd-table-complete></ngbd-table-complete>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\"/>\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID is required\n      </div>\n    </form>\n\n    <hr>\n    <!-- TODO: Uncomment this: -->\n    <!-- <app-table *ngIf=\"submit_touched && searchForm.valid\"></app-table> -->\n    <!-- <app-table [steam_id]=\"steam_id\" *ngIf=\"submitted || searchForm.valid\"></app-table> -->\n\n  </div>\n  <!-- <router-outlet></router-outlet> -->\n</div>\n"
 
 /***/ }),
 
@@ -217,21 +282,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../api.service */ "./src/app/api.service.ts");
+/* harmony import */ var _table_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../table/user.service */ "./src/app/table/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 var compare = function (v1, v2) { return v1 < v2 ? -1 : v1 > v2 ? 1 : 0; };
 var SearchComponent = /** @class */ (function () {
-    function SearchComponent(api_service) {
-        this.api_service = api_service;
+    function SearchComponent(_user_service, router) {
+        this._user_service = _user_service;
+        this.router = router;
     }
     SearchComponent.prototype.ngOnInit = function () {
-        this.submit_touched = false;
+        // TODO change this back to false
+        // this.submit_touched = false;
+        this.submitted = false;
+        this.steam_id = "76561197963657845";
     };
     SearchComponent.prototype.onSearchSubmit = function (isValid) {
-        if (isValid)
-            this.api_service.getUserGames(this.steam_id).subscribe(function (res) { return console.log(res); });
+        if (isValid) {
+            this.submitted = true;
+            this._user_service.aquire_games(this.steam_id);
+        }
     };
     SearchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -239,118 +312,11 @@ var SearchComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./search.component.html */ "./src/app/search/search.component.html"),
             styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/search/search.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_table_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], SearchComponent);
     return SearchComponent;
 }());
 
-
-
-/***/ }),
-
-/***/ "./src/app/table/countries.ts":
-/*!************************************!*\
-  !*** ./src/app/table/countries.ts ***!
-  \************************************/
-/*! exports provided: COUNTRIES */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COUNTRIES", function() { return COUNTRIES; });
-var COUNTRIES = [
-    {
-        id: 1,
-        name: 'Russia',
-        icon: 'f/f3/Flag_of_Russia.svg',
-        hours: 17075200,
-        price: 146989754
-    },
-    {
-        id: 2,
-        name: 'France',
-        icon: 'c/c3/Flag_of_France.svg',
-        hours: 640679,
-        price: 64979548
-    },
-    {
-        id: 3,
-        name: 'Germany',
-        icon: 'b/ba/Flag_of_Germany.svg',
-        hours: 357114,
-        price: 82114224
-    },
-    {
-        id: 4,
-        name: 'Portugal',
-        icon: '5/5c/Flag_of_Portugal.svg',
-        hours: 92090,
-        price: 10329506
-    },
-    {
-        id: 5,
-        name: 'Canada',
-        icon: 'c/cf/Flag_of_Canada.svg',
-        hours: 9976140,
-        price: 36624199
-    },
-    {
-        id: 6,
-        name: 'Vietnam',
-        icon: '2/21/Flag_of_Vietnam.svg',
-        hours: 331212,
-        price: 95540800
-    },
-    {
-        id: 7,
-        name: 'Brazil',
-        icon: '0/05/Flag_of_Brazil.svg',
-        hours: 8515767,
-        price: 209288278
-    },
-    {
-        id: 8,
-        name: 'Mexico',
-        icon: 'f/fc/Flag_of_Mexico.svg',
-        hours: 1964375,
-        price: 129163276
-    },
-    {
-        id: 9,
-        name: 'United States',
-        icon: 'a/a4/Flag_of_the_United_States.svg',
-        hours: 9629091,
-        price: 324459463
-    },
-    {
-        id: 10,
-        name: 'India',
-        icon: '4/41/Flag_of_India.svg',
-        hours: 3287263,
-        price: 1324171354
-    },
-    {
-        id: 11,
-        name: 'Indonesia',
-        icon: '9/9f/Flag_of_Indonesia.svg',
-        hours: 1910931,
-        price: 263991379
-    },
-    {
-        id: 12,
-        name: 'Tuvalu',
-        icon: '3/38/Flag_of_Tuvalu.svg',
-        hours: 26,
-        price: 11097
-    },
-    {
-        id: 13,
-        name: 'China',
-        icon: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-        hours: 9596960,
-        price: 1409517397
-    }
-];
 
 
 /***/ }),
@@ -427,7 +393,7 @@ module.exports = "  /* Sortable table demo */\r\n  \r\n  th[sortable] {\r\n    c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!-- code taken from https://ng-bootstrap.github.io/#/components/table/examples -->\n<form>\n  <div class=\"form-group form-inline\">\n    Search Games: <input class=\"form-control ml-2\" type=\"text\" name=\"searchTerm\" [(ngModel)]=\"service.searchTerm\"/>\n  </div>\n  \n  <div class=\"form-group\">\n    <span class=\"ml-3\" *ngIf=\"service.loading$ | async; else games_owned\">Loading...</span>\n    <ng-template  #games_owned>\n      Games Owned: {{service.total$ | async}}\n    </ng-template >\n  </div>\n\n  <table class=\"table table-striped\">\n    <thead>\n    <tr>\n      <th scope=\"col\" sortable=\"id\" (sort)=\"onSort($event)\">#</th>\n      <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Game</th>\n      <th scope=\"col\" sortable=\"hours\" (sort)=\"onSort($event)\">Hours Played</th>\n      <th scope=\"col\" sortable=\"price\" (sort)=\"onSort($event)\">Price</th>\n    </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let country of countries\">\n        <th scope=\"row\">{{ country.id }}</th>\n        <td>\n          <img [src]=\"'https://upload.wikimedia.org/wikipedia/commons/' + country.icon\" class=\"mr-2\" style=\"width: 40px\">\n          <ngb-highlight [result]=\"country.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n        </td>\n        <td><ngb-highlight [result]=\"country.hours | number\" [term]=\"service.searchTerm\"></ngb-highlight></td>\n        <td><ngb-highlight [result]=\"country.price | number\" [term]=\"service.searchTerm\"></ngb-highlight></td>\n      </tr>\n    </tbody>\n  </table>\n\n  <div class=\"d-flex justify-content-between p-2\">\n    <ngb-pagination\n      [collectionSize]=\"total\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n    </ngb-pagination>\n\n    <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n      <option [ngValue]=\"4\">4 items per page</option>\n      <option [ngValue]=\"6\">6 items per page</option>\n      <option [ngValue]=\"8\">8 items per page</option>\n    </select>\n  </div>\n\n</form>"
+module.exports = " <!-- code taken from https://ng-bootstrap.github.io/#/components/table/examples -->\n<form>\n  <div class=\"form-group form-inline\">\n    Search Games: <input class=\"form-control ml-2\" type=\"text\" name=\"searchTerm\" [(ngModel)]=\"service.searchTerm\"/>\n  </div>\n  \n  <div class=\"form-group\">\n    <span class=\"ml-3\" *ngIf=\"service.loading$ | async; else games_owned\">Loading...</span>\n    <ng-template  #games_owned>\n      Games Owned: {{service.total$ | async}}\n    </ng-template >\n  </div>\n\n  <table class=\"table table-striped\">\n    <thead>\n    <tr>\n      <th scope=\"col\" sortable=\"appid\" (sort)=\"onSort($event)\">#</th>\n      <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Game</th>\n      <th scope=\"col\" sortable=\"hours\" (sort)=\"onSort($event)\">Hours Played</th>\n      <th scope=\"col\" sortable=\"price\" (sort)=\"onSort($event)\">Price</th>\n    </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let gamePlaytime of gamePlaytimes\">\n        <th scope=\"row\">{{ gamePlaytime.game.appid }}</th>\n        <td>\n          <img [src]=\"gamePlaytime.game.header_image\" class=\"mr-2\" style=\"width: 40px\">\n          <ngb-highlight [result]=\"gamePlaytime.game.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n        </td>\n        <td><ngb-highlight [result]=\"gamePlaytime.playtime | number\" [term]=\"service.searchTerm\"></ngb-highlight></td>\n        <td><ngb-highlight [result]=\"gamePlaytime.game.price | number\" [term]=\"service.searchTerm\"></ngb-highlight></td>\n      </tr>\n    </tbody>\n  </table>\n\n  <div class=\"d-flex justify-content-between p-2\">\n    <ngb-pagination\n      [collectionSize]=\"total\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n    </ngb-pagination>\n\n    <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n      <option [ngValue]=\"4\">4 items per page</option>\n      <option [ngValue]=\"6\">6 items per page</option>\n      <option [ngValue]=\"8\">8 items per page</option>\n    </select>\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -435,31 +401,36 @@ module.exports = " <!-- code taken from https://ng-bootstrap.github.io/#/compone
 /*!******************************************!*\
   !*** ./src/app/table/table.component.ts ***!
   \******************************************/
-/*! exports provided: NgbdTableComplete */
+/*! exports provided: TableComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgbdTableComplete", function() { return NgbdTableComplete; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableComponent", function() { return TableComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user.service */ "./src/app/table/user.service.ts");
-/* harmony import */ var _sortable_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sortable.directive */ "./src/app/table/sortable.directive.ts");
-
-// original code from https://ng-bootstrap.github.io/#/components/table/examples
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user.service */ "./src/app/table/user.service.ts");
+/* harmony import */ var _sortable_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sortable.directive */ "./src/app/table/sortable.directive.ts");
 
 
 
 
-var NgbdTableComplete = /** @class */ (function () {
-    function NgbdTableComplete(service) {
-        var _this = this;
+var TableComponent = /** @class */ (function () {
+    function TableComponent(service) {
         this.service = service;
-        service.countries$.subscribe(function (countries) { return _this.countries = countries; });
-        service.total$.subscribe(function (total) { return _this.total = total; });
     }
-    NgbdTableComplete.prototype.onSort = function (_a) {
+    TableComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        //Add 'implements OnInit' to the class.
+        this.service.gamePlaytimes$.subscribe(function (gamePlaytimes) {
+            _this.gamePlaytimes = gamePlaytimes;
+        });
+        this.service.total$.subscribe(function (total) {
+            _this.total = total;
+        });
+    };
+    TableComponent.prototype.onSort = function (_a) {
         var column = _a.column, direction = _a.direction;
         // resetting other headers
         this.headers.forEach(function (header) {
@@ -471,19 +442,23 @@ var NgbdTableComplete = /** @class */ (function () {
         this.service.sortDirection = direction;
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChildren"])(_sortable_directive__WEBPACK_IMPORTED_MODULE_4__["NgbdSortableHeader"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_2__["QueryList"])
-    ], NgbdTableComplete.prototype, "headers", void 0);
-    NgbdTableComplete = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
-            selector: 'ngbd-table-complete',
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], TableComponent.prototype, "steam_id", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"])(_sortable_directive__WEBPACK_IMPORTED_MODULE_3__["NgbdSortableHeader"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
+    ], TableComponent.prototype, "headers", void 0);
+    TableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-table',
             template: __webpack_require__(/*! ./table.component.html */ "./src/app/table/table.component.html"),
-            providers: [_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["DecimalPipe"]],
+            providers: [],
             styles: [__webpack_require__(/*! ./table.component.css */ "./src/app/table/table.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
-    ], NgbdTableComplete);
-    return NgbdTableComplete;
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+    ], TableComponent);
+    return TableComponent;
 }());
 
 
@@ -503,9 +478,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _countries__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./countries */ "./src/app/table/countries.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../api.service */ "./src/app/api.service.ts");
 
 // original code from https://ng-bootstrap.github.io/#/components/table/examples
 
@@ -516,12 +491,12 @@ __webpack_require__.r(__webpack_exports__);
 function compare(v1, v2) {
     return v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
 }
-function sort(countries, column, direction) {
+function sort(games, column, direction) {
     if (direction === '') {
-        return countries;
+        return games;
     }
     else {
-        return countries.slice().sort(function (a, b) {
+        return games.slice().sort(function (a, b) {
             var res = compare(a[column], b[column]);
             if (direction === 'asc')
                 return res;
@@ -530,23 +505,20 @@ function sort(countries, column, direction) {
         });
     }
 }
-function matches(country, term, pipe) {
-    var area_str = pipe.transform(country.hours).replace(/,/g, '');
-    var population_str = pipe.transform(country.price).replace(/,/g, '');
+function matches(gp, term, pipe) {
+    var area_str = pipe.transform(gp.playtime).replace(/,/g, '');
+    var population_str = pipe.transform(gp.game.price).replace(/,/g, '');
     var comma_less_term = term.replace(/,/g, '');
-    return country.name.toLowerCase().includes(term)
+    return gp.game.name.toLowerCase().includes(term)
         || area_str.includes(comma_less_term)
         || population_str.includes(comma_less_term)
-        || pipe.transform(country.id).includes(term);
+        || pipe.transform(gp.game.appid).includes(term);
 }
 var UserService = /** @class */ (function () {
-    function UserService(pipe) {
+    function UserService(pipe, _api_service) {
         var _this = this;
         this.pipe = pipe;
-        this._loading$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](true);
-        this._search$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this._countries$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
-        this._total$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](0);
+        this._api_service = _api_service;
         this._state = {
             page: 1,
             pageSize: 6,
@@ -554,19 +526,27 @@ var UserService = /** @class */ (function () {
             sortColumn: '',
             sortDirection: ''
         };
-        this._search$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { return _this._loading$.next(true); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["debounceTime"])(200), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function () { return _this._search(); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["delay"])(200), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { return _this._loading$.next(false); })).subscribe(function (result) {
-            _this._countries$.next(result.countries);
+        this.init();
+        this._search$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () { return _this._loading$.next(true); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () { return _this._search(); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () { return _this._loading$.next(false); })).subscribe(function (result) {
+            _this._gamePlaytimes$.next(result.gamePlaytimes);
             _this._total$.next(result.total);
         });
         this._search$.next();
     }
-    Object.defineProperty(UserService.prototype, "countries$", {
-        get: function () { return this._countries$.asObservable(); },
+    UserService.prototype.init = function () {
+        this._loading$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](true);
+        this._search$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this._gamePlaytimes$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
+        this._total$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](0);
+        this._gpts = [];
+    };
+    Object.defineProperty(UserService.prototype, "gamePlaytimes$", {
+        get: function () { return this._gamePlaytimes$; },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(UserService.prototype, "total$", {
-        get: function () { return this._total$.asObservable(); },
+        get: function () { return this._total$; },
         enumerable: true,
         configurable: true
     });
@@ -603,6 +583,13 @@ var UserService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    UserService.prototype.aquire_games = function (steam_id) {
+        var _this = this;
+        this._api_service.getUserGames(steam_id).subscribe(function (res) {
+            _this._gpts = res;
+            _this._search$.next();
+        });
+    };
     UserService.prototype._set = function (patch) {
         Object.assign(this._state, patch);
         this._search$.next();
@@ -611,17 +598,17 @@ var UserService = /** @class */ (function () {
         var _this = this;
         var _a = this._state, sortColumn = _a.sortColumn, sortDirection = _a.sortDirection, pageSize = _a.pageSize, page = _a.page, searchTerm = _a.searchTerm;
         // 1. sort
-        var countries = sort(_countries__WEBPACK_IMPORTED_MODULE_3__["COUNTRIES"], sortColumn, sortDirection);
+        var games = sort(this._gpts, sortColumn, sortDirection);
         // 2. filter
-        countries = countries.filter(function (country) { return matches(country, searchTerm, _this.pipe); });
-        var total = countries.length;
+        games = games.filter(function (game) { return matches(game, searchTerm, _this.pipe); });
+        var total = games.length;
         // 3. paginate
-        countries = countries.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({ countries: countries, total: total });
+        games = games.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({ gamePlaytimes: games, total: total });
     };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DecimalPipe"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_3__["DecimalPipe"], _api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"]])
     ], UserService);
     return UserService;
 }());

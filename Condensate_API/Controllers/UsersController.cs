@@ -22,18 +22,18 @@ namespace Condensate_API.Controllers
         private readonly GameService _gameService;
         private readonly ILogger _logger;
         private readonly HttpClient _clientStore;
-        
+
 
         public UsersController(GameService gameService, IHttpClientFactory clientFactory, ILogger<UsersController> logger)
         {
             _gameService = gameService;
             _logger = logger;
             _clientStore = clientFactory.CreateClient("steam-store");
-            
+
 
         }
 
-        
+
 
         // GET: api/users
         [HttpGet]
@@ -67,9 +67,9 @@ namespace Condensate_API.Controllers
 
         // GET: api/users/GetUserGamesById?id=5
         [HttpGet("GetUserGamesById")]
-        public ActionResult<IEnumerable<Game>> GetUserGamesById(string id)
+        public ActionResult<IEnumerable<GamePlaytime>> GetUserGamesById(string id)
         {
-            List<Game> games = new List<Game>();
+            List<GamePlaytime> games = new List<GamePlaytime>();
             // in order to interact with the Web APIs, you must first acquire an interface
             // for a certain API
             using (dynamic steam = WebAPI.GetInterface("IPlayerService", Environment.GetEnvironmentVariable("STEAM_API_KEY")))
@@ -79,13 +79,20 @@ namespace Condensate_API.Controllers
                 try
                 {
                     var res = steam.GetOwnedGames(steamid: id);
+
                     foreach (KeyValue game in res["games"].Children)
                     {
-                        Game g = new Game();
-                        g.appid = game["appid"].AsUnsignedInteger();
-                        g.name = _gameService.Get()[0].name;
-                        //g.hours = game["playtime_forever"].AsLong();
-                        games.Add(g);
+                        uint appid = game["appid"].AsUnsignedInteger();
+                        Game g = _gameService.Get(appid);
+
+                        if (g == null)
+                        {
+                            g = new Game();
+                            g.name = "unknown";
+                            g.appid = appid;
+                        }
+
+                        games.Add(new GamePlaytime(g, game["playtime_forever"].AsLong()));
                     }
                 }
                 catch (Exception e)

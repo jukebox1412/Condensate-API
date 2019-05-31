@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row-fluid">
+    <form class="form-group" (ngSubmit)="onSearchSubmit(searchForm.valid)" #searchForm="ngForm">
+      <label class="col-md-8">Steam ID:</label>
+      <div class="input-group">
+        <input class="form-control col-md-10" [(ngModel)]="steam_id" id="search_input" name="search_input" required
+          #name="ngModel" />
+        <input class="btn btn-primary col-md-2" type="submit" value="Search"/>
+      </div>
+      <div [hidden]="name.valid || (!submit_touched) " class="alert alert-danger">
+        Steam ID is required
+      </div>
+    </form>
+
+    <hr>
+    <!-- TODO: Uncomment this: -->
+    <!-- <app-table *ngIf="submit_touched && searchForm.valid"></app-table> -->
+    <!-- <app-table [steam_id]="steam_id" *ngIf="submitted || searchForm.valid"></app-table> -->
+
+  </div>
+  <!-- <router-outlet></router-outlet> -->
+</div>

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Condensate_API.Services;
 using System.Net.Http;
 using System.Net;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 namespace Condensate_API
 {
@@ -55,6 +56,10 @@ namespace Condensate_API
             services.AddSingleton<AppService>();
             services.AddHostedService<ScraperService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist";
+            });
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -106,9 +111,24 @@ namespace Condensate_API
             });
 
 
-            app.UseDefaultFiles();
+            //app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action=Index}/{id?}");
+            });
+
+            app.UseSpa(spa =>
+            {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                spa.Options.SourcePath = "ClientApp";
+
+                //spa.UseAngularCliServer(npmScript: "build");
+            });
         }
     }
 }

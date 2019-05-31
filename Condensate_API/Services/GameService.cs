@@ -25,6 +25,10 @@ namespace Condensate_API.Services
         {
             return _games.Find<Game>(game => game.Id == id).FirstOrDefault();
         }
+        public Game Get(uint appid)
+        {
+            return _games.Find<Game>(game => game.appid == appid).FirstOrDefault();
+        }
 
         public Game Create(Game game)
         {
