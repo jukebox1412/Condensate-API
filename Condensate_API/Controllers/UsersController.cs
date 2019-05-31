@@ -29,40 +29,15 @@ namespace Condensate_API.Controllers
             _gameService = gameService;
             _logger = logger;
             _clientStore = clientFactory.CreateClient("steam-store");
-
-
         }
 
 
 
         // GET: api/users
         [HttpGet]
-        public async Task<ActionResult<Game>> Get()
+        public ActionResult<IEnumerable<Game>> Get()
         {
-            var response = await _clientStore.GetAsync($"appdetails/?filters=basic,type,price_overview,genres&appids={57690}");
-
-            Game g = new Game();
-            if (response.IsSuccessStatusCode)
-            {
-                JToken json = JToken.Parse(await response.Content.ReadAsStringAsync())["57690"];
-
-                if ((bool)json["success"])
-                {
-                    g.appid = 57690;
-                    g.store_link = "https://store.steampowered.com/app/57690";
-                    g.name = (string)json["data"]["name"];
-                    g.header_image = (string)json["data"]["header_image"];
-                    g.price = ((double)json["data"]["price_overview"]["initial"]) / 100.0;
-                    g.genres = new HashSet<string>();
-
-                    foreach (JObject content in json["data"]["genres"].Children<JObject>())
-                    {
-                        g.genres.Add((string)content["description"]);
-                    }
-                }
-            }
-
-            return g;
+            return _gameService.Get();
         }
 
         // GET: api/users/GetUserGamesById?id=5
