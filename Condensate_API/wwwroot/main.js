@@ -147,7 +147,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n</div>\n\n<app-search></app-search>\n<router-outlet></router-outlet>\n"
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n</div>\n\n<app-search></app-search>\n"
 
 /***/ }),
 
@@ -265,7 +265,7 @@ module.exports = ".ng-valid[required],\r\n.ng-valid.required {\r\n  border-left:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\"/>\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID is required\n      </div>\n    </form>\n\n    <hr>\n    <!-- TODO: Uncomment this: -->\n    <!-- <app-table *ngIf=\"submit_touched && searchForm.valid\"></app-table> -->\n    <!-- <app-table [steam_id]=\"steam_id\" *ngIf=\"submitted || searchForm.valid\"></app-table> -->\n\n  </div>\n  <!-- <router-outlet></router-outlet> -->\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\"/>\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID is required\n      </div>\n    </form>\n\n    <hr>\n    <!-- TODO: Uncomment this: -->\n    <!-- <app-table *ngIf=\"submit_touched && searchForm.valid\"></app-table> -->\n    <!-- <app-table [steam_id]=\"steam_id\" *ngIf=\"submitted || searchForm.valid\"></app-table> -->\n\n     \n  </div>\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -303,7 +303,7 @@ var SearchComponent = /** @class */ (function () {
     SearchComponent.prototype.onSearchSubmit = function (isValid) {
         if (isValid) {
             this.submitted = true;
-            this._user_service.aquire_games(this.steam_id);
+            this.router.navigate(['/', 'table', { steam_id: this.steam_id }]);
         }
     };
     SearchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -411,13 +411,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user.service */ "./src/app/table/user.service.ts");
 /* harmony import */ var _sortable_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sortable.directive */ "./src/app/table/sortable.directive.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 
 var TableComponent = /** @class */ (function () {
-    function TableComponent(service) {
+    function TableComponent(service, route) {
         this.service = service;
+        this.route = route;
     }
     TableComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -429,6 +432,8 @@ var TableComponent = /** @class */ (function () {
         this.service.total$.subscribe(function (total) {
             _this.total = total;
         });
+        this.steam_id = this.route.snapshot.paramMap.get('steam_id');
+        this.service.aquire_games(this.steam_id);
     };
     TableComponent.prototype.onSort = function (_a) {
         var column = _a.column, direction = _a.direction;
@@ -442,10 +447,6 @@ var TableComponent = /** @class */ (function () {
         this.service.sortDirection = direction;
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], TableComponent.prototype, "steam_id", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"])(_sortable_directive__WEBPACK_IMPORTED_MODULE_3__["NgbdSortableHeader"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
     ], TableComponent.prototype, "headers", void 0);
@@ -456,7 +457,7 @@ var TableComponent = /** @class */ (function () {
             providers: [],
             styles: [__webpack_require__(/*! ./table.component.css */ "./src/app/table/table.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], TableComponent);
     return TableComponent;
 }());
@@ -678,7 +679,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\Users\Jukebox\Documents\AAA\Programming\Condensate\Condensate_Angular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! F:\Users\Jukebox\Documents\AAA\Programming\Condensate\Condensate_API\ClientApp\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { GamePlaytime } from '../classes/GamePlaytime';
 import { UserService } from './user.service';
 import { NgbdSortableHeader, SortEvent } from './sortable.directive';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component(
@@ -18,13 +19,13 @@ import { NgbdSortableHeader, SortEvent } from './sortable.directive';
 
 
 export class TableComponent {
-  @Input() steam_id: string;
+  steam_id: string;
   gamePlaytimes: GamePlaytime[];
   total: number;
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
-  constructor(public service: UserService) { }
+  constructor(private service: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -35,7 +36,9 @@ export class TableComponent {
     this.service.total$.subscribe(total => {
       this.total = total;
     });
-    
+
+    this.steam_id = this.route.snapshot.paramMap.get('steam_id');
+    this.service.aquire_games(this.steam_id);
   }
 
   onSort({ column, direction }: SortEvent) {

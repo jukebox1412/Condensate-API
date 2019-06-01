@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
   onSearchSubmit(isValid: boolean) {
     if (isValid) {
       this.submitted = true;
-      this._user_service.aquire_games(this.steam_id);
+      this.router.navigate(['/', 'table', { steam_id: this.steam_id }]);
     }
   }
 }

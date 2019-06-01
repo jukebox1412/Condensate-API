@@ -598,8 +598,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Users\Jukebox\Documents\AAA\Programming\Condensate\Condensate_Angular\src\styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! F:\Users\Jukebox\Documents\AAA\Programming\Condensate\Condensate_Angular\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
+__webpack_require__(/*! F:\Users\Jukebox\Documents\AAA\Programming\Condensate\Condensate_API\ClientApp\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! F:\Users\Jukebox\Documents\AAA\Programming\Condensate\Condensate_API\ClientApp\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
 
 
 /***/ })

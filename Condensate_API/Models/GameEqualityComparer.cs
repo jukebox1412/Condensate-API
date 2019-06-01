@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace Condensate_API.Models
 {
-    public class AppEqualityComparer : IEqualityComparer<App>
+    public class GameEqualityComparer : IEqualityComparer<Game>
     {
-        public bool Equals(App x, App y)
+        public bool Equals(Game x, Game y)
         {
             return x.appid == y.appid;
         }
 
-        public int GetHashCode(App obj)
+        public int GetHashCode(Game obj)
         {
             return obj.appid.GetHashCode();
         }

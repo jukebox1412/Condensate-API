@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using StackExchange.Profiling;
 
 namespace Condensate_API.Controllers
 {
@@ -14,7 +15,11 @@ namespace Condensate_API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            using (MiniProfiler.Current.Step("Get method"))
+            {
+
+                return new string[] { "value1", "value2" };
+            }
         }
 
         // GET api/values/5

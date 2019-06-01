@@ -1,17 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Condensate_API.Models;
 using SteamKit2;
-using MongoDB.Driver;
 using Condensate_API.Services;
 using System.Net.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using System.Text;
-using Newtonsoft.Json.Linq;
+using StackExchange.Profiling;
 
 namespace Condensate_API.Controllers
 {
@@ -22,16 +17,16 @@ namespace Condensate_API.Controllers
         private readonly GameService _gameService;
         private readonly ILogger _logger;
         private readonly HttpClient _clientStore;
+        private readonly GameCacheService _gameCacheService;
 
 
-        public UsersController(GameService gameService, IHttpClientFactory clientFactory, ILogger<UsersController> logger)
+        public UsersController(GameService gameService, GameCacheService gameCacheService, IHttpClientFactory clientFactory, ILogger<UsersController> logger)
         {
             _gameService = gameService;
+            _gameCacheService = gameCacheService;
             _logger = logger;
             _clientStore = clientFactory.CreateClient("steam-store");
         }
-
-
 
         // GET: api/users
         [HttpGet]
@@ -44,39 +39,58 @@ namespace Condensate_API.Controllers
         [HttpGet("GetUserGamesById")]
         public ActionResult<IEnumerable<GamePlaytime>> GetUserGamesById(string id)
         {
-            List<GamePlaytime> games = new List<GamePlaytime>();
-            // in order to interact with the Web APIs, you must first acquire an interface
-            // for a certain API
-            using (dynamic steam = WebAPI.GetInterface("IPlayerService", Environment.GetEnvironmentVariable("STEAM_API_KEY")))
+            using (MiniProfiler.Current.Step("Get method with ID"))
             {
-                // note the usage of c#'s dynamic feature, which can be used
-                // to make the api a breeze to use
-                try
+                HashSet<GamePlaytime> gamePlaytimes = new HashSet<GamePlaytime>();
+                // in order to interact with the Web APIs, you must first acquire an interface
+                // for a certain API
+                using (MiniProfiler.Current.Step("Steamkit step"))
                 {
-                    var res = steam.GetOwnedGames(steamid: id);
-
-                    foreach (KeyValue game in res["games"].Children)
+                    using (dynamic steam = WebAPI.GetInterface("IPlayerService", Environment.GetEnvironmentVariable("STEAM_API_KEY")))
                     {
-                        uint appid = game["appid"].AsUnsignedInteger();
-                        Game g = _gameService.Get(appid);
-
-                        if (g == null)
+                        // note the usage of c#'s dynamic feature, which can be used
+                        // to make the api a breeze to use
+                        try
                         {
-                            g = new Game();
-                            g.name = "unknown";
-                            g.appid = appid;
-                        }
+                            using (MiniProfiler.Current.Step("Getting owned games"))
+                            {
+                                var res = steam.GetOwnedGames(steamid: id);
+                                using (MiniProfiler.Current.Step("Iterating over results"))
+                                {
+                                    // get hashset of known games to compare to 
+                                    // for some reason, the get seems to take a long time
+                                    HashSet<Game> games;
+                                    using (MiniProfiler.Current.Step("Database read"))
+                                    {
+                                        games = new HashSet<Game>(_gameCacheService.Get(), new GameEqualityComparer());
+                                    }
+                                    foreach (KeyValue game in res["games"].Children)
+                                    {
+                                        uint appid = game["appid"].AsUnsignedInteger();
+                                        Game g = new Game();
+                                        g.name = "unknown";
+                                        g.appid = appid;
 
-                        games.Add(new GamePlaytime(g, game["playtime_forever"].AsLong()));
+                                        if (games.TryGetValue(g, out Game f))
+                                        {
+                                            gamePlaytimes.Add(new GamePlaytime(f, game["playtime_forever"].AsUnsignedInteger()));
+                                        }
+                                        else
+                                        {
+                                            gamePlaytimes.Add(new GamePlaytime(g, game["playtime_forever"].AsUnsignedInteger()));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            _logger.LogError(e, "Failed to get owned games");
+                        }
                     }
                 }
-                catch (Exception e)
-                {
-                    _logger.LogError(e, "Failed to get owned games");
-                }
+                return gamePlaytimes;
             }
-
-            return games;
         }
     }
 }

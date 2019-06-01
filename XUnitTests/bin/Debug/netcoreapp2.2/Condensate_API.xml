@@ -4,5 +4,8 @@
         <name>Condensate_API</name>
     </assembly>
     <members>
+        <member name="M:Condensate_API.Services.AppService.UpdateAllApps">
+            Get all apps from steam and save them to DB
+        </member>
     </members>
 </doc>

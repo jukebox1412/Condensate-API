@@ -8,8 +8,8 @@ namespace Condensate_API.Models
     public struct GamePlaytime
     {
         public Game game;
-        public long playtime;
-        public GamePlaytime(Game game, long playtime)
+        public uint playtime;
+        public GamePlaytime(Game game, uint playtime)
         {
             this.game = game;
             this.playtime = playtime;
