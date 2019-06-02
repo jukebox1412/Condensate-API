@@ -22,7 +22,7 @@ namespace Condensate_API.Services
 
         private readonly HttpClient _client;
         private const string _URL_PARAMETERS = "appdetails/?filters=basic,type,price_overview,genres&appids=";
-        private const string _STORE_LINK = "https://store.steampowered.com/app/";
+        
 
 
         public ScraperService(ILogger<ScraperService> logger, IHttpClientFactory clientFactory, GameService gameService, AppService appService)
@@ -60,7 +60,7 @@ namespace Condensate_API.Services
                     {
                         _logger.LogInformation($"Saving game {app.appid}");
                         g.appid = app.appid;
-                        g.store_link = _STORE_LINK + app.appid;
+                        g.store_link = Game.STORE_GAME_LINK_PREFIX + app.appid;
                         g.name = (string)json["data"]["name"];
                         g.header_image = (string)json["data"]["header_image"];
 

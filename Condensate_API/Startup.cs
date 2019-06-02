@@ -9,7 +9,6 @@ using Condensate_API.Services;
 using System.Net.Http;
 using System.Net;
 
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 namespace Condensate_API
 {
@@ -100,11 +99,9 @@ namespace Condensate_API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                // profiling, url to see last profile check: http://localhost:xxxxx/profiler/results
+                app.UseMiniProfiler();
             }
-
-
-            // profiling, url to see last profile check: http://localhost:xxxxx/profiler/results
-            app.UseMiniProfiler();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

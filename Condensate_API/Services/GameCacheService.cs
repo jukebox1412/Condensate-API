@@ -64,37 +64,6 @@ namespace Condensate_API.Services
             return _games_cache.FirstOrDefault(game => game.appid == appid);
         }
 
-        public Game Create(Game game)
-        {
-            _fresh_data = false;
-            _gameService.Create(game);
-            return game;
-        }
-
-        public void Update(Game gameIn)
-        {
-            _fresh_data = false;
-            _gameService.Update(gameIn);
-        }
-
-        public void Update(string id, Game gameIn)
-        {
-            _fresh_data = false;
-            _gameService.Update(id, gameIn);
-        }
-
-        public void Remove(Game gameIn)
-        {
-            _fresh_data = false;
-            _gameService.Remove(gameIn);
-        }
-
-        public void Remove(string id)
-        {
-            _fresh_data = false;
-            _gameService.Remove(id);
-        }
-
         public void Dispose()
         {
             _timer?.Dispose();

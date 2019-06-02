@@ -7,8 +7,8 @@ import { GamePlaytime } from '../classes/GamePlaytime';
 import { DecimalPipe } from '@angular/common';
 import { debounceTime, delay, switchMap, tap } from 'rxjs/operators';
 import { SortDirection } from './sortable.directive';
-import { COUNTRIES } from './countries';
 import { ApiService } from '../api.service';
+import { pipe } from '@angular/core/src/render3';
 
 
 interface SearchResult {
@@ -33,25 +33,35 @@ function sort(games: GamePlaytime[], column: string, direction: string): GamePla
     return games;
   } else {
     return [...games].sort((a, b) => {
-      const res = compare(a[column], b[column]);
-      if (direction === 'asc')
-        return res;
-      return -res;
-      // return direction === 'asc' ? res : -res;
+      var res;
+      if (column == "playtime")
+        res = compare(a[column], b[column]);
+      else if (column == "ratio") {
+        if (a.game.price == b.game.price)
+          res = compare(a.playtime, b.playtime);
+        else
+          res = compare(a.playtime / a.game.price, b.playtime / b.game.price);
+      }
+      else
+        res = compare(a.game[column], b.game[column]);
+
+      return direction === 'asc' ? res : -res;
     });
   }
 }
 
 function matches(gp: GamePlaytime, term: string, pipe: PipeTransform) {
-  let area_str: string = pipe.transform(gp.playtime).replace(/,/g, '');
-  let population_str: string = pipe.transform(gp.game.price).replace(/,/g, '');
+  let playtime_str: string = gp.playtime.toString();
+  let price_str: string = gp.game.price.toString();
 
   let comma_less_term = term.replace(/,/g, '');
+  let lowerCased = term.toLowerCase();
 
-  return gp.game.name.toLowerCase().includes(term)
-    || area_str.includes(comma_less_term)
-    || population_str.includes(comma_less_term)
-    || pipe.transform(gp.game.appid).includes(term);
+  return gp.game.name.toLowerCase().includes(lowerCased)
+    || playtime_str.includes(comma_less_term)
+    || price_str.includes(comma_less_term)
+    || pipe.transform(gp.game.appid).includes(comma_less_term)
+    || gp.ratio.toLowerCase().includes(lowerCased);
 }
 
 @Injectable({ providedIn: 'root' })
@@ -110,9 +120,18 @@ export class UserService {
   set sortDirection(sortDirection: SortDirection) { this._set({ sortDirection }); }
 
   aquire_games(steam_id: string) {
+    // tap(() => this._loading$.next(true)),
+    this._loading$.next(true);
     this._api_service.getUserGames(steam_id).subscribe(res => {
-      this._gpts = res;
+      this._gpts = res.map(gp => {
+        if (gp.game.price == 0)
+          gp.ratio = 'free';
+        else
+          gp.ratio = this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
+        return gp;
+      });
       this._search$.next();
+      this._loading$.next(false);
     });
   }
 

@@ -6,6 +6,8 @@ namespace Condensate_API.Models
 {
     public class Game
     {
+        public static string STORE_GAME_LINK_PREFIX = "https://store.steampowered.com/app/";
+
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }

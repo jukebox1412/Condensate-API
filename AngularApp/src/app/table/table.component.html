@@ -1,0 +1,62 @@
+ <!-- code taken from https://ng-bootstrap.github.io/#/components/table/examples -->
+ <form>
+   <div class="form-group form-inline">
+     Search Games: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" />
+   </div>
+
+   <div class="form-group">
+     <span class="ml-3" *ngIf="service.loading$ | async; else games_owned">Loading...</span>
+     <ng-template #games_owned>
+       Games Owned: {{service.total$ | async}}
+     </ng-template>
+   </div>
+
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th scope="col" sortable="appid" (sort)="onSort($event)">#</th>
+         <th scope="col" sortable="name" (sort)="onSort($event)">Game</th>
+         <th scope="col" sortable="playtime" (sort)="onSort($event)">Hours Played</th>
+         <th scope="col" sortable="price" (sort)="onSort($event)">Price</th>
+         <th scope="col" sortable="ratio" (sort)="onSort($event)">Hours Per Dollar</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let gamePlaytime of gamePlaytimes">
+         <th scope="row">{{ gamePlaytime.game.appid }}</th>
+         <td>
+           <img [src]="gamePlaytime.game.header_image" class="mr-2" style="width: 40px">
+           <a href="{{gamePlaytime.game.store_link}}" target="_blank">
+             <ngb-highlight [result]="gamePlaytime.game.name" [term]="service.searchTerm"></ngb-highlight>
+           </a>
+         </td>
+         <td>
+           <!-- Transform playtime from minutes to hours and limit the number of decimal places to 2 -->
+           <ngb-highlight [result]="(gamePlaytime.playtime  | number : '1.0-2')" [term]="service.searchTerm">
+           </ngb-highlight>
+         </td>
+         <td>
+           <ngb-highlight [result]="(gamePlaytime.game.price | number)" [term]="service.searchTerm">
+           </ngb-highlight>
+         </td>
+         <td>
+           <ngb-highlight [result]="gamePlaytime.ratio"
+             [term]="service.searchTerm">
+           </ngb-highlight>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+
+   <div class="d-flex justify-content-between p-2">
+     <ngb-pagination [collectionSize]="total" [(page)]="service.page" [pageSize]="service.pageSize">
+     </ngb-pagination>
+
+     <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+       <option [ngValue]="4">4 items per page</option>
+       <option [ngValue]="6">6 items per page</option>
+       <option [ngValue]="8">8 items per page</option>
+     </select>
+   </div>
+
+ </form>

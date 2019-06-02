@@ -39,58 +39,45 @@ namespace Condensate_API.Controllers
         [HttpGet("GetUserGamesById")]
         public ActionResult<IEnumerable<GamePlaytime>> GetUserGamesById(string id)
         {
-            using (MiniProfiler.Current.Step("Get method with ID"))
+            HashSet<GamePlaytime> gamePlaytimes = new HashSet<GamePlaytime>();
+            using (dynamic steam = WebAPI.GetInterface("IPlayerService", Environment.GetEnvironmentVariable("STEAM_API_KEY")))
             {
-                HashSet<GamePlaytime> gamePlaytimes = new HashSet<GamePlaytime>();
-                // in order to interact with the Web APIs, you must first acquire an interface
-                // for a certain API
-                using (MiniProfiler.Current.Step("Steamkit step"))
+                // note the usage of c#'s dynamic feature, which can be used
+                // to make the api a breeze to use
+                try
                 {
-                    using (dynamic steam = WebAPI.GetInterface("IPlayerService", Environment.GetEnvironmentVariable("STEAM_API_KEY")))
-                    {
-                        // note the usage of c#'s dynamic feature, which can be used
-                        // to make the api a breeze to use
-                        try
-                        {
-                            using (MiniProfiler.Current.Step("Getting owned games"))
-                            {
-                                var res = steam.GetOwnedGames(steamid: id);
-                                using (MiniProfiler.Current.Step("Iterating over results"))
-                                {
-                                    // get hashset of known games to compare to 
-                                    // for some reason, the get seems to take a long time
-                                    HashSet<Game> games;
-                                    using (MiniProfiler.Current.Step("Database read"))
-                                    {
-                                        games = new HashSet<Game>(_gameCacheService.Get(), new GameEqualityComparer());
-                                    }
-                                    foreach (KeyValue game in res["games"].Children)
-                                    {
-                                        uint appid = game["appid"].AsUnsignedInteger();
-                                        Game g = new Game();
-                                        g.name = "unknown";
-                                        g.appid = appid;
+                    var res = steam.GetOwnedGames(steamid: id);
 
-                                        if (games.TryGetValue(g, out Game f))
-                                        {
-                                            gamePlaytimes.Add(new GamePlaytime(f, game["playtime_forever"].AsUnsignedInteger()));
-                                        }
-                                        else
-                                        {
-                                            gamePlaytimes.Add(new GamePlaytime(g, game["playtime_forever"].AsUnsignedInteger()));
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            _logger.LogError(e, "Failed to get owned games");
-                        }
+                    // get hashset of known games to compare to 
+                    HashSet<Game> games;
+                    // use the cached games to save on time
+                    games = new HashSet<Game>(_gameCacheService.Get(), new GameEqualityComparer());
+                    foreach (KeyValue game in res["games"].Children)
+                    {
+                        uint appid = game["appid"].AsUnsignedInteger();
+                        Game g = new Game();
+                        g.name = "unknown";
+                        g.appid = appid;
+                        g.store_link = Game.STORE_GAME_LINK_PREFIX + appid;
+
+                        // since it's stored in minutes
+                        double playtime = game["playtime_forever"].AsUnsignedInteger() / 60.0;
+
+                        if (games.TryGetValue(g, out Game f))
+                            gamePlaytimes.Add(new GamePlaytime(f, playtime));
+                        else
+                            gamePlaytimes.Add(new GamePlaytime(g, playtime));
                     }
                 }
-                return gamePlaytimes;
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Failed to get owned games");
+                    return NotFound();
+                }
             }
+
+            return gamePlaytimes;
+
         }
     }
 }

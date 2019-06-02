@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
     // this.submit_touched = false;
     this.submitted = false;
     this.steam_id = "76561197963657845";
+    console.log(this.router.url);
   }
 
   onSearchSubmit(isValid: boolean) {
