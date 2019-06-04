@@ -23,6 +23,62 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/about/about.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/about/about.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Fib3V0L2Fib3V0LmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/about/about.component.html":
+/*!********************************************!*\
+  !*** ./src/app/about/about.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  about works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/about/about.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/about/about.component.ts ***!
+  \******************************************/
+/*! exports provided: AboutComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AboutComponent = /** @class */ (function () {
+    function AboutComponent() {
+    }
+    AboutComponent.prototype.ngOnInit = function () {
+    };
+    AboutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-about',
+            template: __webpack_require__(/*! ./about.component.html */ "./src/app/about/about.component.html"),
+            styles: [__webpack_require__(/*! ./about.component.css */ "./src/app/about/about.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AboutComponent);
+    return AboutComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/api.service.ts":
 /*!********************************!*\
   !*** ./src/app/api.service.ts ***!
@@ -107,7 +163,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: 'table', component: _table_table_component__WEBPACK_IMPORTED_MODULE_3__["TableComponent"] },
+    { path: 'table', component: _table_table_component__WEBPACK_IMPORTED_MODULE_3__["TableComponent"], outlet: "main" },
     { path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_4__["SearchComponent"] },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -147,7 +203,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-search></app-search>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-dark\">\n  <a class=\"navbar-brand text-success\" href=\"#\">Condensate</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <a class=\"nav-link text-light\" routerLink=\"/\">Home <span class=\"sr-only\">(current)</span></a>\n  <a class=\"nav-link text-light\" href=\"#\">Link</a>\n  <!-- <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n      </li>\n      <li class=\"nav-item\">\n      </li>\n    </ul>\n  </div> -->\n</nav>\n<router-outlet></router-outlet>\n\n"
 
 /***/ }),
 
@@ -205,10 +261,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _table_sortable_directive__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./table/sortable.directive */ "./src/app/table/sortable.directive.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var angular_google_charts__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! angular-google-charts */ "./node_modules/angular-google-charts/fesm5/angular-google-charts.js");
+/* harmony import */ var _chart_chart_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./chart/chart.component */ "./src/app/chart/chart.component.ts");
+/* harmony import */ var _info_label_info_label_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./info-label/info-label.component */ "./src/app/info-label/info-label.component.ts");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
 
 
 
  // <-- NgModel lives here
+
+
+
+
 
 
 
@@ -227,6 +291,9 @@ var AppModule = /** @class */ (function () {
                 _search_search_component__WEBPACK_IMPORTED_MODULE_7__["SearchComponent"],
                 _table_table_component__WEBPACK_IMPORTED_MODULE_8__["TableComponent"],
                 _table_sortable_directive__WEBPACK_IMPORTED_MODULE_9__["NgbdSortableHeader"],
+                _chart_chart_component__WEBPACK_IMPORTED_MODULE_13__["ChartComponent"],
+                _info_label_info_label_component__WEBPACK_IMPORTED_MODULE_14__["InfoLabelComponent"],
+                _about_about_component__WEBPACK_IMPORTED_MODULE_15__["AboutComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -234,13 +301,181 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"].forRoot(),
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"]
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
+                angular_google_charts__WEBPACK_IMPORTED_MODULE_12__["GoogleChartsModule"]
             ],
             providers: [_angular_common__WEBPACK_IMPORTED_MODULE_10__["DecimalPipe"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/chart/chart.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/chart/chart.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYXJ0L2NoYXJ0LmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/chart/chart.component.html":
+/*!********************************************!*\
+  !*** ./src/app/chart/chart.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div *ngFor=\"let data of pieDatas\" class=\"col-md-4\">\n      <google-chart #chart [title]=\"data.title\" [type]=\"data.type\" [data]=\"data.data\" [columnNames]=\"data.columnNames\"\n        [options]=\"data.options\" [width]=\"data.width\" [height]=\"data.height\">\n      </google-chart>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/chart/chart.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/chart/chart.component.ts ***!
+  \******************************************/
+/*! exports provided: ChartComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChartComponent", function() { return ChartComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+
+
+
+var ChartComponent = /** @class */ (function () {
+    function ChartComponent(_service) {
+        this._service = _service;
+    }
+    ChartComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._service.categories$.subscribe(function (pieDatas) { return _this.pieDatas = pieDatas; });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ChartComponent.prototype, "pieData", void 0);
+    ChartComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-chart',
+            template: __webpack_require__(/*! ./chart.component.html */ "./src/app/chart/chart.component.html"),
+            styles: [__webpack_require__(/*! ./chart.component.css */ "./src/app/chart/chart.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+    ], ChartComponent);
+    return ChartComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/classes/ChartData.ts":
+/*!**************************************!*\
+  !*** ./src/app/classes/ChartData.ts ***!
+  \**************************************/
+/*! exports provided: PieMaker, pie_default_width, pie_default_height, pie_default_options */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PieMaker", function() { return PieMaker; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pie_default_width", function() { return pie_default_width; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pie_default_height", function() { return pie_default_height; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pie_default_options", function() { return pie_default_options; });
+/**
+ * Returns a ChartData with default width and height and options for Pie. Just give it the title and data
+ * @param title
+ * @param data
+ */
+function PieMaker(title, data, width, height, options) {
+    if (width === void 0) { width = pie_default_width; }
+    if (height === void 0) { height = pie_default_height; }
+    if (options === void 0) { options = pie_default_options; }
+    var ret = {
+        title: title,
+        data: data,
+        type: "PieChart",
+        width: width,
+        height: height,
+        options: options,
+        // no columns for pies
+        columnNames: ["", ""]
+    };
+    return ret;
+}
+var pie_default_width = 400;
+var pie_default_height = 400;
+var pie_default_options = { pieHole: 0.4 };
+
+
+/***/ }),
+
+/***/ "./src/app/info-label/info-label.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/info-label/info-label.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2luZm8tbGFiZWwvaW5mby1sYWJlbC5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/info-label/info-label.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/info-label/info-label.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h5>Games Total Value: <span class=\"badge badge-info\">{{stats.total_value | number : '1.2'}}$</span></h5>\n<h5>Total Hours Played: <span class=\"badge badge-info\">{{stats.total_playtime | number : '1.0-2'}}</span></h5>\n<h5>Average Hours to Dollar: <span class=\"badge badge-info\">{{stats.avg_ratio | number : '1.0-2'}}</span></h5>\n"
+
+/***/ }),
+
+/***/ "./src/app/info-label/info-label.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/info-label/info-label.component.ts ***!
+  \****************************************************/
+/*! exports provided: InfoLabelComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoLabelComponent", function() { return InfoLabelComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+
+
+
+var InfoLabelComponent = /** @class */ (function () {
+    function InfoLabelComponent(_service) {
+        this._service = _service;
+    }
+    InfoLabelComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._service.stats$.subscribe(function (stats) { return _this.stats = stats; });
+    };
+    InfoLabelComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-info-label',
+            template: __webpack_require__(/*! ./info-label.component.html */ "./src/app/info-label/info-label.component.html"),
+            styles: [__webpack_require__(/*! ./info-label.component.css */ "./src/app/info-label/info-label.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+    ], InfoLabelComponent);
+    return InfoLabelComponent;
 }());
 
 
@@ -265,7 +500,7 @@ module.exports = ".ng-valid[required],\r\n.ng-valid.required {\r\n  border-left:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID is required\n      </div>\n    </form>\n\n    <hr>\n    <!-- TODO: Uncomment this: -->\n    <!-- <app-table *ngIf=\"submit_touched && searchForm.valid\"></app-table> -->\n    <!-- <app-table [steam_id]=\"steam_id\" *ngIf=\"submitted || searchForm.valid\"></app-table> -->\n\n\n  </div>\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n  \n  <app-chart></app-chart>\n  <app-info-label></app-info-label>\n  <hr>\n  <router-outlet name=\"main\"></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -282,7 +517,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _table_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../table/user.service */ "./src/app/table/user.service.ts");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
@@ -295,8 +530,6 @@ var SearchComponent = /** @class */ (function () {
         this.router = router;
     }
     SearchComponent.prototype.ngOnInit = function () {
-        // TODO change this back to false
-        // this.submit_touched = false;
         this.submitted = false;
         this.steam_id = "76561197963657845";
         console.log(this.router.url);
@@ -313,7 +546,7 @@ var SearchComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./search.component.html */ "./src/app/search/search.component.html"),
             styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/search/search.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_table_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], SearchComponent);
     return SearchComponent;
 }());
@@ -383,7 +616,7 @@ var NgbdSortableHeader = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  /* Sortable table demo */\r\n  \r\n  th[sortable] {\r\n    cursor: pointer;\r\n    -moz-user-select: none;\r\n     -ms-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n  }\r\n  \r\n  tr {\r\n    height: 50px;\r\n  }\r\n  \r\n  th[sortable].desc:before, th[sortable].asc:before {\r\n    content: '';\r\n    display: block;\r\n    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmxJREFUeAHtmksrRVEUx72fH8CIGQNJkpGUUmakDEiZSJRIZsRQmCkTJRmZmJgQE0kpX0D5DJKJgff7v+ru2u3O3vvc67TOvsdatdrnnP1Y///v7HvvubdbUiIhBISAEBACQkAICAEhIAQ4CXSh2DnyDfmCPEG2Iv9F9MPlM/LHyAecdyMzHYNwR3fdNK/OH9HXl1UCozD24TCvILxizEDWIEzA0FcM8woCgRrJCoS5PIwrANQSMAJX1LEI9bqpQo4JYNFFKRSvIgsxHDVnqZgIkPnNBM0rIGtYk9YOOsqgbgepRCfdbmFtqhFkVEDVPjJp0+Z6e6hRHhqBKgg6ZDCvYBygVmUoEGoh5JTRvIJwhJo1aUOoh4CLPMyvxxi7EWOMgnCGsXXI1GIXlZUYX7ucU+kbR8NW8lh3O7cue0Pk32MKndfUxQFAwxdirk3fHappAnc0oqDPzDfGTBrCfHP04dM4oTV8cxr0SVzH9FF07xD3ib6xCDE+M+aUcVygtWzzbtGX2rPBrEUYfecfQkaFzYi6HjVnGBdtL7epqAlc1+jRdAap74RrnPc4BCijttY2tRcdN0g17w7HqZrXhdJTYAuS3hd8z+vKgK3V1zWPae0mZDMykadBn1hTQBLnZNwVrJpSe/NwEeDsEwCctEOsJTsgxLvCqUl2ACftEGvJDgjxrnBqkh3ASTvEWrIDQrwrnJpkB3DSDrGW7IAQ7wqnJtkBnLRztejXXVu4+mxz/nQ9jR1w5VB86ejLTFcnnDwhzV+F6T+CHZlx6THSjn76eyyBIOPHyDakhBAQAkJACAgBISAEhIAQYCLwC8JxpAmsEGt6AAAAAElFTkSuQmCC') no-repeat;\r\n    background-size: 22px;\r\n    width: 22px;\r\n    height: 22px;\r\n    float: left;\r\n    margin-left: -22px;\r\n  }\r\n  \r\n  th[sortable].desc:before {\r\n    -webkit-transform: rotate(180deg);\r\n            transform: rotate(180deg);\r\n    -ms-transform: rotate(180deg);\r\n  }\r\n  \r\n  /* Filtering table demo */\r\n  \r\n  ngbd-table-filtering span.ngb-highlight {\r\n    background-color: yellow;\r\n  }\r\n  \r\n  /* Complete table demo */\r\n  \r\n  ngbd-table-complete span.ngb-highlight {\r\n    background-color: yellow;\r\n  }\r\n  \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGFibGUvdGFibGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiRUFBRSx3QkFBd0I7O0VBRXhCO0lBQ0UsZUFBZTtJQUNmLHNCQUFpQjtLQUFqQixxQkFBaUI7U0FBakIsaUJBQWlCO0lBQ2pCLHlCQUF5QjtFQUMzQjs7RUFFQTtJQUNFLFlBQVk7RUFDZDs7RUFFQTtJQUNFLFdBQVc7SUFDWCxjQUFjO0lBQ2QsMjhCQUEyOEI7SUFDMzhCLHFCQUFxQjtJQUNyQixXQUFXO0lBQ1gsWUFBWTtJQUNaLFdBQVc7SUFDWCxrQkFBa0I7RUFDcEI7O0VBRUE7SUFDRSxpQ0FBeUI7WUFBekIseUJBQXlCO0lBQ3pCLDZCQUE2QjtFQUMvQjs7RUFFQSx5QkFBeUI7O0VBQ3pCO0lBQ0Usd0JBQXdCO0VBQzFCOztFQUVBLHdCQUF3Qjs7RUFDeEI7SUFDRSx3QkFBd0I7RUFDMUIiLCJmaWxlIjoic3JjL2FwcC90YWJsZS90YWJsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiICAvKiBTb3J0YWJsZSB0YWJsZSBkZW1vICovXHJcbiAgXHJcbiAgdGhbc29ydGFibGVdIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHVzZXItc2VsZWN0OiBub25lO1xyXG4gICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcclxuICB9XHJcblxyXG4gIHRyIHtcclxuICAgIGhlaWdodDogNTBweDtcclxuICB9XHJcbiAgXHJcbiAgdGhbc29ydGFibGVdLmRlc2M6YmVmb3JlLCB0aFtzb3J0YWJsZV0uYXNjOmJlZm9yZSB7XHJcbiAgICBjb250ZW50OiAnJztcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgYmFja2dyb3VuZDogdXJsKCdkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUVBQUFBQkFDQVlBQUFDcWFYSGVBQUFBQVhOU1IwSUFyczRjNlFBQUFteEpSRUZVZUFIdG1rc3JSVkVVeDcyZkg4Q0lHUU5Ka3BHVVVtYWtERWlaU0pSSVpzUlFtQ2tUSlJtWm1KZ1FFMGtwWDBENURKS0pnZmY3ditydTJ1M08zdnZjNjdUT3ZzZGF0ZHJublAxWS8vL3Y3SHZ2dWJkYlVpSWhCSVNBRUJBQ1FrQUlDQUVoSUFRNENYU2gyRG55RGZtQ1BFRzJJdjlGOU1QbE0vTEh5QWVjZHlNekhZTndSM2ZkTksvT0g5SFhsMVVDb3pEMjRUQ3ZJTHhpekVEV0lFekEwRmNNOHdvQ2dSckpDb1M1UEl3ckFOUVNNQUpYMUxFSTlicXBRbzRKWU5GRktSU3ZJZ3N4SERWbnFaZ0lrUG5OQk0wcklHdFlrOVlPT3NxZ2JnZXBSQ2ZkYm1GdHFoRmtWRURWUGpKcDArWjZlNmhSSGhxQktnZzZaREN2WUJ5Z1ZtVW9FR29oNUpUUnZJSndoSm8xYVVPb2g0Q0xQTXl2eHhpN0VXT01nbkNHc1hYSTFHSVhsWlVZWDd1Y1Ura2JSOE5XOGxoM083Y3VlMFBrMzJNS25kZlV4UUZBd3hkaXJrM2ZIYXBwQW5jMG9xRFB6RGZHVEJyQ2ZIUDA0ZE00b1RWOGN4cjBTVnpIOUZGMDd4RDNpYjZ4Q0RFK00rYVVjVnlndFd6emJ0R1gyclBCckVVWWZlY2ZRa2FGellpNkhqVm5HQmR0TDdlcHFBbGMxK2pSZEFhcDc0UnJuUGM0QkNpanR0WTJ0UmNkTjBnMTd3N0hxWnJYaGRKVFlBdVMzaGQ4eit2S2dLM1YxeldQYWUwbVpETXlrYWRCbjFoVFFCTG5aTndWckpwU2UvTndFZURzRXdDY3RFT3NKVHNneEx2Q3FVbDJBQ2Z0RUd2SkRnanhybkJxa2gzQVNUdkVXcklEUXJ3cm5KcGtCM0RTRHJHVzdJQVE3d3FuSnRrQm5MUnp0ZWpYWFZ1NCtteHovblE5alIxdzVWQjg2ZWpMVEZjbm5Ed2h6VitGNlQrQ0habHg2VEhTam43NmV5eUJJT1BIeURha2hCQVFBa0pBQ0FnQklTQUVoSUFRWUNMd0M4SnhwQW1zRUd0NkFBQUFBRWxGVGtTdVFtQ0MnKSBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IDIycHg7XHJcbiAgICB3aWR0aDogMjJweDtcclxuICAgIGhlaWdodDogMjJweDtcclxuICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0yMnB4O1xyXG4gIH1cclxuICBcclxuICB0aFtzb3J0YWJsZV0uZGVzYzpiZWZvcmUge1xyXG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMTgwZGVnKTtcclxuICAgIC1tcy10cmFuc2Zvcm06IHJvdGF0ZSgxODBkZWcpO1xyXG4gIH1cclxuICBcclxuICAvKiBGaWx0ZXJpbmcgdGFibGUgZGVtbyAqL1xyXG4gIG5nYmQtdGFibGUtZmlsdGVyaW5nIHNwYW4ubmdiLWhpZ2hsaWdodCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB5ZWxsb3c7XHJcbiAgfVxyXG4gIFxyXG4gIC8qIENvbXBsZXRlIHRhYmxlIGRlbW8gKi9cclxuICBuZ2JkLXRhYmxlLWNvbXBsZXRlIHNwYW4ubmdiLWhpZ2hsaWdodCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB5ZWxsb3c7XHJcbiAgfVxyXG4gICJdfQ== */"
+module.exports = "  /* Sortable table demo */\r\n\r\n  th[sortable] {\r\n    cursor: pointer;\r\n    -moz-user-select: none;\r\n     -ms-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n  }\r\n\r\n  tr {\r\n    height: 50px;\r\n  }\r\n\r\n  th[sortable].desc:before,\r\n  th[sortable].asc:before {\r\n    content: '';\r\n    display: block;\r\n    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmxJREFUeAHtmksrRVEUx72fH8CIGQNJkpGUUmakDEiZSJRIZsRQmCkTJRmZmJgQE0kpX0D5DJKJgff7v+ru2u3O3vvc67TOvsdatdrnnP1Y///v7HvvubdbUiIhBISAEBACQkAICAEhIAQ4CXSh2DnyDfmCPEG2Iv9F9MPlM/LHyAecdyMzHYNwR3fdNK/OH9HXl1UCozD24TCvILxizEDWIEzA0FcM8woCgRrJCoS5PIwrANQSMAJX1LEI9bqpQo4JYNFFKRSvIgsxHDVnqZgIkPnNBM0rIGtYk9YOOsqgbgepRCfdbmFtqhFkVEDVPjJp0+Z6e6hRHhqBKgg6ZDCvYBygVmUoEGoh5JTRvIJwhJo1aUOoh4CLPMyvxxi7EWOMgnCGsXXI1GIXlZUYX7ucU+kbR8NW8lh3O7cue0Pk32MKndfUxQFAwxdirk3fHappAnc0oqDPzDfGTBrCfHP04dM4oTV8cxr0SVzH9FF07xD3ib6xCDE+M+aUcVygtWzzbtGX2rPBrEUYfecfQkaFzYi6HjVnGBdtL7epqAlc1+jRdAap74RrnPc4BCijttY2tRcdN0g17w7HqZrXhdJTYAuS3hd8z+vKgK3V1zWPae0mZDMykadBn1hTQBLnZNwVrJpSe/NwEeDsEwCctEOsJTsgxLvCqUl2ACftEGvJDgjxrnBqkh3ASTvEWrIDQrwrnJpkB3DSDrGW7IAQ7wqnJtkBnLRztejXXVu4+mxz/nQ9jR1w5VB86ejLTFcnnDwhzV+F6T+CHZlx6THSjn76eyyBIOPHyDakhBAQAkJACAgBISAEhIAQYCLwC8JxpAmsEGt6AAAAAElFTkSuQmCC') no-repeat;\r\n    background-size: 22px;\r\n    width: 22px;\r\n    height: 22px;\r\n    float: left;\r\n    margin-left: -22px;\r\n  }\r\n\r\n  th[sortable].desc:before {\r\n    -webkit-transform: rotate(180deg);\r\n            transform: rotate(180deg);\r\n    -ms-transform: rotate(180deg);\r\n  }\r\n\r\n  /* Filtering table demo */\r\n\r\n  ngbd-table-filtering span.ngb-highlight {\r\n    background-color: yellow;\r\n  }\r\n\r\n  /* Complete table demo */\r\n\r\n  ngbd-table-complete span.ngb-highlight {\r\n    background-color: yellow;\r\n  }\r\n\r\n  h5>.badge {\r\n    vertical-align: middle\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGFibGUvdGFibGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiRUFBRSx3QkFBd0I7O0VBRXhCO0lBQ0UsZUFBZTtJQUNmLHNCQUFpQjtLQUFqQixxQkFBaUI7U0FBakIsaUJBQWlCO0lBQ2pCLHlCQUF5QjtFQUMzQjs7RUFFQTtJQUNFLFlBQVk7RUFDZDs7RUFFQTs7SUFFRSxXQUFXO0lBQ1gsY0FBYztJQUNkLDI4QkFBMjhCO0lBQzM4QixxQkFBcUI7SUFDckIsV0FBVztJQUNYLFlBQVk7SUFDWixXQUFXO0lBQ1gsa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0UsaUNBQXlCO1lBQXpCLHlCQUF5QjtJQUN6Qiw2QkFBNkI7RUFDL0I7O0VBRUEseUJBQXlCOztFQUN6QjtJQUNFLHdCQUF3QjtFQUMxQjs7RUFFQSx3QkFBd0I7O0VBQ3hCO0lBQ0Usd0JBQXdCO0VBQzFCOztFQUVBO0lBQ0U7RUFDRiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIgIC8qIFNvcnRhYmxlIHRhYmxlIGRlbW8gKi9cclxuXHJcbiAgdGhbc29ydGFibGVdIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHVzZXItc2VsZWN0OiBub25lO1xyXG4gICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcclxuICB9XHJcblxyXG4gIHRyIHtcclxuICAgIGhlaWdodDogNTBweDtcclxuICB9XHJcblxyXG4gIHRoW3NvcnRhYmxlXS5kZXNjOmJlZm9yZSxcclxuICB0aFtzb3J0YWJsZV0uYXNjOmJlZm9yZSB7XHJcbiAgICBjb250ZW50OiAnJztcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgYmFja2dyb3VuZDogdXJsKCdkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUVBQUFBQkFDQVlBQUFDcWFYSGVBQUFBQVhOU1IwSUFyczRjNlFBQUFteEpSRUZVZUFIdG1rc3JSVkVVeDcyZkg4Q0lHUU5Ka3BHVVVtYWtERWlaU0pSSVpzUlFtQ2tUSlJtWm1KZ1FFMGtwWDBENURKS0pnZmY3ditydTJ1M08zdnZjNjdUT3ZzZGF0ZHJublAxWS8vL3Y3SHZ2dWJkYlVpSWhCSVNBRUJBQ1FrQUlDQUVoSUFRNENYU2gyRG55RGZtQ1BFRzJJdjlGOU1QbE0vTEh5QWVjZHlNekhZTndSM2ZkTksvT0g5SFhsMVVDb3pEMjRUQ3ZJTHhpekVEV0lFekEwRmNNOHdvQ2dSckpDb1M1UEl3ckFOUVNNQUpYMUxFSTlicXBRbzRKWU5GRktSU3ZJZ3N4SERWbnFaZ0lrUG5OQk0wcklHdFlrOVlPT3NxZ2JnZXBSQ2ZkYm1GdHFoRmtWRURWUGpKcDArWjZlNmhSSGhxQktnZzZaREN2WUJ5Z1ZtVW9FR29oNUpUUnZJSndoSm8xYVVPb2g0Q0xQTXl2eHhpN0VXT01nbkNHc1hYSTFHSVhsWlVZWDd1Y1Ura2JSOE5XOGxoM083Y3VlMFBrMzJNS25kZlV4UUZBd3hkaXJrM2ZIYXBwQW5jMG9xRFB6RGZHVEJyQ2ZIUDA0ZE00b1RWOGN4cjBTVnpIOUZGMDd4RDNpYjZ4Q0RFK00rYVVjVnlndFd6emJ0R1gyclBCckVVWWZlY2ZRa2FGellpNkhqVm5HQmR0TDdlcHFBbGMxK2pSZEFhcDc0UnJuUGM0QkNpanR0WTJ0UmNkTjBnMTd3N0hxWnJYaGRKVFlBdVMzaGQ4eit2S2dLM1YxeldQYWUwbVpETXlrYWRCbjFoVFFCTG5aTndWckpwU2UvTndFZURzRXdDY3RFT3NKVHNneEx2Q3FVbDJBQ2Z0RUd2SkRnanhybkJxa2gzQVNUdkVXcklEUXJ3cm5KcGtCM0RTRHJHVzdJQVE3d3FuSnRrQm5MUnp0ZWpYWFZ1NCtteHovblE5alIxdzVWQjg2ZWpMVEZjbm5Ed2h6VitGNlQrQ0habHg2VEhTam43NmV5eUJJT1BIeURha2hCQVFBa0pBQ0FnQklTQUVoSUFRWUNMd0M4SnhwQW1zRUd0NkFBQUFBRWxGVGtTdVFtQ0MnKSBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IDIycHg7XHJcbiAgICB3aWR0aDogMjJweDtcclxuICAgIGhlaWdodDogMjJweDtcclxuICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0yMnB4O1xyXG4gIH1cclxuXHJcbiAgdGhbc29ydGFibGVdLmRlc2M6YmVmb3JlIHtcclxuICAgIHRyYW5zZm9ybTogcm90YXRlKDE4MGRlZyk7XHJcbiAgICAtbXMtdHJhbnNmb3JtOiByb3RhdGUoMTgwZGVnKTtcclxuICB9XHJcblxyXG4gIC8qIEZpbHRlcmluZyB0YWJsZSBkZW1vICovXHJcbiAgbmdiZC10YWJsZS1maWx0ZXJpbmcgc3Bhbi5uZ2ItaGlnaGxpZ2h0IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHllbGxvdztcclxuICB9XHJcblxyXG4gIC8qIENvbXBsZXRlIHRhYmxlIGRlbW8gKi9cclxuICBuZ2JkLXRhYmxlLWNvbXBsZXRlIHNwYW4ubmdiLWhpZ2hsaWdodCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB5ZWxsb3c7XHJcbiAgfVxyXG5cclxuICBoNT4uYmFkZ2Uge1xyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZVxyXG4gIH1cclxuIl19 */"
 
 /***/ }),
 
@@ -394,7 +627,7 @@ module.exports = "  /* Sortable table demo */\r\n  \r\n  th[sortable] {\r\n    c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!-- code taken from https://ng-bootstrap.github.io/#/components/table/examples -->\n <form>\n   <div class=\"form-group form-inline\">\n     Search Games: <input class=\"form-control ml-2\" type=\"text\" name=\"searchTerm\" [(ngModel)]=\"service.searchTerm\" />\n   </div>\n\n   <div class=\"form-group\">\n     <span class=\"ml-3\" *ngIf=\"service.loading$ | async; else games_owned\">Loading...</span>\n     <ng-template #games_owned>\n       Games Owned: {{service.total$ | async}}\n     </ng-template>\n   </div>\n\n   <table class=\"table table-striped\">\n     <thead>\n       <tr>\n         <th scope=\"col\" sortable=\"appid\" (sort)=\"onSort($event)\">#</th>\n         <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Game</th>\n         <th scope=\"col\" sortable=\"playtime\" (sort)=\"onSort($event)\">Hours Played</th>\n         <th scope=\"col\" sortable=\"price\" (sort)=\"onSort($event)\">Price</th>\n         <th scope=\"col\" sortable=\"ratio\" (sort)=\"onSort($event)\">Hours Per Dollar</th>\n       </tr>\n     </thead>\n     <tbody>\n       <tr *ngFor=\"let gamePlaytime of gamePlaytimes\">\n         <th scope=\"row\">{{ gamePlaytime.game.appid }}</th>\n         <td>\n           <img [src]=\"gamePlaytime.game.header_image\" class=\"mr-2\" style=\"width: 40px\">\n           <a href=\"{{gamePlaytime.game.store_link}}\" target=\"_blank\">\n             <ngb-highlight [result]=\"gamePlaytime.game.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n           </a>\n         </td>\n         <td>\n           <!-- Transform playtime from minutes to hours and limit the number of decimal places to 2 -->\n           <ngb-highlight [result]=\"(gamePlaytime.playtime  | number : '1.0-2')\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"(gamePlaytime.game.price | number)\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"gamePlaytime.ratio\"\n             [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n       </tr>\n     </tbody>\n   </table>\n\n   <div class=\"d-flex justify-content-between p-2\">\n     <ngb-pagination [collectionSize]=\"total\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n     </ngb-pagination>\n\n     <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n       <option [ngValue]=\"4\">4 items per page</option>\n       <option [ngValue]=\"6\">6 items per page</option>\n       <option [ngValue]=\"8\">8 items per page</option>\n     </select>\n   </div>\n\n </form>\n"
+module.exports = " <!-- code modified from https://ng-bootstrap.github.io/#/components/table/examples -->\n <form>\n   <div class=\"form-group\">\n     <h5 class=\"ml-3\" *ngIf=\"service.loading$ | async; else games_owned\"><span\n         class=\"badge badge-secondary\">Loading...</span></h5>\n     <ng-template #games_owned>\n       <h5>\n         Games Owned: <span class=\"badge badge-primary\">{{service.total$ | async}}</span>\n       </h5>\n     </ng-template>\n   </div>\n\n   <div class=\"form-group form-inline\">\n     Search Games: <input class=\"form-control ml-2\" type=\"text\" name=\"searchTerm\" [(ngModel)]=\"service.searchTerm\" />\n   </div>\n\n   <table class=\"table table-striped\">\n     <thead>\n       <tr>\n         <th scope=\"col\" sortable=\"appid\" (sort)=\"onSort($event)\">#</th>\n         <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Game</th>\n         <th scope=\"col\" sortable=\"playtime\" (sort)=\"onSort($event)\">Hours Played</th>\n         <th scope=\"col\" sortable=\"price\" (sort)=\"onSort($event)\">Price</th>\n         <th scope=\"col\" sortable=\"ratio\" (sort)=\"onSort($event)\">Hours Per Dollar</th>\n       </tr>\n     </thead>\n     <tbody>\n       <tr *ngFor=\"let gamePlaytime of gamePlaytimes\">\n         <th scope=\"row\">{{ gamePlaytime.game.appid }}</th>\n         <td>\n           <img [src]=\"gamePlaytime.game.header_image\" class=\"mr-2\" style=\"width: 80px\">\n           <a href=\"{{gamePlaytime.game.store_link}}\" target=\"_blank\">\n             <ngb-highlight [result]=\"gamePlaytime.game.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n           </a>\n         </td>\n         <td>\n           <!-- Transform playtime from minutes to hours and limit the number of decimal places to 2 -->\n           <ngb-highlight [result]=\"(gamePlaytime.playtime  | number : '1.0-2')\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"(gamePlaytime.game.price | number)\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"gamePlaytime.ratio\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n       </tr>\n     </tbody>\n   </table>\n\n   <div class=\"d-flex justify-content-between p-2\">\n     <ngb-pagination [collectionSize]=\"total\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n     </ngb-pagination>\n\n     <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n       <option [ngValue]=\"6\">6 items per page</option>\n       <option [ngValue]=\"8\">8 items per page</option>\n       <option [ngValue]=\"10\">10 items per page</option>\n     </select>\n   </div>\n\n </form>\n"
 
 /***/ }),
 
@@ -410,7 +643,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableComponent", function() { return TableComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user.service */ "./src/app/table/user.service.ts");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
 /* harmony import */ var _sortable_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sortable.directive */ "./src/app/table/sortable.directive.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
@@ -474,10 +707,10 @@ var TableComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/table/user.service.ts":
-/*!***************************************!*\
-  !*** ./src/app/table/user.service.ts ***!
-  \***************************************/
+/***/ "./src/app/user.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/user.service.ts ***!
+  \*********************************/
 /*! exports provided: UserService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -489,9 +722,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../api.service */ "./src/app/api.service.ts");
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./api.service */ "./src/app/api.service.ts");
+/* harmony import */ var _classes_ChartData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./classes/ChartData */ "./src/app/classes/ChartData.ts");
 
 // original code from https://ng-bootstrap.github.io/#/components/table/examples
+
 
 
 
@@ -556,15 +791,27 @@ var UserService = /** @class */ (function () {
         this._search$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this._gamePlaytimes$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
         this._total$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](0);
+        this._stats$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ avg_ratio: 0, total_playtime: 0, total_value: 0 });
+        this._categories$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
         this._gpts = [];
     };
+    Object.defineProperty(UserService.prototype, "categories$", {
+        get: function () { return this._categories$.asObservable(); },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(UserService.prototype, "gamePlaytimes$", {
-        get: function () { return this._gamePlaytimes$; },
+        get: function () { return this._gamePlaytimes$.asObservable(); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserService.prototype, "stats$", {
+        get: function () { return this._stats$.asObservable(); },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(UserService.prototype, "total$", {
-        get: function () { return this._total$; },
+        get: function () { return this._total$.asObservable(); },
         enumerable: true,
         configurable: true
     });
@@ -601,6 +848,26 @@ var UserService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    UserService.prototype.calc_stats = function (gamePlaytimes) {
+        var total_value = 0;
+        var total_playtime = 0;
+        var avg_ratio = 0;
+        for (var _i = 0, gamePlaytimes_1 = gamePlaytimes; _i < gamePlaytimes_1.length; _i++) {
+            var gpt = gamePlaytimes_1[_i];
+            total_value += gpt.game.price;
+            total_playtime += gpt.playtime;
+        }
+        var ret = {
+            avg_ratio: total_playtime / total_value,
+            total_playtime: total_playtime,
+            total_value: total_value
+        };
+        return ret;
+    };
+    /**
+     * Call this function to get the games from API and categorize them
+     * @param steam_id
+     */
     UserService.prototype.aquire_games = function (steam_id) {
         var _this = this;
         // tap(() => this._loading$.next(true)),
@@ -613,9 +880,40 @@ var UserService = /** @class */ (function () {
                     gp.ratio = _this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
                 return gp;
             });
+            _this._categories$.next(_this.categorize_games(_this._gpts));
+            _this._stats$.next(_this.calc_stats(_this._gpts));
             _this._search$.next();
             _this._loading$.next(false);
         });
+    };
+    UserService.prototype.between = function (num, min, max) {
+        if (min === void 0) { min = -Infinity; }
+        if (max === void 0) { max = Infinity; }
+        return num > min && num <= max;
+    };
+    UserService.prototype.categorize_games = function (gamePlaytimes) {
+        var _this = this;
+        var ret = [];
+        var time_data = [
+            ["0 Hours", gamePlaytimes.filter(function (gpt) { return gpt.playtime == 0; }).length],
+            ["0-2 Hours", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime, 0, 2); }).length],
+            ["2+ Hours", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime, 2); }).length]
+        ];
+        ret.push(Object(_classes_ChartData__WEBPACK_IMPORTED_MODULE_6__["PieMaker"])("By Time Played", time_data));
+        var price_data = [
+            ["Free", gamePlaytimes.filter(function (gpt) { return gpt.game.price == 0; }).length],
+            ["0.01-10$", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.game.price, 0, 10); }).length],
+            ["10-40$", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.game.price, 10, 40); }).length],
+            ["40-60+$", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.game.price, 40); }).length]
+        ];
+        ret.push(Object(_classes_ChartData__WEBPACK_IMPORTED_MODULE_6__["PieMaker"])("By Price", price_data));
+        var ratio_data = [
+            ["0 hours / $", gamePlaytimes.filter(function (gpt) { return gpt.playtime == 0; }).length],
+            ["0-1 hours / $", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime / gpt.game.price, 0, 1); }).length],
+            ["1+ hours / $", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime / gpt.game.price, 1); }).length]
+        ];
+        ret.push(Object(_classes_ChartData__WEBPACK_IMPORTED_MODULE_6__["PieMaker"])("By Hours to Dollar", ratio_data));
+        return ret;
     };
     UserService.prototype._set = function (patch) {
         Object.assign(this._state, patch);

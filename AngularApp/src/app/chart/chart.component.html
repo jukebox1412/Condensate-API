@@ -1,0 +1,7 @@
+<div class="row">
+  <div *ngFor="let data of pieDatas" class="col-md-4">
+      <google-chart #chart [title]="data.title" [type]="data.type" [data]="data.data" [columnNames]="data.columnNames"
+        [options]="data.options" [width]="data.width" [height]="data.height">
+      </google-chart>
+  </div>
+</div>

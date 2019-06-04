@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using StackExchange.Profiling;
 
 namespace Condensate_API.Controllers
@@ -11,28 +12,34 @@ namespace Condensate_API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            using (MiniProfiler.Current.Step("Get method"))
-            {
+       // GET api/values
+       //[HttpGet]
+       // public ActionResult<IEnumerable<string>> Get()
+       // {
+       //     using (MiniProfiler.Current.Step("Get method"))
+       //     {
 
-                return new string[] { "value1", "value2" };
-            }
+       //         return new string[] { "value1", "value2" };
+       //     }
+       // }
+
+       // GET api/values? id = 5
+        private ILogger<ValuesController> _logger;
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            _logger = logger;
         }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet]
+        public ActionResult<string> Get(string id)
         {
-            return "value";
+            return UsersController.GetSteamID(id);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody] string id)
         {
+            return UsersController.GetSteamID(id);
         }
 
         // PUT api/values/5

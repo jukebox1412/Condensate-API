@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { isDevMode } from '@angular/core';
 import { GamePlaytime } from './classes/GamePlaytime';
 import { catchError, tap } from 'rxjs/operators';
-import { UserService } from './table/user.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'

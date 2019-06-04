@@ -9,9 +9,12 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { TableComponent } from './table/table.component';
 import { NgbdSortableHeader } from './table/sortable.directive';
-import { UserService } from './table/user.service';
 import { DecimalPipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { ChartComponent } from './chart/chart.component';
+import { InfoLabelComponent } from './info-label/info-label.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { AppRoutingModule } from './app-routing.module';
     SearchComponent,
     TableComponent,
     NgbdSortableHeader,
+    ChartComponent,
+    InfoLabelComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,8 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     NgbModule,
     NgbModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    GoogleChartsModule
   ],
   providers: [DecimalPipe],
   bootstrap: [AppComponent]

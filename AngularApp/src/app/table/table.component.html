@@ -1,14 +1,17 @@
- <!-- code taken from https://ng-bootstrap.github.io/#/components/table/examples -->
+ <!-- code modified from https://ng-bootstrap.github.io/#/components/table/examples -->
  <form>
-   <div class="form-group form-inline">
-     Search Games: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" />
+   <div class="form-group">
+     <h5 class="ml-3" *ngIf="service.loading$ | async; else games_owned"><span
+         class="badge badge-secondary">Loading...</span></h5>
+     <ng-template #games_owned>
+       <h5>
+         Games Owned: <span class="badge badge-primary">{{service.total$ | async}}</span>
+       </h5>
+     </ng-template>
    </div>
 
-   <div class="form-group">
-     <span class="ml-3" *ngIf="service.loading$ | async; else games_owned">Loading...</span>
-     <ng-template #games_owned>
-       Games Owned: {{service.total$ | async}}
-     </ng-template>
+   <div class="form-group form-inline">
+     Search Games: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" />
    </div>
 
    <table class="table table-striped">
@@ -25,7 +28,7 @@
        <tr *ngFor="let gamePlaytime of gamePlaytimes">
          <th scope="row">{{ gamePlaytime.game.appid }}</th>
          <td>
-           <img [src]="gamePlaytime.game.header_image" class="mr-2" style="width: 40px">
+           <img [src]="gamePlaytime.game.header_image" class="mr-2" style="width: 80px">
            <a href="{{gamePlaytime.game.store_link}}" target="_blank">
              <ngb-highlight [result]="gamePlaytime.game.name" [term]="service.searchTerm"></ngb-highlight>
            </a>
@@ -40,8 +43,7 @@
            </ngb-highlight>
          </td>
          <td>
-           <ngb-highlight [result]="gamePlaytime.ratio"
-             [term]="service.searchTerm">
+           <ngb-highlight [result]="gamePlaytime.ratio" [term]="service.searchTerm">
            </ngb-highlight>
          </td>
        </tr>
@@ -53,9 +55,9 @@
      </ngb-pagination>
 
      <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-       <option [ngValue]="4">4 items per page</option>
        <option [ngValue]="6">6 items per page</option>
        <option [ngValue]="8">8 items per page</option>
+       <option [ngValue]="10">10 items per page</option>
      </select>
    </div>
 
