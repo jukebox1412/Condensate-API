@@ -1,5 +1,9 @@
 # Condensate-API
 
+https://travis-ci.com/jukebox1412/Condensate.svg?branch=master
+
+A project that lets you see how well you've spent your money on Steam!
+
 ## Licenses and Credits
 * Angular 7 used for front end client under MIT license https://github.com/angular/angular
 * ASP.Net Core used for backend API under Apache-2.0 license https://github.com/aspnet/AspNetCore
