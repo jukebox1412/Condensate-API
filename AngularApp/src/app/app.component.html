@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand text-success" href="#">Condensate</a>
+  <a class="navbar-brand text-success" routerLink="/">Condensate</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <a class="nav-link text-light" routerLink="/">Home <span class="sr-only">(current)</span></a>
-  <a class="nav-link text-light" href="#">Link</a>
+  <a class="nav-link text-light" routerLink="/search">Home <span class="sr-only">(current)</span></a>
+  <a class="nav-link text-light" routerLink="/about">About</a>
   <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -17,4 +17,4 @@
   </div> -->
 </nav>
 <router-outlet></router-outlet>
-
+<!-- <router-outlet name="results_outlet"></router-outlet> -->

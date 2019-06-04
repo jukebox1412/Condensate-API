@@ -147,14 +147,14 @@ export class UserService {
     return ret;
   }
   /**
-   * Call this function to get the games from API and categorize them
-   * @param steam_id 
+   * Call this function to get the games from API and categorize them. 
+   * @param steam_id Either the uint32 directly or the steam's community profile url
    */
   aquire_games(steam_id: string) {
-    // tap(() => this._loading$.next(true)),
     this._loading$.next(true);
     this._api_service.getUserGames(steam_id).subscribe(res => {
       this._gpts = res.map(gp => {
+        //set the ratio of hours per dollar here as a string and avoid divide by 0
         if (gp.game.price == 0)
           gp.ratio = 'free';
         else
@@ -162,8 +162,10 @@ export class UserService {
         return gp;
       });
 
+      // categorize and compute stats for charts and info label components
       this._categories$.next(this.categorize_games(this._gpts));
       this._stats$.next(this.calc_stats(this._gpts));
+
       this._search$.next();
       this._loading$.next(false);
     });

@@ -15,6 +15,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { ChartComponent } from './chart/chart.component';
 import { InfoLabelComponent } from './info-label/info-label.component';
 import { AboutComponent } from './about/about.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AboutComponent } from './about/about.component';
     ChartComponent,
     InfoLabelComponent,
     AboutComponent,
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,

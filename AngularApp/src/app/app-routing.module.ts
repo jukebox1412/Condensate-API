@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { TableComponent } from './table/table.component';
 import { SearchComponent } from './search/search.component';
-import { AppComponent } from './app.component';
+import { AboutComponent } from './about/about.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 const routes: Routes = [
-  { path: 'table', component: TableComponent, outlet: "main" },
-  { path: 'search', component: SearchComponent},
+  {
+    path: 'search', component: SearchComponent, children: [
+      { path: 'results', component: SearchResultsComponent }]
+  },
+  { path: 'about', component: AboutComponent },
+  { path: '', redirectTo: '/search', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent },
-  // { path: '', redirectTo: '/search', pathMatch: 'full' }
 ]
 
 @NgModule({

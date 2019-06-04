@@ -155,16 +155,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _table_table_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./table/table.component */ "./src/app/table/table.component.ts");
-/* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
+/* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+/* harmony import */ var _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./search-results/search-results.component */ "./src/app/search-results/search-results.component.ts");
+
 
 
 
 
 
 var routes = [
-    { path: 'table', component: _table_table_component__WEBPACK_IMPORTED_MODULE_3__["TableComponent"], outlet: "main" },
-    { path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_4__["SearchComponent"] },
+    {
+        path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_3__["SearchComponent"], children: [
+            { path: 'results', component: _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_5__["SearchResultsComponent"] }
+        ]
+    },
+    { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_4__["AboutComponent"] },
+    { path: '', redirectTo: '/search', pathMatch: 'full' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -203,7 +210,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-dark\">\n  <a class=\"navbar-brand text-success\" href=\"#\">Condensate</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <a class=\"nav-link text-light\" routerLink=\"/\">Home <span class=\"sr-only\">(current)</span></a>\n  <a class=\"nav-link text-light\" href=\"#\">Link</a>\n  <!-- <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n      </li>\n      <li class=\"nav-item\">\n      </li>\n    </ul>\n  </div> -->\n</nav>\n<router-outlet></router-outlet>\n\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-dark\">\n  <a class=\"navbar-brand text-success\" routerLink=\"/\">Condensate</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <a class=\"nav-link text-light\" routerLink=\"/search\">Home <span class=\"sr-only\">(current)</span></a>\n  <a class=\"nav-link text-light\" routerLink=\"/about\">About</a>\n  <!-- <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n      </li>\n      <li class=\"nav-item\">\n      </li>\n    </ul>\n  </div> -->\n</nav>\n<router-outlet></router-outlet>\n<!-- <router-outlet name=\"results_outlet\"></router-outlet> -->\n"
 
 /***/ }),
 
@@ -265,10 +272,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chart_chart_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./chart/chart.component */ "./src/app/chart/chart.component.ts");
 /* harmony import */ var _info_label_info_label_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./info-label/info-label.component */ "./src/app/info-label/info-label.component.ts");
 /* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+/* harmony import */ var _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./search-results/search-results.component */ "./src/app/search-results/search-results.component.ts");
 
 
 
  // <-- NgModel lives here
+
 
 
 
@@ -294,6 +303,7 @@ var AppModule = /** @class */ (function () {
                 _chart_chart_component__WEBPACK_IMPORTED_MODULE_13__["ChartComponent"],
                 _info_label_info_label_component__WEBPACK_IMPORTED_MODULE_14__["InfoLabelComponent"],
                 _about_about_component__WEBPACK_IMPORTED_MODULE_15__["AboutComponent"],
+                _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_16__["SearchResultsComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -482,6 +492,81 @@ var InfoLabelComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/search-results/search-results.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/search-results/search-results.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlYXJjaC1yZXN1bHRzL3NlYXJjaC1yZXN1bHRzLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/search-results/search-results.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/search-results/search-results.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-chart></app-chart>\n<app-info-label></app-info-label>\n<app-table></app-table>"
+
+/***/ }),
+
+/***/ "./src/app/search-results/search-results.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/search-results/search-results.component.ts ***!
+  \************************************************************/
+/*! exports provided: SearchResultsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchResultsComponent", function() { return SearchResultsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+
+
+
+
+var SearchResultsComponent = /** @class */ (function () {
+    function SearchResultsComponent(route, service, router) {
+        this.route = route;
+        this.service = service;
+        this.router = router;
+    }
+    SearchResultsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // aquire games after getting steam id from url
+        // steam id needs to be processed as it might be a url for the user's steam profile
+        // processing is done when aquiring games.
+        this.steam_id = this.route.snapshot.paramMap.get('steam_id');
+        this.service.aquire_games(this.steam_id);
+        this.router.events.subscribe(function () {
+            if (_this.steam_id != _this.route.snapshot.paramMap.get('steam_id')) {
+                _this.steam_id = _this.route.snapshot.paramMap.get('steam_id');
+                _this.service.aquire_games(_this.steam_id);
+            }
+        });
+    };
+    SearchResultsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-search-results',
+            template: __webpack_require__(/*! ./search-results.component.html */ "./src/app/search-results/search-results.component.html"),
+            styles: [__webpack_require__(/*! ./search-results.component.css */ "./src/app/search-results/search-results.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], SearchResultsComponent);
+    return SearchResultsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/search/search.component.css":
 /*!*********************************************!*\
   !*** ./src/app/search/search.component.css ***!
@@ -500,7 +585,7 @@ module.exports = ".ng-valid[required],\r\n.ng-valid.required {\r\n  border-left:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n  \n  <app-chart></app-chart>\n  <app-info-label></app-info-label>\n  <hr>\n  <router-outlet name=\"main\"></router-outlet>\n</div>\n"
+module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/search'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n  \n  <!-- children of search defined in app-routing will be shown below -->\n  <router-outlet></router-outlet>\n  <hr>\n</div>\n"
 
 /***/ }),
 
@@ -517,27 +602,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
 var compare = function (v1, v2) { return v1 < v2 ? -1 : v1 > v2 ? 1 : 0; };
 var SearchComponent = /** @class */ (function () {
-    function SearchComponent(_user_service, router) {
-        this._user_service = _user_service;
+    function SearchComponent(router) {
         this.router = router;
     }
     SearchComponent.prototype.ngOnInit = function () {
         this.submitted = false;
         this.steam_id = "76561197963657845";
-        console.log(this.router.url);
     };
     SearchComponent.prototype.onSearchSubmit = function (isValid) {
         if (isValid) {
             this.submitted = true;
-            this.router.navigate(['/', 'table', { steam_id: this.steam_id }]);
+            this.router.navigate(['search', 'results', { steam_id: this.steam_id }]);
         }
     };
     SearchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -546,7 +627,7 @@ var SearchComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./search.component.html */ "./src/app/search/search.component.html"),
             styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/search/search.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], SearchComponent);
     return SearchComponent;
 }());
@@ -659,21 +740,11 @@ var TableComponent = /** @class */ (function () {
     }
     TableComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
         this.service.gamePlaytimes$.subscribe(function (gamePlaytimes) {
             _this.gamePlaytimes = gamePlaytimes;
         });
         this.service.total$.subscribe(function (total) {
             _this.total = total;
-        });
-        this.steam_id = this.route.snapshot.paramMap.get('steam_id');
-        this.service.aquire_games(this.steam_id);
-        this.router.events.subscribe(function () {
-            if (_this.steam_id != _this.route.snapshot.paramMap.get('steam_id')) {
-                _this.steam_id = _this.route.snapshot.paramMap.get('steam_id');
-                _this.service.aquire_games(_this.steam_id);
-            }
         });
     };
     TableComponent.prototype.onSort = function (_a) {
@@ -865,21 +936,22 @@ var UserService = /** @class */ (function () {
         return ret;
     };
     /**
-     * Call this function to get the games from API and categorize them
-     * @param steam_id
+     * Call this function to get the games from API and categorize them.
+     * @param steam_id Either the uint32 directly or the steam's community profile url
      */
     UserService.prototype.aquire_games = function (steam_id) {
         var _this = this;
-        // tap(() => this._loading$.next(true)),
         this._loading$.next(true);
         this._api_service.getUserGames(steam_id).subscribe(function (res) {
             _this._gpts = res.map(function (gp) {
+                //set the ratio of hours per dollar here as a string and avoid divide by 0
                 if (gp.game.price == 0)
                     gp.ratio = 'free';
                 else
                     gp.ratio = _this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
                 return gp;
             });
+            // categorize and compute stats for charts and info label components
             _this._categories$.next(_this.categorize_games(_this._gpts));
             _this._stats$.next(_this.calc_stats(_this._gpts));
             _this._search$.next();
