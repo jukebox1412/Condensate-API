@@ -7,8 +7,20 @@ import { UserService } from '../user.service';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.css']
 })
+
+
 export class SearchResultsComponent implements OnInit {
   steam_id: string;
+
+  /**
+   * This is a class that basically ties all the user information together after searching for a steam user.
+   * Includes charts, infographics, and tables of the games. Will ping api for games using UserService once
+   * init and when the steam_id parameter on URL changes. This Component should be a child route of the Search
+   * Component.
+   * @param route 
+   * @param service 
+   * @param router 
+   */
   constructor(private route: ActivatedRoute, private service: UserService, private router: Router) { }
 
   ngOnInit() {

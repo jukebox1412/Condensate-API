@@ -60,6 +60,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AboutComponent = /** @class */ (function () {
+    /**
+     * This is the about page TODO fill it in
+     */
     function AboutComponent() {
     }
     AboutComponent.prototype.ngOnInit = function () {
@@ -101,6 +104,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ApiService = /** @class */ (function () {
+    /**
+     * The service that connects the Client App to the API
+     * @param http
+     */
     function ApiService(http) {
         this.http = http;
         this.baseUrl = "api/users";
@@ -114,20 +121,20 @@ var ApiService = /** @class */ (function () {
         return function (error) {
             // TODO: send the error to remote logging infrastructure
             console.error(error); // log to console instead
-            // TODO: better job of transforming error for user consumption
-            // this.log(`${operation} failed: ${error.message}`);
             // Let the app keep running by returning an empty result.
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
         };
     };
+    /**
+     * Given the search query, ping the api for user games
+     * @param searchQuery Should be url to steam profile or steam id
+     */
     ApiService.prototype.getUserGames = function (searchQuery) {
         return this.http.get(this.baseUrl + this.getUserUrl, {
             params: {
                 id: searchQuery
             }
-        }).pipe(
-        // tap(res => this.userService.sourceGamePlaytimes$.next(res)),
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUserGames", [])));
+        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUserGames", [])));
     };
     ApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -533,6 +540,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SearchResultsComponent = /** @class */ (function () {
+    /**
+     * This is a class that basically ties all the user information together after searching for a steam user.
+     * Includes charts, infographics, and tables of the games. Will ping api for games using UserService once
+     * init and when the steam_id parameter on URL changes. This Component should be a child route of the Search
+     * Component.
+     * @param route
+     * @param service
+     * @param router
+     */
     function SearchResultsComponent(route, service, router) {
         this.route = route;
         this.service = service;
@@ -839,13 +855,19 @@ function matches(gp, term, pipe) {
         || gp.ratio.toLowerCase().includes(lowerCased);
 }
 var UserService = /** @class */ (function () {
+    /**
+     * The service that connects all the components that need user data and the api service.
+     * @param pipe
+     * @param _api_service
+     */
     function UserService(pipe, _api_service) {
         var _this = this;
         this.pipe = pipe;
         this._api_service = _api_service;
         this._state = {
             page: 1,
-            pageSize: 6,
+            // default page size here
+            pageSize: 8,
             searchTerm: '',
             sortColumn: '',
             sortDirection: ''
@@ -922,7 +944,6 @@ var UserService = /** @class */ (function () {
     UserService.prototype.calc_stats = function (gamePlaytimes) {
         var total_value = 0;
         var total_playtime = 0;
-        var avg_ratio = 0;
         for (var _i = 0, gamePlaytimes_1 = gamePlaytimes; _i < gamePlaytimes_1.length; _i++) {
             var gpt = gamePlaytimes_1[_i];
             total_value += gpt.game.price;
@@ -958,11 +979,21 @@ var UserService = /** @class */ (function () {
             _this._loading$.next(false);
         });
     };
+    /**
+     * Checks if num is between (min, max]
+     * @param num
+     * @param min default: -Inf
+     * @param max default: +Inf
+     */
     UserService.prototype.between = function (num, min, max) {
         if (min === void 0) { min = -Infinity; }
         if (max === void 0) { max = Infinity; }
         return num > min && num <= max;
     };
+    /**
+     * Currently returns three ChartData's: times played, prices of games, and ratios of hours over price.
+     * @param gamePlaytimes
+     */
     UserService.prototype.categorize_games = function (gamePlaytimes) {
         var _this = this;
         var ret = [];
@@ -995,8 +1026,10 @@ var UserService = /** @class */ (function () {
         var _this = this;
         var _a = this._state, sortColumn = _a.sortColumn, sortDirection = _a.sortDirection, pageSize = _a.pageSize, page = _a.page, searchTerm = _a.searchTerm;
         // 1. sort
+        // change sort if you want more complexity
         var games = sort(this._gpts, sortColumn, sortDirection);
         // 2. filter
+        // change function matches() if you want to see more results
         games = games.filter(function (game) { return matches(game, searchTerm, _this.pipe); });
         var total = games.length;
         // 3. paginate

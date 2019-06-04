@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 
 import { GamePlaytime } from './classes/GamePlaytime';
 import { DecimalPipe } from '@angular/common';
-import { debounceTime, delay, switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { SortDirection } from './table/sortable.directive';
 import { ApiService } from './api.service';
 import { ChartData, PieMaker } from './classes/ChartData';
@@ -73,6 +73,8 @@ function matches(gp: GamePlaytime, term: string, pipe: PipeTransform) {
 
 
 export class UserService {
+  // follows the pattern of keeping private Behavior subjects that you can subscribe to with the public
+  // observables that fire when we .next() these private subjects
   private _loading$: BehaviorSubject<boolean>;
   private _search$: Subject<void>;
   private _gamePlaytimes$: BehaviorSubject<GamePlaytime[]>;
@@ -83,12 +85,18 @@ export class UserService {
 
   private _state: State = {
     page: 1,
-    pageSize: 6,
+    // default page size here
+    pageSize: 8,
     searchTerm: '',
     sortColumn: '',
     sortDirection: ''
   };
 
+  /**
+   * The service that connects all the components that need user data and the api service.
+   * @param pipe 
+   * @param _api_service 
+   */
   constructor(private pipe: DecimalPipe, private _api_service: ApiService) {
     this.init();
 
@@ -132,7 +140,7 @@ export class UserService {
   private calc_stats(gamePlaytimes: GamePlaytime[]): Stats {
     let total_value: number = 0;
     let total_playtime: number = 0;
-    let avg_ratio: number = 0;
+
     for (let gpt of gamePlaytimes) {
       total_value += gpt.game.price;
       total_playtime += gpt.playtime;
@@ -171,10 +179,20 @@ export class UserService {
     });
   }
 
+  /**
+   * Checks if num is between (min, max]
+   * @param num 
+   * @param min default: -Inf
+   * @param max default: +Inf
+   */
   private between(num: number, min = -Infinity, max = Infinity): boolean {
     return num > min && num <= max;
   }
 
+  /**
+   * Currently returns three ChartData's: times played, prices of games, and ratios of hours over price.
+   * @param gamePlaytimes 
+   */
   private categorize_games(gamePlaytimes: GamePlaytime[]): ChartData[] {
     let ret: ChartData[] = [];
 
@@ -197,7 +215,6 @@ export class UserService {
       ["1+ hours / $", gamePlaytimes.filter(gpt => this.between(gpt.playtime / gpt.game.price, 1)).length]];
     ret.push(PieMaker("By Hours to Dollar", ratio_data));
 
-
     return ret;
   }
 
@@ -209,9 +226,11 @@ export class UserService {
   private _search(): Observable<SearchResult> {
     const { sortColumn, sortDirection, pageSize, page, searchTerm } = this._state;
     // 1. sort
+    // change sort if you want more complexity
     let games = sort(this._gpts, sortColumn, sortDirection);
 
     // 2. filter
+    // change function matches() if you want to see more results
     games = games.filter(game => matches(game, searchTerm, this.pipe));
     const total = games.length;
 

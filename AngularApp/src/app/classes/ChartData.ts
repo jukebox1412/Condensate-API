@@ -1,4 +1,6 @@
-// docs at https://developers.google.com/chart/interactive/docs/gallery/piechart#configuration-options
+/**
+ * Docs at https://developers.google.com/chart/interactive/docs/gallery/piechart#configuration-options
+ */
 export interface ChartData {
     title: string;
     type: string;
