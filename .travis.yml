@@ -1,7 +1,9 @@
 dist: bionic
+# do this 'matrix' thing instead of 'jobs: include:' cause we need multiple languages in one repo!
 matrix:
   include:
-    - language: csharp
+    - name: "ASP.Net Core API"
+      language: csharp
       solution: Condensate_API.sln
       mono: none
       dotnet: 2.2.104
@@ -9,8 +11,9 @@ matrix:
         - dotnet build ./Condensate_API/Condensate_API.csproj
         - dotnet test ./XUnitTests/XUnitTests.csproj
 
-    - language: node_js
-      node_js: "6"
+    - name: "Angular Client App"
+      language: node_js
+      node_js: "10.16.0"
       before_install: cd AngularApp
       install: npm install
       script: ng build
