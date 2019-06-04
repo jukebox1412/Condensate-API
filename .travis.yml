@@ -5,10 +5,10 @@ matrix:
       solution: Condensate_API.sln
       mono: none
       dotnet: 2.2.104
-      jobs:
-        include:
+      include:
         - stage: build
           script: dotnet build ./Condensate_API/Condensate_API.csproj
+        
         - stage: test
           script: dotnet test ./XUnitTests/XUnitTests.csproj
     # - language: node_js
