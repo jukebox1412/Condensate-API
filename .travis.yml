@@ -1,7 +1,7 @@
-dist: bionic
 matrix:
   include:
-    - language: csharp
+    - dist: bionic
+      language: csharp
       solution: Condensate_API.sln
       mono: none
       dotnet: 2.2.104
@@ -12,15 +12,13 @@ matrix:
       
         - stage: test
           script: dotnet test ./XUnitTests/XUnitTests.csproj
+          
     - language: node_js
       node_js: "9"
-      before_install: cd AngularApp
+      before_install: cd ./AngularApp
     - install: npm install
       jobs:
         include:
         - stage: build
           script: ng build
-
-        - stage: document
-          script: typedoc --out docs ./src
     
