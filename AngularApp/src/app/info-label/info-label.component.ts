@@ -10,7 +10,7 @@ export class InfoLabelComponent implements OnInit {
   stats: Stats
 
   /**
-   * Currently displays info about total hours, total price, and average hours / price!
+   * Currently displays info about total hours, total price, and total hours / total price (average)
    * @param _service 
    */
   constructor(private _service: UserService) { }
