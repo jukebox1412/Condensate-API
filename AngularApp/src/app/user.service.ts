@@ -11,7 +11,8 @@ import { ApiService } from './api.service';
 import { ChartData, PieMaker } from './classes/ChartData';
 
 interface SearchResult {
-  gamePlaytimes: GamePlaytime[];
+  filtered_gamePlaytimes: GamePlaytime[];
+  paginated_gamePlaytimes: GamePlaytime[];
   total: number;
 }
 
@@ -21,12 +22,21 @@ export interface Stats {
   avg_ratio: number;
 }
 
+interface Include {
+  includeFree: boolean;
+  includeUnknown: boolean;
+  includeUnplayed: boolean;
+}
+
 interface State {
   page: number;
   pageSize: number;
   searchTerm: string;
   sortColumn: string;
   sortDirection: SortDirection;
+  includeFree: boolean;
+  includeUnknown: boolean;
+  includeUnplayed: boolean;
 }
 
 function compare(v1: number, v2: number) {
@@ -53,6 +63,21 @@ function sort(games: GamePlaytime[], column: string, direction: string): GamePla
       return direction === 'asc' ? res : -res;
     });
   }
+}
+
+/**
+ * Basically if any of the inclusions are false and the specific parameter is true, then the whole statement
+ * returns false. Otherwise it returns true.
+ * 
+ * Example: !includeFree and the game is free => returns false
+ * 
+ * @param gp 
+ * @param include 
+ */
+function inclusion(gp: GamePlaytime, include: Include): boolean {
+  return !((!include.includeFree && gp.game.price == 0) ||
+    (!include.includeUnknown && gp.game.name == "unknown") ||
+    (!include.includeUnplayed && gp.playtime == 0))
 }
 
 function matches(gp: GamePlaytime, term: string, pipe: PipeTransform) {
@@ -89,7 +114,10 @@ export class UserService {
     pageSize: 8,
     searchTerm: '',
     sortColumn: '',
-    sortDirection: ''
+    sortDirection: '',
+    includeFree: true,
+    includeUnknown: true,
+    includeUnplayed: true
   };
 
   /**
@@ -104,8 +132,12 @@ export class UserService {
       tap(() => this._loading$.next(true)),
       switchMap(() => this._search()),
       tap(() => this._loading$.next(false))
-    ).subscribe((result: { gamePlaytimes: GamePlaytime[]; total: number; }) => {
-      this._gamePlaytimes$.next(result.gamePlaytimes);
+    ).subscribe((result: { filtered_gamePlaytimes: GamePlaytime[]; paginated_gamePlaytimes: GamePlaytime[]; total: number; }) => {
+      // categorize and compute stats for charts and info label components
+      this._categories$.next(this.categorize_games(result.filtered_gamePlaytimes));
+      this._stats$.next(this.calc_stats(result.filtered_gamePlaytimes));
+
+      this._gamePlaytimes$.next(result.paginated_gamePlaytimes);
       this._total$.next(result.total);
     });
 
@@ -137,6 +169,12 @@ export class UserService {
   set searchTerm(searchTerm: string) { this._set({ searchTerm }); }
   set sortColumn(sortColumn: string) { this._set({ sortColumn }); }
   set sortDirection(sortDirection: SortDirection) { this._set({ sortDirection }); }
+
+  set includeFree(includeFree: boolean) { this._set({ includeFree }); }
+  set includeUnknown(includeUnknown: boolean) { this._set({ includeUnknown }); }
+  set includeUnplayed(includeUnplayed: boolean) { this._set({ includeUnplayed }); }
+
+
   private calc_stats(gamePlaytimes: GamePlaytime[]): Stats {
     let total_value: number = 0;
     let total_playtime: number = 0;
@@ -170,10 +208,7 @@ export class UserService {
         return gp;
       });
 
-      // categorize and compute stats for charts and info label components
-      this._categories$.next(this.categorize_games(this._gpts));
-      this._stats$.next(this.calc_stats(this._gpts));
-
+      // calling next on search updates the categories and info
       this._search$.next();
       this._loading$.next(false);
     });
@@ -224,18 +259,19 @@ export class UserService {
   }
 
   private _search(): Observable<SearchResult> {
-    const { sortColumn, sortDirection, pageSize, page, searchTerm } = this._state;
+    const { sortColumn, sortDirection, pageSize, page, searchTerm, includeFree, includeUnknown, includeUnplayed } = this._state;
     // 1. sort
     // change sort if you want more complexity
-    let games = sort(this._gpts, sortColumn, sortDirection);
+    let gamePlaytimes = sort(this._gpts, sortColumn, sortDirection);
 
     // 2. filter
     // change function matches() if you want to see more results
-    games = games.filter(game => matches(game, searchTerm, this.pipe));
-    const total = games.length;
+    gamePlaytimes = gamePlaytimes.filter(gp => inclusion(gp, { includeFree, includeUnknown, includeUnplayed }) && matches(gp, searchTerm, this.pipe));
+
+    const total = gamePlaytimes.length;
 
     // 3. paginate
-    games = games.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
-    return of({ gamePlaytimes: games, total: total });
+    let paginated_Playtimes = gamePlaytimes.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
+    return of({ filtered_gamePlaytimes: gamePlaytimes, paginated_gamePlaytimes: paginated_Playtimes, total: total });
   }
 }

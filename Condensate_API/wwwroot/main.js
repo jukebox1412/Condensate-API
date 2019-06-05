@@ -521,7 +521,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-chart></app-chart>\n<app-info-label></app-info-label>\n<app-table></app-table>"
+module.exports = "<label class=\"col-md-8\">Steam ID or Steam Profile URL:</label>\n<div class=\"input-group\">\n    <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n    #name=\"ngModel\" />\n</div>\n\n\n<app-chart></app-chart>\n<app-info-label></app-info-label>\n<app-table></app-table>\n"
 
 /***/ }),
 
@@ -847,6 +847,20 @@ function sort(games, column, direction) {
         });
     }
 }
+/**
+ * Basically if any of the inclusions are false and the specific parameter is true, then the whole statement
+ * returns false. Otherwise it returns true.
+ *
+ * Example: !includeFree and the game is free => returns false
+ *
+ * @param gp
+ * @param include
+ */
+function inclusion(gp, include) {
+    return !((!include.includeFree && gp.game.price == 0) ||
+        (!include.includeUnknown && gp.game.name == "unknown") ||
+        (!include.includeUnplayed && gp.playtime == 0));
+}
 function matches(gp, term, pipe) {
     var playtime_str = gp.playtime.toString();
     var price_str = gp.game.price.toString();
@@ -874,11 +888,17 @@ var UserService = /** @class */ (function () {
             pageSize: 8,
             searchTerm: '',
             sortColumn: '',
-            sortDirection: ''
+            sortDirection: '',
+            includeFree: true,
+            includeUnknown: true,
+            includeUnplayed: true
         };
         this.init();
         this._search$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () { return _this._loading$.next(true); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () { return _this._search(); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () { return _this._loading$.next(false); })).subscribe(function (result) {
-            _this._gamePlaytimes$.next(result.gamePlaytimes);
+            // categorize and compute stats for charts and info label components
+            _this._categories$.next(_this.categorize_games(result.filtered_gamePlaytimes));
+            _this._stats$.next(_this.calc_stats(result.filtered_gamePlaytimes));
+            _this._gamePlaytimes$.next(result.paginated_gamePlaytimes);
             _this._total$.next(result.total);
         });
         this._search$.next();
@@ -945,6 +965,21 @@ var UserService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(UserService.prototype, "includeFree", {
+        set: function (includeFree) { this._set({ includeFree: includeFree }); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserService.prototype, "includeUnknown", {
+        set: function (includeUnknown) { this._set({ includeUnknown: includeUnknown }); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserService.prototype, "includeUnplayed", {
+        set: function (includeUnplayed) { this._set({ includeUnplayed: includeUnplayed }); },
+        enumerable: true,
+        configurable: true
+    });
     UserService.prototype.calc_stats = function (gamePlaytimes) {
         var total_value = 0;
         var total_playtime = 0;
@@ -976,9 +1011,7 @@ var UserService = /** @class */ (function () {
                     gp.ratio = _this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
                 return gp;
             });
-            // categorize and compute stats for charts and info label components
-            _this._categories$.next(_this.categorize_games(_this._gpts));
-            _this._stats$.next(_this.calc_stats(_this._gpts));
+            // calling next on search updates the categories and info
             _this._search$.next();
             _this._loading$.next(false);
         });
@@ -1028,17 +1061,17 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype._search = function () {
         var _this = this;
-        var _a = this._state, sortColumn = _a.sortColumn, sortDirection = _a.sortDirection, pageSize = _a.pageSize, page = _a.page, searchTerm = _a.searchTerm;
+        var _a = this._state, sortColumn = _a.sortColumn, sortDirection = _a.sortDirection, pageSize = _a.pageSize, page = _a.page, searchTerm = _a.searchTerm, includeFree = _a.includeFree, includeUnknown = _a.includeUnknown, includeUnplayed = _a.includeUnplayed;
         // 1. sort
         // change sort if you want more complexity
-        var games = sort(this._gpts, sortColumn, sortDirection);
+        var gamePlaytimes = sort(this._gpts, sortColumn, sortDirection);
         // 2. filter
         // change function matches() if you want to see more results
-        games = games.filter(function (game) { return matches(game, searchTerm, _this.pipe); });
-        var total = games.length;
+        gamePlaytimes = gamePlaytimes.filter(function (gp) { return inclusion(gp, { includeFree: includeFree, includeUnknown: includeUnknown, includeUnplayed: includeUnplayed }) && matches(gp, searchTerm, _this.pipe); });
+        var total = gamePlaytimes.length;
         // 3. paginate
-        games = games.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({ gamePlaytimes: games, total: total });
+        var paginated_Playtimes = gamePlaytimes.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({ filtered_gamePlaytimes: gamePlaytimes, paginated_gamePlaytimes: paginated_Playtimes, total: total });
     };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' }),

@@ -79,6 +79,7 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported"><a href="../interfaces/_app_user_service_.include.html" class="tsd-kind-icon">Include</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported"><a href="../interfaces/_app_user_service_.searchresult.html" class="tsd-kind-icon">Search<wbr>Result</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported"><a href="../interfaces/_app_user_service_.state.html" class="tsd-kind-icon">State</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_app_user_service_.stats.html" class="tsd-kind-icon">Stats</a></li>
@@ -88,6 +89,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_app_user_service_.html#compare" class="tsd-kind-icon">compare</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_app_user_service_.html#inclusion" class="tsd-kind-icon">inclusion</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_app_user_service_.html#matches" class="tsd-kind-icon">matches</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_app_user_service_.html#sort" class="tsd-kind-icon">sort</a></li>
 							</ul>
@@ -107,7 +109,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jukebox1412/Condensate-API/blob/471b087/AngularApp/src/app/user.service.ts#L32">app/user.service.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/jukebox1412/Condensate-API/blob/1848399/AngularApp/src/app/user.service.ts#L42">app/user.service.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -129,6 +131,41 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="inclusion" class="tsd-anchor"></a>
+					<h3>inclusion</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">inclusion<span class="tsd-signature-symbol">(</span>gp<span class="tsd-signature-symbol">: </span><a href="../interfaces/_app_classes_gameplaytime_.gameplaytime.html" class="tsd-signature-type">GamePlaytime</a>, include<span class="tsd-signature-symbol">: </span><a href="../interfaces/_app_user_service_.include.html" class="tsd-signature-type">Include</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jukebox1412/Condensate-API/blob/1848399/AngularApp/src/app/user.service.ts#L77">app/user.service.ts:77</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Basically if any of the inclusions are false and the specific parameter is true, then the whole statement
+									returns false. Otherwise it returns true.</p>
+								</div>
+								<p>Example: !includeFree and the game is free =&gt; returns false</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>gp: <a href="../interfaces/_app_classes_gameplaytime_.gameplaytime.html" class="tsd-signature-type">GamePlaytime</a></h5>
+								</li>
+								<li>
+									<h5>include: <a href="../interfaces/_app_user_service_.include.html" class="tsd-signature-type">Include</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 					<a name="matches" class="tsd-anchor"></a>
 					<h3>matches</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
@@ -138,7 +175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jukebox1412/Condensate-API/blob/471b087/AngularApp/src/app/user.service.ts#L58">app/user.service.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/jukebox1412/Condensate-API/blob/1848399/AngularApp/src/app/user.service.ts#L83">app/user.service.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -167,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jukebox1412/Condensate-API/blob/471b087/AngularApp/src/app/user.service.ts#L36">app/user.service.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/jukebox1412/Condensate-API/blob/1848399/AngularApp/src/app/user.service.ts#L46">app/user.service.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -205,6 +242,9 @@
 						<a href="../classes/_app_user_service_.userservice.html" class="tsd-kind-icon">User<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../interfaces/_app_user_service_.include.html" class="tsd-kind-icon">Include</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="../interfaces/_app_user_service_.searchresult.html" class="tsd-kind-icon">Search<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
@@ -215,6 +255,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_app_user_service_.html#compare" class="tsd-kind-icon">compare</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_app_user_service_.html#inclusion" class="tsd-kind-icon">inclusion</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_app_user_service_.html#matches" class="tsd-kind-icon">matches</a>
