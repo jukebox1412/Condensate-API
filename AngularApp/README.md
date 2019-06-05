@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
- Since ASP.NET Core is used to serve the project and API, use `ng build --watch` for the client app and start the API with `dotnet watch run` in the `CondensateAPI` folder. This will *not* automatically reload the browser if you change any of the source files but will show new changes once you have. Run `ng serve` and local server is located at `http://localhost:5000`. For a `ng` dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ Since ASP.NET Core is used to serve the project and API, use `ng build --watch` for the client app and start
+ the API with `dotnet watch run` in the `CondensateAPI` folder. This will *not* automatically reload the
+ browser if you change any of the source files but will show new changes once you have. Dotnet should be
+ serving and is located at `http://localhost:5000`. For a `ng serve` dev server, navigate to
+ `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

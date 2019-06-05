@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/jukebox1412/Condensate.svg?branch=master)](https://travis-ci.com/jukebox1412/Condensate)
 
+[Github](https://github.com/jukebox1412/Condensate)
+
 A project that lets you see how well you've spent your money on Steam!
 
 ## Licenses and Credits
