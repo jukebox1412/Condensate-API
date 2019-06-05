@@ -11,6 +11,10 @@ import { UserService } from '../user.service';
 
 export class SearchResultsComponent implements OnInit {
   steam_id: string;
+  includeFree: boolean;
+  includeUnknown: boolean;
+  includeUnplayed: boolean;
+
 
   /**
    * This is a class that basically ties all the user information together after searching for a steam user.
@@ -34,7 +38,17 @@ export class SearchResultsComponent implements OnInit {
         this.steam_id = this.route.snapshot.paramMap.get('steam_id');
         this.service.aquire_games(this.steam_id);
       }
-    })
+    });
+
+    this.includeFree = true;
+    this.includeUnknown = true;
+    this.includeUnplayed = true;
+  }
+
+  filterChanged() {
+    this.service.includeFree = this.includeFree;
+    this.service.includeUnknown = this.includeUnknown;
+    this.service.includeUnplayed = this.includeUnplayed;
   }
 
 }

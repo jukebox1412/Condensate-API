@@ -1,10 +1,15 @@
-<label class="col-md-8">Steam ID or Steam Profile URL:</label>
-<div class="input-group">
-    <input class="form-control col-md-10" [(ngModel)]="steam_id" id="search_input" name="search_input" required
-    #name="ngModel" />
-</div>
-
-
+<form class="form-group" (change)="filterChanged()" #filterForm="ngForm">
+  <div class="btn-group btn-group-toggle">
+    <label class="btn-secondary" ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="includeFree" name="includeFree">Include Free
+    </label>
+    <label class="btn-secondary" ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="includeUnknown" name="includeUnknown">Include Unknown
+    </label>
+    <label class="btn-secondary" ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="includeUnplayed" name="includeUnplayed">Include Unplayed
+    </label>
+  </div>
 <app-chart></app-chart>
 <app-info-label></app-info-label>
 <app-table></app-table>

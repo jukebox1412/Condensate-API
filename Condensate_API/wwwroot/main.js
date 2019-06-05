@@ -521,7 +521,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<label class=\"col-md-8\">Steam ID or Steam Profile URL:</label>\n<div class=\"input-group\">\n    <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n    #name=\"ngModel\" />\n</div>\n\n\n<app-chart></app-chart>\n<app-info-label></app-info-label>\n<app-table></app-table>\n"
+module.exports = "<form class=\"form-group\" (change)=\"filterChanged()\" #filterForm=\"ngForm\">\n  <div class=\"btn-group btn-group-toggle\">\n    <label class=\"btn-secondary\" ngbButtonLabel>\n      <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeFree\" name=\"includeFree\">Include Free\n    </label>\n    <label class=\"btn-secondary\" ngbButtonLabel>\n      <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnknown\" name=\"includeUnknown\">Include Unknown\n    </label>\n    <label class=\"btn-secondary\" ngbButtonLabel>\n      <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnplayed\" name=\"includeUnplayed\">Include Unplayed\n    </label>\n  </div>\n<app-chart></app-chart>\n<app-info-label></app-info-label>\n<app-table></app-table>\n"
 
 /***/ }),
 
@@ -571,6 +571,14 @@ var SearchResultsComponent = /** @class */ (function () {
                 _this.service.aquire_games(_this.steam_id);
             }
         });
+        this.includeFree = true;
+        this.includeUnknown = true;
+        this.includeUnplayed = true;
+    };
+    SearchResultsComponent.prototype.filterChanged = function () {
+        this.service.includeFree = this.includeFree;
+        this.service.includeUnknown = this.includeUnknown;
+        this.service.includeUnplayed = this.includeUnplayed;
     };
     SearchResultsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -605,7 +613,7 @@ module.exports = ".ng-valid[required],\r\n.ng-valid.required {\r\n  border-left:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/search'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n  <p class=\"lead\">Enter your Steam ID or profile URL below to see how well you're spending your time and money\n  on Steam!</p>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #name=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"name.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n  \n  <!-- children of search defined in app-routing will be shown below -->\n  <router-outlet></router-outlet>\n  <hr>\n</div>\n"
+module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/search'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n  <p class=\"lead\">Enter your Steam ID or profile URL below to see how well you're spending your time and money\n  on Steam!</p>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #search_input=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"search_input.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n  \n  <!-- children of search defined in app-routing will be shown below -->\n  <router-outlet></router-outlet>\n  <hr>\n</div>\n"
 
 /***/ }),
 
