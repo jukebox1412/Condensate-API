@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CompileMetadataResolver } from '@angular/compiler';
-import { ApiService } from '../api.service';
-import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 export const compare = (v1, v2) => v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
@@ -18,12 +15,18 @@ export class SearchComponent implements OnInit {
   steam_id: string;
   submitted: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
+  
   ngOnInit() {
     this.submitted = false;
-    this.steam_id = "76561197963657845";
+    this.steam_id = "";
+    if (this.route.firstChild)
+      this.route.firstChild.paramMap.subscribe(params => {
+        this.steam_id = params.get("steam_id")
+      })
   }
+
 
   onSearchSubmit(isValid: boolean) {
     if (isValid) {

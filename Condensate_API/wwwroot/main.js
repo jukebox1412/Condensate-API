@@ -433,7 +433,20 @@ function PieMaker(title, data, width, height, options) {
 }
 var pie_default_width = 400;
 var pie_default_height = 400;
-var pie_default_options = { pieHole: 0.4 };
+var pie_default_options = {
+    legend: 'none',
+    pieHole: 0.4,
+    titleTextStyle: {
+        color: "#454522",
+        fontName: "Helvetica",
+        fontSize: 18,
+        bold: true,
+        italic: false
+    },
+    // from https://www.color-hex.com/color-palette/78881
+    colors: ['#191738', '#233253', '#1f565d', '#2d7a58', '#3f8f50'],
+    pieSliceTextStyle: { fontName: "Helvetica", fontSize: 14, bold: true }
+};
 
 
 /***/ }),
@@ -445,7 +458,7 @@ var pie_default_options = { pieHole: 0.4 };
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2luZm8tbGFiZWwvaW5mby1sYWJlbC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = ".badge {\r\n    background: rgb(56, 119, 68) !important\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaW5mby1sYWJlbC9pbmZvLWxhYmVsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvaW5mby1sYWJlbC9pbmZvLWxhYmVsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmFkZ2Uge1xyXG4gICAgYmFja2dyb3VuZDogcmdiKDU2LCAxMTksIDY4KSAhaW1wb3J0YW50XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -456,7 +469,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h5>Games Total Value: <span class=\"badge badge-info\">{{stats.total_value | number : '1.2'}}$</span></h5>\n<h5>Total Hours Played: <span class=\"badge badge-info\">{{stats.total_playtime | number : '1.0-2'}}</span></h5>\n<h5>Average Hours to Dollar: <span class=\"badge badge-info\">{{stats.avg_ratio | number : '1.0-2'}}</span></h5>\n"
+module.exports = "<h5>Total Hours Played: <span class=\"badge badge-primary\">{{stats.total_playtime | number : '1.0-2'}}</span></h5>\n<h5>Games Total Value: <span class=\"badge badge-primary\">{{stats.total_value | number : '1.2'}}$</span></h5>\n<h5>Average Hours to Dollar: <span class=\"badge badge-primary\">{{stats.avg_ratio | number : '1.0-2'}}</span></h5>\n<h5>Games Owned: <span class=\"badge badge-primary\">{{service.total$ | async}}</span></h5>\n"
 
 /***/ }),
 
@@ -479,14 +492,14 @@ __webpack_require__.r(__webpack_exports__);
 var InfoLabelComponent = /** @class */ (function () {
     /**
      * Currently displays info about total hours, total price, and total hours / total price (average)
-     * @param _service
+     * @param service
      */
-    function InfoLabelComponent(_service) {
-        this._service = _service;
+    function InfoLabelComponent(service) {
+        this.service = service;
     }
     InfoLabelComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._service.stats$.subscribe(function (stats) { return _this.stats = stats; });
+        this.service.stats$.subscribe(function (stats) { return _this.stats = stats; });
     };
     InfoLabelComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -510,7 +523,7 @@ var InfoLabelComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlYXJjaC1yZXN1bHRzL3NlYXJjaC1yZXN1bHRzLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = ".active {\r\n  background-color: rgb(28, 122, 47) !important;\r\n}\r\n\r\n.active:hover{\r\n  background-color: rgb(37, 160, 62) !important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VhcmNoLXJlc3VsdHMvc2VhcmNoLXJlc3VsdHMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDZDQUE2QztBQUMvQzs7QUFFQTtFQUNFLDZDQUE2QztBQUMvQyIsImZpbGUiOiJzcmMvYXBwL3NlYXJjaC1yZXN1bHRzL3NlYXJjaC1yZXN1bHRzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWN0aXZlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjgsIDEyMiwgNDcpICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5hY3RpdmU6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDM3LCAxNjAsIDYyKSAhaW1wb3J0YW50O1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -521,7 +534,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-group\" (change)=\"filterChanged()\" #filterForm=\"ngForm\">\n  <div class=\"btn-group btn-group-toggle\">\n    <label class=\"btn-secondary\" ngbButtonLabel>\n      <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeFree\" name=\"includeFree\">Include Free\n    </label>\n    <label class=\"btn-secondary\" ngbButtonLabel>\n      <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnknown\" name=\"includeUnknown\">Include Unknown\n    </label>\n    <label class=\"btn-secondary\" ngbButtonLabel>\n      <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnplayed\" name=\"includeUnplayed\">Include Unplayed\n    </label>\n  </div>\n<app-chart></app-chart>\n<app-info-label></app-info-label>\n<app-table></app-table>\n"
+module.exports = "<div class=\"d-flex justify-content-center\" *ngIf=\"service.loading$ | async; else done_loading\">\n  <div class=\"spinner-border text-success\" role=\"status\" style=\"width: 5rem; height: 5rem; font-size:30px;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n<ng-template #done_loading>\n  <div *ngIf=\"!(service.success$ | async); else success_div\">\n    <div class=\"alert alert-danger\" role=\"alert\">\n      Unable to get games from this profile. Check the ID / URL and make sure your profile is not private!\n    </div>\n  </div>\n  <ng-template #success_div>\n    <form class=\"form-group\" (change)=\"filterChanged()\" #filterForm=\"ngForm\">\n      <div class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-secondary\" ngbButtonLabel>\n          <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeFree\" name=\"includeFree\">Include Free\n        </label>\n        <label class=\"btn btn-secondary\" ngbButtonLabel>\n          <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnknown\" name=\"includeUnknown\">Include Unknown\n        </label>\n        <label class=\"btn btn-secondary\" ngbButtonLabel>\n          <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnplayed\" name=\"includeUnplayed\">Include Unplayed\n        </label>\n      </div>\n    </form>\n    <app-chart></app-chart>\n    <app-info-label></app-info-label>\n    <app-table></app-table>\n  </ng-template>\n</ng-template>\n"
 
 /***/ }),
 
@@ -613,7 +626,7 @@ module.exports = ".ng-valid[required],\r\n.ng-valid.required {\r\n  border-left:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/search'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n  <p class=\"lead\">Enter your Steam ID or profile URL below to see how well you're spending your time and money\n  on Steam!</p>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #search_input=\"ngModel\" />\n        <input class=\"btn btn-primary col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"search_input.valid || (!submit_touched) \" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n  \n  <!-- children of search defined in app-routing will be shown below -->\n  <router-outlet></router-outlet>\n  <hr>\n</div>\n"
+module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/search'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n  <p class=\"lead\">Enter your Steam ID or profile URL below to see how well you're spending your time and money\n    on Steam!</p>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8 mt-4\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #search_input=\"ngModel\" />\n        <input class=\"btn btn-success col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"search_input.valid || !search_input.dirty\" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n\n  <!-- children of search defined in app-routing will be shown below -->\n  <router-outlet></router-outlet>\n  <hr>\n</div>\n"
 
 /***/ }),
 
@@ -636,12 +649,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var compare = function (v1, v2) { return v1 < v2 ? -1 : v1 > v2 ? 1 : 0; };
 var SearchComponent = /** @class */ (function () {
-    function SearchComponent(router) {
+    function SearchComponent(router, route) {
         this.router = router;
+        this.route = route;
     }
     SearchComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.submitted = false;
-        this.steam_id = "76561197963657845";
+        this.steam_id = "";
+        if (this.route.firstChild)
+            this.route.firstChild.paramMap.subscribe(function (params) {
+                _this.steam_id = params.get("steam_id");
+            });
     };
     SearchComponent.prototype.onSearchSubmit = function (isValid) {
         if (isValid) {
@@ -655,7 +674,7 @@ var SearchComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./search.component.html */ "./src/app/search/search.component.html"),
             styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/search/search.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], SearchComponent);
     return SearchComponent;
 }());
@@ -736,7 +755,7 @@ module.exports = "  /* Sortable table demo */\r\n\r\n  th[sortable] {\r\n    cur
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <!-- code modified from https://ng-bootstrap.github.io/#/components/table/examples -->\n <form>\n   <div class=\"form-group\">\n     <h5 class=\"ml-3\" *ngIf=\"service.loading$ | async; else games_owned\"><span\n         class=\"badge badge-secondary\">Loading...</span></h5>\n     <ng-template #games_owned>\n       <h5>\n         Games Owned: <span class=\"badge badge-primary\">{{service.total$ | async}}</span>\n       </h5>\n     </ng-template>\n   </div>\n\n   <div class=\"form-group form-inline\">\n     Search Games: <input class=\"form-control ml-2\" type=\"text\" name=\"searchTerm\" [(ngModel)]=\"service.searchTerm\" />\n   </div>\n\n   <table class=\"table table-striped\">\n     <thead>\n       <tr>\n         <th scope=\"col\" sortable=\"appid\" (sort)=\"onSort($event)\">#</th>\n         <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Game</th>\n         <th scope=\"col\" sortable=\"playtime\" (sort)=\"onSort($event)\">Hours Played</th>\n         <th scope=\"col\" sortable=\"price\" (sort)=\"onSort($event)\">Price</th>\n         <th scope=\"col\" sortable=\"ratio\" (sort)=\"onSort($event)\">Hours Per Dollar</th>\n       </tr>\n     </thead>\n     <tbody>\n       <tr *ngFor=\"let gamePlaytime of gamePlaytimes\">\n         <th scope=\"row\">{{ gamePlaytime.game.appid }}</th>\n         <td>\n           <img [src]=\"gamePlaytime.game.header_image\" class=\"mr-2\" style=\"width: 80px\">\n           <a href=\"{{gamePlaytime.game.store_link}}\" target=\"_blank\">\n             <ngb-highlight [result]=\"gamePlaytime.game.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n           </a>\n         </td>\n         <td>\n           <!-- Transform playtime from minutes to hours and limit the number of decimal places to 2 -->\n           <ngb-highlight [result]=\"(gamePlaytime.playtime  | number : '1.0-2')\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"(gamePlaytime.game.price | number)\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"gamePlaytime.ratio\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n       </tr>\n     </tbody>\n   </table>\n\n   <div class=\"d-flex justify-content-between p-2\">\n     <ngb-pagination [collectionSize]=\"total\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n     </ngb-pagination>\n\n     <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n       <option [ngValue]=\"6\">6 items per page</option>\n       <option [ngValue]=\"8\">8 items per page</option>\n       <option [ngValue]=\"10\">10 items per page</option>\n     </select>\n   </div>\n\n </form>\n"
+module.exports = " <!-- code modified from https://ng-bootstrap.github.io/#/components/table/examples -->\n <form>\n   <div class=\"form-group form-inline\">\n     Search Games: <input class=\"form-control ml-2\" type=\"text\" name=\"searchTerm\" [(ngModel)]=\"service.searchTerm\" />\n   </div>\n\n   <table class=\"table table-striped\">\n     <thead>\n       <tr>\n         <th scope=\"col\" sortable=\"appid\" (sort)=\"onSort($event)\">#</th>\n         <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Game</th>\n         <th scope=\"col\" sortable=\"playtime\" (sort)=\"onSort($event)\">Hours Played</th>\n         <th scope=\"col\" sortable=\"price\" (sort)=\"onSort($event)\">Price</th>\n         <th scope=\"col\" sortable=\"ratio\" (sort)=\"onSort($event)\">Hours Per Dollar</th>\n       </tr>\n     </thead>\n     <tbody>\n       <tr *ngFor=\"let gamePlaytime of gamePlaytimes\">\n         <th scope=\"row\">{{ gamePlaytime.game.appid }}</th>\n         <td>\n           <img [src]=\"gamePlaytime.game.header_image\" class=\"mr-2\" style=\"width: 80px\">\n           <a href=\"{{gamePlaytime.game.store_link}}\" target=\"_blank\">\n             <ngb-highlight [result]=\"gamePlaytime.game.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n           </a>\n         </td>\n         <td>\n           <!-- Transform playtime from minutes to hours and limit the number of decimal places to 2 -->\n           <ngb-highlight [result]=\"(gamePlaytime.playtime  | number : '1.0-2')\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"(gamePlaytime.game.price | number)\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"gamePlaytime.ratio\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n       </tr>\n     </tbody>\n   </table>\n\n   <div class=\"d-flex justify-content-between p-2\">\n     <ngb-pagination [collectionSize]=\"total\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n     </ngb-pagination>\n\n     <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n       <option [ngValue]=\"6\">6 items per page</option>\n       <option [ngValue]=\"8\">8 items per page</option>\n       <option [ngValue]=\"10\">10 items per page</option>\n     </select>\n   </div>\n\n </form>\n"
 
 /***/ }),
 
@@ -913,6 +932,7 @@ var UserService = /** @class */ (function () {
     }
     UserService.prototype.init = function () {
         this._loading$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](true);
+        this._success$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
         this._search$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this._gamePlaytimes$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
         this._total$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](0);
@@ -942,6 +962,11 @@ var UserService = /** @class */ (function () {
     });
     Object.defineProperty(UserService.prototype, "loading$", {
         get: function () { return this._loading$.asObservable(); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserService.prototype, "success$", {
+        get: function () { return this._success$.asObservable(); },
         enumerable: true,
         configurable: true
     });
@@ -1010,15 +1035,21 @@ var UserService = /** @class */ (function () {
     UserService.prototype.aquire_games = function (steam_id) {
         var _this = this;
         this._loading$.next(true);
-        this._api_service.getUserGames(steam_id).subscribe(function (res) {
-            _this._gpts = res.map(function (gp) {
-                //set the ratio of hours per dollar here as a string and avoid divide by 0
-                if (gp.game.price == 0)
-                    gp.ratio = 'free';
-                else
-                    gp.ratio = _this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
-                return gp;
-            });
+        this._api_service.getUserGames(steam_id).subscribe(function (resp) {
+            if (resp) {
+                _this._gpts = resp.map(function (gp) {
+                    //set the ratio of hours per dollar here as a string and avoid divide by 0
+                    if (gp.game.price == 0)
+                        gp.ratio = 'free';
+                    else
+                        gp.ratio = _this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
+                    return gp;
+                });
+                _this._success$.next(true);
+            }
+            else
+                _this._success$.next(false);
+            console.log(_this._success$.getValue());
             // calling next on search updates the categories and info
             _this._search$.next();
             _this._loading$.next(false);
@@ -1045,7 +1076,8 @@ var UserService = /** @class */ (function () {
         var time_data = [
             ["0 Hours", gamePlaytimes.filter(function (gpt) { return gpt.playtime == 0; }).length],
             ["0-2 Hours", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime, 0, 2); }).length],
-            ["2+ Hours", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime, 2); }).length]
+            ["2-15 Hours", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime, 2, 15); }).length],
+            ["15+ Hours", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime, 15); }).length]
         ];
         ret.push(Object(_classes_ChartData__WEBPACK_IMPORTED_MODULE_6__["PieMaker"])("By Time Played", time_data));
         var price_data = [
@@ -1058,7 +1090,8 @@ var UserService = /** @class */ (function () {
         var ratio_data = [
             ["0 hours / $", gamePlaytimes.filter(function (gpt) { return gpt.playtime == 0; }).length],
             ["0-1 hours / $", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime / gpt.game.price, 0, 1); }).length],
-            ["1+ hours / $", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime / gpt.game.price, 1); }).length]
+            ["1-2 hours / $", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime / gpt.game.price, 1, 2); }).length],
+            ["2+ hours / $", gamePlaytimes.filter(function (gpt) { return _this.between(gpt.playtime / gpt.game.price, 2); }).length]
         ];
         ret.push(Object(_classes_ChartData__WEBPACK_IMPORTED_MODULE_6__["PieMaker"])("By Hours to Dollar", ratio_data));
         return ret;

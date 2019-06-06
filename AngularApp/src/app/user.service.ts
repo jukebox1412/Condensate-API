@@ -101,6 +101,7 @@ export class UserService {
   // follows the pattern of keeping private Behavior subjects that you can subscribe to with the public
   // observables that fire when we .next() these private subjects
   private _loading$: BehaviorSubject<boolean>;
+  private _success$: BehaviorSubject<boolean>;
   private _search$: Subject<void>;
   private _gamePlaytimes$: BehaviorSubject<GamePlaytime[]>;
   private _total$: BehaviorSubject<number>;
@@ -146,11 +147,12 @@ export class UserService {
 
   init() {
     this._loading$ = new BehaviorSubject<boolean>(true);
+    this._success$ = new BehaviorSubject<boolean>(false);
     this._search$ = new Subject<void>();
     this._gamePlaytimes$ = new BehaviorSubject<GamePlaytime[]>([]);
     this._total$ = new BehaviorSubject<number>(0);
-    this._stats$ = new BehaviorSubject<Stats>({ avg_ratio: 0, total_playtime: 0, total_value: 0 });
 
+    this._stats$ = new BehaviorSubject<Stats>({ avg_ratio: 0, total_playtime: 0, total_value: 0 });
     this._categories$ = new BehaviorSubject<ChartData[]>([]);
     this._gpts = [];
   }
@@ -160,6 +162,7 @@ export class UserService {
   get stats$() { return this._stats$.asObservable(); }
   get total$() { return this._total$.asObservable(); }
   get loading$() { return this._loading$.asObservable(); }
+  get success$() { return this._success$.asObservable(); }
   get page() { return this._state.page; }
   get pageSize() { return this._state.pageSize; }
   get searchTerm() { return this._state.searchTerm; }
@@ -198,16 +201,23 @@ export class UserService {
    */
   aquire_games(steam_id: string) {
     this._loading$.next(true);
-    this._api_service.getUserGames(steam_id).subscribe(res => {
-      this._gpts = res.map(gp => {
-        //set the ratio of hours per dollar here as a string and avoid divide by 0
-        if (gp.game.price == 0)
-          gp.ratio = 'free';
-        else
-          gp.ratio = this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
-        return gp;
-      });
+    this._api_service.getUserGames(steam_id).subscribe(resp => {
 
+      if (resp) {
+        this._gpts = resp.map(gp => {
+          //set the ratio of hours per dollar here as a string and avoid divide by 0
+          if (gp.game.price == 0)
+            gp.ratio = 'free';
+          else
+            gp.ratio = this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
+          return gp;
+        });
+        this._success$.next(true);
+      }
+      else
+        this._success$.next(false);
+
+      console.log(this._success$.getValue());
       // calling next on search updates the categories and info
       this._search$.next();
       this._loading$.next(false);
@@ -234,7 +244,8 @@ export class UserService {
     let time_data: Array<Array<string | number>> = [
       ["0 Hours", gamePlaytimes.filter(gpt => gpt.playtime == 0).length],
       ["0-2 Hours", gamePlaytimes.filter(gpt => this.between(gpt.playtime, 0, 2)).length],
-      ["2+ Hours", gamePlaytimes.filter(gpt => this.between(gpt.playtime, 2)).length]];
+      ["2-15 Hours", gamePlaytimes.filter(gpt => this.between(gpt.playtime, 2, 15)).length],
+      ["15+ Hours", gamePlaytimes.filter(gpt => this.between(gpt.playtime, 15)).length]];
     ret.push(PieMaker("By Time Played", time_data));
 
     let price_data: Array<Array<string | number>> = [
@@ -247,7 +258,8 @@ export class UserService {
     let ratio_data: Array<Array<string | number>> = [
       ["0 hours / $", gamePlaytimes.filter(gpt => gpt.playtime == 0).length],
       ["0-1 hours / $", gamePlaytimes.filter(gpt => this.between(gpt.playtime / gpt.game.price, 0, 1)).length],
-      ["1+ hours / $", gamePlaytimes.filter(gpt => this.between(gpt.playtime / gpt.game.price, 1)).length]];
+      ["1-2 hours / $", gamePlaytimes.filter(gpt => this.between(gpt.playtime / gpt.game.price, 1, 2)).length],
+      ["2+ hours / $", gamePlaytimes.filter(gpt => this.between(gpt.playtime / gpt.game.price, 2)).length]];
     ret.push(PieMaker("By Hours to Dollar", ratio_data));
 
     return ret;

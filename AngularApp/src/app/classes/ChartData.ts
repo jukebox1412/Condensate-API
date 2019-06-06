@@ -33,4 +33,17 @@ export function PieMaker(title: string, data: Array<Array<string | number>>, wid
 
 export var pie_default_width = 400;
 export var pie_default_height = 400;
-export var pie_default_options = { pieHole: 0.4 };
+export var pie_default_options = {
+    legend: 'none',
+    pieHole: 0.4,
+    titleTextStyle: {
+        color: "#454522",
+        fontName: "Helvetica",
+        fontSize: 18,
+        bold: true,
+        italic: false
+    },
+    // from https://www.color-hex.com/color-palette/78881
+    colors: ['#191738', '#233253', '#1f565d', '#2d7a58', '#3f8f50'],
+    pieSliceTextStyle: { fontName: "Helvetica", fontSize: 14, bold: true }
+};

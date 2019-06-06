@@ -2,25 +2,25 @@
 <div *ngIf="router.url =='/search'" class="jumbotron text-center">
   <h1>Welcome to Condensate!</h1>
   <p class="lead">Enter your Steam ID or profile URL below to see how well you're spending your time and money
-  on Steam!</p>
+    on Steam!</p>
 </div>
 
 <div class="container">
   <div class="row-fluid">
     <form class="form-group" (ngSubmit)="onSearchSubmit(searchForm.valid)" #searchForm="ngForm">
-      <label class="col-md-8">Steam ID or Steam Profile URL:</label>
+      <label class="col-md-8 mt-4">Steam ID or Steam Profile URL:</label>
       <div class="input-group">
         <input class="form-control col-md-10" [(ngModel)]="steam_id" id="search_input" name="search_input" required
           #search_input="ngModel" />
-        <input class="btn btn-primary col-md-2" type="submit" value="Search" />
+        <input class="btn btn-success col-md-2" type="submit" value="Search" />
       </div>
-      <div [hidden]="search_input.valid || (!submit_touched) " class="alert alert-danger">
+      <div [hidden]="search_input.valid || !search_input.dirty" class="alert alert-danger">
         Steam ID or URL is required
       </div>
     </form>
     <hr>
   </div>
-  
+
   <!-- children of search defined in app-routing will be shown below -->
   <router-outlet></router-outlet>
   <hr>

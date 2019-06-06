@@ -1,15 +1,30 @@
-<form class="form-group" (change)="filterChanged()" #filterForm="ngForm">
-  <div class="btn-group btn-group-toggle">
-    <label class="btn-secondary" ngbButtonLabel>
-      <input type="checkbox" ngbButton [(ngModel)]="includeFree" name="includeFree">Include Free
-    </label>
-    <label class="btn-secondary" ngbButtonLabel>
-      <input type="checkbox" ngbButton [(ngModel)]="includeUnknown" name="includeUnknown">Include Unknown
-    </label>
-    <label class="btn-secondary" ngbButtonLabel>
-      <input type="checkbox" ngbButton [(ngModel)]="includeUnplayed" name="includeUnplayed">Include Unplayed
-    </label>
+<div class="d-flex justify-content-center" *ngIf="service.loading$ | async; else done_loading">
+  <div class="spinner-border text-success" role="status" style="width: 5rem; height: 5rem; font-size:30px;">
+    <span class="sr-only">Loading...</span>
   </div>
-<app-chart></app-chart>
-<app-info-label></app-info-label>
-<app-table></app-table>
+</div>
+<ng-template #done_loading>
+  <div *ngIf="!(service.success$ | async); else success_div">
+    <div class="alert alert-danger" role="alert">
+      Unable to get games from this profile. Check the ID / URL and make sure your profile is not private!
+    </div>
+  </div>
+  <ng-template #success_div>
+    <form class="form-group" (change)="filterChanged()" #filterForm="ngForm">
+      <div class="btn-group btn-group-toggle">
+        <label class="btn btn-secondary" ngbButtonLabel>
+          <input type="checkbox" ngbButton [(ngModel)]="includeFree" name="includeFree">Include Free
+        </label>
+        <label class="btn btn-secondary" ngbButtonLabel>
+          <input type="checkbox" ngbButton [(ngModel)]="includeUnknown" name="includeUnknown">Include Unknown
+        </label>
+        <label class="btn btn-secondary" ngbButtonLabel>
+          <input type="checkbox" ngbButton [(ngModel)]="includeUnplayed" name="includeUnplayed">Include Unplayed
+        </label>
+      </div>
+    </form>
+    <app-chart></app-chart>
+    <app-info-label></app-info-label>
+    <app-table></app-table>
+  </ng-template>
+</ng-template>

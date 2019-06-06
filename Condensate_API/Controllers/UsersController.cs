@@ -84,7 +84,13 @@ namespace Condensate_API.Controllers
                 // to make the api a breeze to use
                 try
                 {
-                    var res = steam.GetOwnedGames(steamid: GetSteamID(id));
+                    KeyValue res = steam.GetOwnedGames(steamid: GetSteamID(id));
+
+                    // check if we can get games; maybe profile is private or bad id
+                    if (res.Children.Find(kv => kv.Name == "games") == null)
+                        // same as returning null
+                        return NoContent();
+                    
                     // get hashset of known games to compare to 
                     HashSet<Game> games;
                     // use the cached games to save on time
