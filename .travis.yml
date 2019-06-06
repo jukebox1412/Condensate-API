@@ -10,10 +10,11 @@ matrix:
       script: 
         - dotnet build ./Condensate_API/Condensate_API.csproj
         - dotnet test ./XUnitTests/XUnitTests.csproj
+        - dotnet publish -c Release
 
     - name: "Angular Client App"
       language: node_js
       node_js: "10.16.0"
       before_install: cd AngularApp
       install: npm install
-      script: ng build
+      script: ng build --prod

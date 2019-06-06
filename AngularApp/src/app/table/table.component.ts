@@ -43,7 +43,8 @@ export class TableComponent {
         header.direction = '';
       }
     });
-
+    
+    this.service.page = 1;
     this.service.sortColumn = column;
     this.service.sortDirection = direction;
   }

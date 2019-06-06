@@ -217,7 +217,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-dark\">\n  <a class=\"navbar-brand text-success\" routerLink=\"/\">Condensate</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <a class=\"nav-link text-light\" routerLink=\"/search\">Home <span class=\"sr-only\">(current)</span></a>\n  <a class=\"nav-link text-light\" routerLink=\"/about\">About</a>\n  <!-- <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n      </li>\n      <li class=\"nav-item\">\n      </li>\n    </ul>\n  </div> -->\n</nav>\n<router-outlet></router-outlet>\n<!-- <router-outlet name=\"results_outlet\"></router-outlet> -->\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-dark\">\n  <a class=\"navbar-brand text-success\" routerLink=\"/\">Condensate</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <a class=\"nav-link text-light\" routerLink=\"/search\">Home <span class=\"sr-only\">(current)</span></a>\n  <a class=\"nav-link text-light\" routerLink=\"/about\">About</a>\n</nav>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -280,10 +280,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _info_label_info_label_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./info-label/info-label.component */ "./src/app/info-label/info-label.component.ts");
 /* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
 /* harmony import */ var _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./search-results/search-results.component */ "./src/app/search-results/search-results.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./faq/faq.component */ "./src/app/faq/faq.component.ts");
 
 
 
  // <-- NgModel lives here
+
+
 
 
 
@@ -311,6 +315,7 @@ var AppModule = /** @class */ (function () {
                 _info_label_info_label_component__WEBPACK_IMPORTED_MODULE_14__["InfoLabelComponent"],
                 _about_about_component__WEBPACK_IMPORTED_MODULE_15__["AboutComponent"],
                 _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_16__["SearchResultsComponent"],
+                _faq_faq_component__WEBPACK_IMPORTED_MODULE_18__["FaqComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -319,7 +324,8 @@ var AppModule = /** @class */ (function () {
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"].forRoot(),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
-                angular_google_charts__WEBPACK_IMPORTED_MODULE_12__["GoogleChartsModule"]
+                angular_google_charts__WEBPACK_IMPORTED_MODULE_12__["GoogleChartsModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
             ],
             providers: [_angular_common__WEBPACK_IMPORTED_MODULE_10__["DecimalPipe"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
@@ -350,7 +356,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div *ngFor=\"let data of pieDatas\" class=\"col-md-4\">\n      <google-chart #chart [title]=\"data.title\" [type]=\"data.type\" [data]=\"data.data\" [columnNames]=\"data.columnNames\"\n        [options]=\"data.options\" [width]=\"data.width\" [height]=\"data.height\">\n      </google-chart>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\" >\n  <div *ngFor=\"let data of pieDatas\" class=\"col-md-4\">\n      <google-chart #chart [title]=\"data.title\" [type]=\"data.type\" [data]=\"data.data\" [columnNames]=\"data.columnNames\"\n        [options]=\"data.options\" [width]=\"data.width\" [height]=\"data.height\">\n      </google-chart>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -367,6 +373,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
+
 
 
 
@@ -386,6 +394,18 @@ var ChartComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-chart',
             template: __webpack_require__(/*! ./chart.component.html */ "./src/app/chart/chart.component.html"),
+            animations: [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["trigger"])('flyInOut', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["state"])('in', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["style"])({ transform: 'translateX(0)' })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["transition"])('void => *', [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["style"])({ transform: 'translateX(-100%)' }),
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["animate"])(100)
+                    ]),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["transition"])('* => void', [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["animate"])(100, Object(_angular_animations__WEBPACK_IMPORTED_MODULE_3__["style"])({ transform: 'translateX(100%)' }))
+                    ])
+                ])
+            ],
             styles: [__webpack_require__(/*! ./chart.component.css */ "./src/app/chart/chart.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
@@ -447,6 +467,62 @@ var pie_default_options = {
     colors: ['#191738', '#233253', '#1f565d', '#2d7a58', '#3f8f50'],
     pieSliceTextStyle: { fontName: "Helvetica", fontSize: 14, bold: true }
 };
+
+
+/***/ }),
+
+/***/ "./src/app/faq/faq.component.css":
+/*!***************************************!*\
+  !*** ./src/app/faq/faq.component.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZhcS9mYXEuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/faq/faq.component.html":
+/*!****************************************!*\
+  !*** ./src/app/faq/faq.component.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  faq works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/faq/faq.component.ts":
+/*!**************************************!*\
+  !*** ./src/app/faq/faq.component.ts ***!
+  \**************************************/
+/*! exports provided: FaqComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FaqComponent", function() { return FaqComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var FaqComponent = /** @class */ (function () {
+    function FaqComponent() {
+    }
+    FaqComponent.prototype.ngOnInit = function () {
+    };
+    FaqComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-faq',
+            template: __webpack_require__(/*! ./faq.component.html */ "./src/app/faq/faq.component.html"),
+            styles: [__webpack_require__(/*! ./faq.component.css */ "./src/app/faq/faq.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], FaqComponent);
+    return FaqComponent;
+}());
+
 
 
 /***/ }),
@@ -534,7 +610,7 @@ module.exports = ".active {\r\n  background-color: rgb(28, 122, 47) !important;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-center\" *ngIf=\"service.loading$ | async; else done_loading\">\n  <div class=\"spinner-border text-success\" role=\"status\" style=\"width: 5rem; height: 5rem; font-size:30px;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n<ng-template #done_loading>\n  <div *ngIf=\"!(service.success$ | async); else success_div\">\n    <div class=\"alert alert-danger\" role=\"alert\">\n      Unable to get games from this profile. Check the ID / URL and make sure your profile is not private!\n    </div>\n  </div>\n  <ng-template #success_div>\n    <form class=\"form-group\" (change)=\"filterChanged()\" #filterForm=\"ngForm\">\n      <div class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-secondary\" ngbButtonLabel>\n          <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeFree\" name=\"includeFree\">Include Free\n        </label>\n        <label class=\"btn btn-secondary\" ngbButtonLabel>\n          <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnknown\" name=\"includeUnknown\">Include Unknown\n        </label>\n        <label class=\"btn btn-secondary\" ngbButtonLabel>\n          <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnplayed\" name=\"includeUnplayed\">Include Unplayed\n        </label>\n      </div>\n    </form>\n    <app-chart></app-chart>\n    <app-info-label></app-info-label>\n    <app-table></app-table>\n  </ng-template>\n</ng-template>\n"
+module.exports = "<div class=\"d-flex justify-content-center\" *ngIf=\"service.loading$ | async; else done_loading\">\n  <div class=\"spinner-border text-success\" role=\"status\" style=\"width: 5rem; height: 5rem; font-size:30px;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n<ng-template #done_loading>\n  <div *ngIf=\"!(service.success$ | async); else success_div\">\n    <div class=\"alert alert-danger\" role=\"alert\">\n      Unable to get games from this profile. Check the ID / URL and make sure your profile is not private!\n    </div>\n  </div>\n  <ng-template #success_div>\n    <div @fadeIn>\n      <form class=\"form-group\" (change)=\"filterChanged()\" #filterForm=\"ngForm\">\n        <div class=\"btn-group btn-group-toggle\">\n          <label class=\"btn btn-secondary\" ngbButtonLabel>\n            <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeFree\" name=\"includeFree\">Include Free\n          </label>\n          <label class=\"btn btn-secondary\" ngbButtonLabel>\n            <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnknown\" name=\"includeUnknown\">Include Unknown\n          </label>\n          <label class=\"btn btn-secondary\" ngbButtonLabel>\n            <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnplayed\" name=\"includeUnplayed\">Include Unplayed\n          </label>\n        </div>\n      </form>\n      <app-chart></app-chart>\n      <app-info-label></app-info-label>\n      <app-table></app-table>\n    </div>\n  </ng-template>\n</ng-template>\n"
 
 /***/ }),
 
@@ -552,6 +628,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
+
 
 
 
@@ -597,6 +675,15 @@ var SearchResultsComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-search-results',
             template: __webpack_require__(/*! ./search-results.component.html */ "./src/app/search-results/search-results.component.html"),
+            animations: [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["trigger"])('fadeIn', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["state"])('in', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["style"])({ transform: 'translateX(0)' })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["transition"])(':enter', [
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["style"])({ opacity: 0, }),
+                        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["animate"])(1000, Object(_angular_animations__WEBPACK_IMPORTED_MODULE_4__["style"])({ opacity: 1 }))
+                    ])
+                ])
+            ],
             styles: [__webpack_require__(/*! ./search-results.component.css */ "./src/app/search-results/search-results.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
@@ -802,6 +889,7 @@ var TableComponent = /** @class */ (function () {
                 header.direction = '';
             }
         });
+        this.service.page = 1;
         this.service.sortColumn = column;
         this.service.sortDirection = direction;
     };

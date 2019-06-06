@@ -19,10 +19,18 @@ namespace Condensate_API
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-            var host =  WebHost.CreateDefaultBuilder(args)
-                 .UseStartup<Startup>();
-                 //.UseUrls("http://localhost:5000", "https://localhost:5001")
+            var host = WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
+                //.ConfigureAppConfiguration(ConfigConfiguration)
+            //.UseUrls("http://localhost:5000", "https://localhost:5001")
             return host;
         }
+
+        //static void ConfigConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder config)
+        //{
+        //    config.SetBasePath(Directory.GetCurrentDirectory())
+        //        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        //        .AddJsonFile($"config.{ctx.HostingEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: true);
+        //}
     }
 }

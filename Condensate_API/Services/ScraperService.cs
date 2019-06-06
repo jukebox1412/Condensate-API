@@ -14,7 +14,8 @@ namespace Condensate_API.Services
 {
     public class ScraperService : IHostedService, IDisposable
     {
-        private Timer _timer;
+        private Timer _games_timer;
+        private Timer _apps_timer;
         private readonly ILogger _logger;
 
         private readonly AppService _appService;
@@ -22,7 +23,7 @@ namespace Condensate_API.Services
 
         private readonly HttpClient _client;
         private const string _URL_PARAMETERS = "appdetails/?filters=basic,type,price_overview,genres&appids=";
-        
+
 
 
         public ScraperService(ILogger<ScraperService> logger, IHttpClientFactory clientFactory, GameService gameService, AppService appService)
@@ -31,18 +32,22 @@ namespace Condensate_API.Services
             _appService = appService;
             _gameService = gameService;
             _client = clientFactory.CreateClient("steam-store");
-
-            // start async update for all apps... takes a while.
-            //_ = _appService.UpdateAllApps();
         }
 
         public void Dispose()
         {
-            _timer?.Dispose();
+            _games_timer?.Dispose();
+            _apps_timer?.Dispose();
             _client?.Dispose();
         }
 
-        private async void ScrapeSteam(object state)
+        private void ScrapeApps(object state)
+        {
+            // start async update for all apps... takes a while.
+            _ = _appService.UpdateAllApps();
+        }
+
+        private async void ScrapeGames(object state)
         {
             App app = _appService.GetLeastScrapedGame();
             if (app != null)
@@ -58,7 +63,6 @@ namespace Condensate_API.Services
 
                     if ((bool)json["success"] && ((string)json["data"]["type"]).Equals("game"))
                     {
-                        _logger.LogInformation($"Saving game {app.appid}");
                         g.appid = app.appid;
                         g.store_link = Game.STORE_GAME_LINK_PREFIX + app.appid;
                         g.name = (string)json["data"]["name"];
@@ -96,21 +100,26 @@ namespace Condensate_API.Services
         public Task StartAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Steam Scraper Service is starting.");
-            _timer?.Dispose();
+            _games_timer?.Dispose();
+            _apps_timer?.Dispose();
 
             // set interval period to 2 seconds so steam doesn't ban me. 
             // can call steam api at most 200 times per 5 minutes
             // can be 1.5 seconds but don't want to risk it.
 
-            //_timer = new Timer(ScrapeSteam, null, TimeSpan.Zero, TimeSpan.FromSeconds(2));
-            
+            // scrape a game every 5 seconds
+            _games_timer = new Timer(ScrapeGames, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
+            // scrape apps every 3 hours with a 5 minute startup delay
+            _apps_timer = new Timer(ScrapeApps, null, TimeSpan.FromMinutes(5), TimeSpan.FromHours(3));
+
             return Task.CompletedTask;
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Steam Scraper Service is stopping.");
-            _timer?.Change(Timeout.Infinite, 0);
+            _games_timer?.Change(Timeout.Infinite, 0);
+            _apps_timer?.Change(Timeout.Infinite, 0);
             return Task.CompletedTask;
         }
     }

@@ -17,6 +17,7 @@ import { InfoLabelComponent } from './info-label/info-label.component';
 import { AboutComponent } from './about/about.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InfoLabelComponent,
     AboutComponent,
     SearchResultsComponent,
+    FaqComponent,
   ],
   imports: [
     BrowserModule,

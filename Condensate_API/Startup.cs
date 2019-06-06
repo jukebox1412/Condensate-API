@@ -15,11 +15,9 @@ namespace Condensate_API
     public class Startup
     {
 
-        private IHostingEnvironment _env { get; set; }
         public Startup(IHostingEnvironment env, IConfiguration configuration)
         {
             Configuration = configuration;
-            _env = env;
         }
 
         public IConfiguration Configuration { get; }
