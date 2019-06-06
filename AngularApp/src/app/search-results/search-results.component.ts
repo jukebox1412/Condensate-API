@@ -1,11 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.css']
+  styleUrls: ['./search-results.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      state('in', style({ transform: 'translateX(0)' })),
+      transition(':enter', [
+        style({ opacity: 0, }),
+        animate(1000, style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 
 
@@ -25,7 +35,7 @@ export class SearchResultsComponent implements OnInit {
    * @param service 
    * @param router 
    */
-  constructor(private route: ActivatedRoute, private service: UserService, private router: Router) { }
+  constructor(private route: ActivatedRoute, public service: UserService, private router: Router) { }
 
   ngOnInit() {
     // aquire games after getting steam id from url

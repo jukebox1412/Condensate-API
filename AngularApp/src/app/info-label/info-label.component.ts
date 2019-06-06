@@ -13,7 +13,7 @@ export class InfoLabelComponent implements OnInit {
    * Currently displays info about total hours, total price, and total hours / total price (average)
    * @param service 
    */
-  constructor(private service: UserService) { }
+  constructor(public service: UserService) { }
 
   ngOnInit() {
     this.service.stats$.subscribe(stats => this.stats = stats);

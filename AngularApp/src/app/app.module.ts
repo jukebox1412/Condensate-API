@@ -16,6 +16,7 @@ import { ChartComponent } from './chart/chart.component';
 import { InfoLabelComponent } from './info-label/info-label.component';
 import { AboutComponent } from './about/about.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     NgbModule,
     NgbModule.forRoot(),
     AppRoutingModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    BrowserAnimationsModule,
   ],
   providers: [DecimalPipe],
   bootstrap: [AppComponent]

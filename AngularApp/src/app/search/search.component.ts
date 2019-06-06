@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   steam_id: string;
   submitted: boolean;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(public router: Router, private route: ActivatedRoute) { }
 
   
   ngOnInit() {

@@ -25,7 +25,7 @@ export class TableComponent {
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
-  constructor(private service: UserService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public service: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.service.gamePlaytimes$.subscribe(gamePlaytimes => {
