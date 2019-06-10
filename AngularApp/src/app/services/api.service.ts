@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { isDevMode } from '@angular/core';
-import { GamePlaytime } from './classes/GamePlaytime';
+import { GamePlaytime, UserGPs } from '../classes/GamePlaytime';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -36,13 +36,13 @@ export class ApiService {
    * Given the search query, ping the api for user games
    * @param searchQuery Should be url to steam profile or steam id
    */
-  getUserGames(searchQuery: string): Observable<GamePlaytime[]> {
-    return this.http.get<GamePlaytime[]>(this.baseUrl + this.getUserUrl, {
+  getUserAndGames(searchQuery: string): Observable<UserGPs> {
+    return this.http.get<UserGPs>(this.baseUrl + this.getUserUrl, {
       params: {
         id: searchQuery
       }
     }).pipe(
-      catchError(this.handleError<GamePlaytime[]>("getUserGames", []))
+      catchError(this.handleError<UserGPs>("getUserGames", null))
     );
   }
 }

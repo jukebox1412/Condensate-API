@@ -18,6 +18,7 @@ import { AboutComponent } from './about/about.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FaqComponent } from './faq/faq.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FaqComponent } from './faq/faq.component';
     AboutComponent,
     SearchResultsComponent,
     FaqComponent,
+    UserInfoComponent,
   ],
   imports: [
     BrowserModule,

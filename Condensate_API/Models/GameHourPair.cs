@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 
 namespace Condensate_API.Models
 {
+    public struct UserGPs
+    {
+        public User user;
+        public HashSet<GamePlaytime> gamePlaytimes;
+    }
+
     public struct GamePlaytime
     {
         public Game game;

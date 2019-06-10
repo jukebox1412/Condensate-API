@@ -4,10 +4,8 @@ namespace Condensate_API.Models
 {
     public class User
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public bool IsComplete { get; set; }
-
-        
+        public string user_id { get; set; }
+        public string personaname { get; set; }
+        public string IconURL { get; set; }
     }
 }

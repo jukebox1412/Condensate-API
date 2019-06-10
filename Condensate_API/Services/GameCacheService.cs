@@ -28,6 +28,7 @@ namespace Condensate_API.Services
         {
             _logger = logger;
             _gameService = gameService;
+            _games_cache = new HashSet<Game>();
         }
 
         private void ExpireData(object state)
@@ -72,11 +73,12 @@ namespace Condensate_API.Services
         public Task StartAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Game Cache Service is starting.");
-            _timer?.Dispose();
 
             _timer = new Timer(ExpireData, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
 
-            _games_cache = new HashSet<Game>(_gameService.Get());
+            _timer?.Dispose();
+
+            _games_cache.UnionWith(_gameService.Get());
             _fresh_data = true;
 
             return Task.CompletedTask;

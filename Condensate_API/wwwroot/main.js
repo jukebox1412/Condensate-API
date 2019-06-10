@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"container\">\n  <div class=\"jumbotron\">\n    <h1>About Condensate</h1>\n    <br>\n    <div class=\"lead row\">\n      <div class=\"col-md-12\">By Zhi Bin Wu</div>\n    </div>\n    <div class=\"lead row\">\n      <div class=\"col-md-12\">\n        <a href=\"mailto:jukebox1412@gmail.com\" target=\"_blank\">Jukebox1412@gmail.com</a>\n      </div>\n    </div>\n    <div class=\"lead row\">\n      <div class=\"col-md-12\">\n        <a href=\"https://github.com/jukebox1412/Condensate\" target=\"_blank\"><img class=\"img-fluid\"\n            src=\"../../assets/GitHub-Mark-120px-plus.png\" /></a>\n      </div>\n    </div>\n\n    <hr class=\"my-4\">\n\n    <h2 class=\"my-4\">Licenses and Credits:</h2>\n    <table class=\"table table-hover table-striped\">\n      <thead>\n        <tr>\n          <th scope=\"col\">Software</th>\n          <th scope=\"col\">Purpose</th>\n          <th scope=\"col\">License</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://github.com/angular/angular\">Angular 7</a></td>\n          <td>Frontend client </td>\n          <td>MIT</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://github.com/aspnet/AspNetCore\">ASP.Net Core</a></td>\n          <td>Backend API</td>\n          <td>Apache-2.0</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://ng-bootstrap.github.io\">ng-bootstrap</a></td>\n          <td>Tables and Angular Bootstrap</td>\n          <td>MIT</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://developers.google.com/chart/\">Google Charts</a></td>\n          <td>Charts</td>\n          <td>MIT</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://www.npmjs.com/package/angular-google-charts\">Angular-google-charts</a>\n          </td>\n          <td>Google Charts Angular wrapper</td>\n          <td>MIT</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://www.digitalocean.com/\">Digital Ocean</a>\n          </td>\n          <td>Remote host</td>\n          <td>NA</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://www.nginx.com/\">NGINX</a>\n          </td>\n          <td>Reverse Proxy</td>\n          <td>BSD-Like</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://travis-ci.com/\">Travis CI</a>\n          </td>\n          <td>Dev Pipeline</td>\n          <td>NA</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://github.com/\">Github</a>\n          </td>\n          <td>Remote Repo</td>\n          <td>NA</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://letsencrypt.org/\">Let's Encrypt</a>\n          </td>\n          <td>HTTPS Certificates</td>\n          <td>Mozilla Public License</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://certbot.eff.org/\">Certbot</a>\n          </td>\n          <td>HTTPS Certificates helper</td>\n          <td>Apache License</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</main>\n"
+module.exports = "<main class=\"container\">\n  <div class=\"jumbotron\">\n    <h1>About Condensate</h1>\n    <br>\n    <div class=\"lead row\">\n      <div class=\"col-md-12\">By Zhi Bin Wu</div>\n    </div>\n    <div class=\"lead row\">\n      <div class=\"col-md-12\">\n        <a href=\"mailto:zhi.wu1412@gmail.com\" target=\"_blank\">zhi.wu1412@gmail.com</a>\n      </div>\n    </div>\n    <div class=\"lead row\">\n      <div class=\"col-md-12\">\n        <a href=\"https://github.com/jukebox1412/Condensate\" target=\"_blank\"><img class=\"img-fluid\"\n            src=\"../../assets/GitHub-Mark-120px-plus.png\" /></a>\n      </div>\n    </div>\n\n    <hr class=\"my-4\">\n\n    <h2 class=\"my-4\">Licenses and Credits:</h2>\n    <table class=\"table table-hover table-striped\">\n      <thead>\n        <tr>\n          <th scope=\"col\">Software</th>\n          <th scope=\"col\">Purpose</th>\n          <th scope=\"col\">License</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://github.com/angular/angular\">Angular 7</a></td>\n          <td>Frontend client </td>\n          <td>MIT</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://github.com/aspnet/AspNetCore\">ASP.Net Core</a></td>\n          <td>Backend API</td>\n          <td>Apache-2.0</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://ng-bootstrap.github.io\">ng-bootstrap</a></td>\n          <td>Tables and Angular Bootstrap</td>\n          <td>MIT</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://developers.google.com/chart/\">Google Charts</a></td>\n          <td>Charts</td>\n          <td>MIT</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://www.npmjs.com/package/angular-google-charts\">Angular-google-charts</a>\n          </td>\n          <td>Google Charts Angular wrapper</td>\n          <td>MIT</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://www.digitalocean.com/\">Digital Ocean</a>\n          </td>\n          <td>Remote host</td>\n          <td>NA</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://www.nginx.com/\">NGINX</a>\n          </td>\n          <td>Reverse Proxy</td>\n          <td>BSD-Like</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://travis-ci.com/\">Travis CI</a>\n          </td>\n          <td>Dev Pipeline</td>\n          <td>NA</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://github.com/\">Github</a>\n          </td>\n          <td>Remote Repo</td>\n          <td>NA</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://letsencrypt.org/\">Let's Encrypt</a>\n          </td>\n          <td>HTTPS Certificates</td>\n          <td>Mozilla Public License</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://certbot.eff.org/\">Certbot</a>\n          </td>\n          <td>HTTPS Certificates helper</td>\n          <td>Apache License</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://github.com/SteamRE/SteamKit\">SteamKit</a>\n          </td>\n          <td>Steam API helper</td>\n          <td>LGPL-2.1</td>\n        </tr>\n        <tr>\n          <td><a target=\"_blank\" href=\"https://www.mongodb.com/\">MongoDB</a>\n          </td>\n          <td>Database</td>\n          <td>GNU AGPL v3.0 </td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</main>\n"
 
 /***/ }),
 
@@ -82,73 +82,6 @@ var AboutComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/api.service.ts":
-/*!********************************!*\
-  !*** ./src/app/api.service.ts ***!
-  \********************************/
-/*! exports provided: ApiService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return ApiService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-
-
-
-
-
-
-var ApiService = /** @class */ (function () {
-    /**
-     * The service that connects the Client App to the API
-     * @param http
-     */
-    function ApiService(http) {
-        this.http = http;
-        this.baseUrl = "api/users";
-        this.getUserUrl = "/GetUserGamesById";
-        if (!Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])()) {
-            this.baseUrl = "https://condensate.me/" + this.baseUrl;
-        }
-    }
-    ApiService.prototype.handleError = function (operation, result) {
-        if (operation === void 0) { operation = 'operation'; }
-        return function (error) {
-            // TODO: send the error to remote logging infrastructure
-            console.error(error); // log to console instead
-            // Let the app keep running by returning an empty result.
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
-        };
-    };
-    /**
-     * Given the search query, ping the api for user games
-     * @param searchQuery Should be url to steam profile or steam id
-     */
-    ApiService.prototype.getUserGames = function (searchQuery) {
-        return this.http.get(this.baseUrl + this.getUserUrl, {
-            params: {
-                id: searchQuery
-            }
-        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUserGames", [])));
-    };
-    ApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
-    ], ApiService);
-    return ApiService;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -165,6 +98,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
 /* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
 /* harmony import */ var _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./search-results/search-results.component */ "./src/app/search-results/search-results.component.ts");
+/* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./faq/faq.component */ "./src/app/faq/faq.component.ts");
+
 
 
 
@@ -178,6 +113,7 @@ var routes = [
         ]
     },
     { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_4__["AboutComponent"] },
+    { path: 'faq', component: _faq_faq_component__WEBPACK_IMPORTED_MODULE_6__["FaqComponent"] },
     { path: '', redirectTo: '/search', pathMatch: 'full' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -217,7 +153,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-dark\">\n  <a class=\"navbar-brand text-success\" routerLink=\"/\">Condensate</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <a class=\"nav-link text-light\" routerLink=\"/search\">Home <span class=\"sr-only\">(current)</span></a>\n  <a class=\"nav-link text-light\" routerLink=\"/about\">About</a>\n</nav>\n<router-outlet></router-outlet>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-dark\">\n  <a class=\"navbar-brand text-success\" routerLink=\"/\">Condensate</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <a class=\"nav-link text-light\" routerLink=\"/search\">Home <span class=\"sr-only\">(current)</span></a>\n  <a class=\"nav-link text-light\" routerLink=\"/about\">About</a>\n  <a class=\"nav-link text-light\" routerLink=\"/faq\">FAQ</a>\n</nav>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -282,10 +218,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./search-results/search-results.component */ "./src/app/search-results/search-results.component.ts");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./faq/faq.component */ "./src/app/faq/faq.component.ts");
+/* harmony import */ var _user_info_user_info_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./user-info/user-info.component */ "./src/app/user-info/user-info.component.ts");
 
 
 
  // <-- NgModel lives here
+
 
 
 
@@ -316,6 +254,7 @@ var AppModule = /** @class */ (function () {
                 _about_about_component__WEBPACK_IMPORTED_MODULE_15__["AboutComponent"],
                 _search_results_search_results_component__WEBPACK_IMPORTED_MODULE_16__["SearchResultsComponent"],
                 _faq_faq_component__WEBPACK_IMPORTED_MODULE_18__["FaqComponent"],
+                _user_info_user_info_component__WEBPACK_IMPORTED_MODULE_19__["UserInfoComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -372,7 +311,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChartComponent", function() { return ChartComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
 
 
@@ -408,7 +347,7 @@ var ChartComponent = /** @class */ (function () {
             ],
             styles: [__webpack_require__(/*! ./chart.component.css */ "./src/app/chart/chart.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
     ], ChartComponent);
     return ChartComponent;
 }());
@@ -489,7 +428,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  faq works!\n</p>\n"
+module.exports = "<main class=\"container\">\n  <div class=\"jumbotron\">\n    <h1>Frequently Asked Questions</h1>\n  </div>\n\n  <div class=\"container\">\n    <ul>\n      <li class=\"mb-2\">\n        <div class=\"d-flex w-100 justify-content-between\">\n          <h5 class=\"mb-1\">What is an 'unknown' game?</h5>\n        </div>\n        There's two reasons a game is marked as unknown:\n        <ol>\n          <li>The game has been deleted by Steam</li>\n          <li>The game has not yet been scraped to our database (usually for new games)</li>\n        </ol>\n      </li>\n      <li class=\"mb-2\">\n        <div class=\"d-flex w-100 justify-content-between\">\n          <h5 class=\"mb-1\">Why can't I see my games when I search for my profile?</h5>\n        </div>\n        Your profile may be private or you may have entered your Steam ID or profile URL incorrectly. To find\n        your profile URL, go to your steam profile in browser and copy-paste the url to our search bar.\n      </li>\n      <li class=\"mb-2\">\n        <div class=\"d-flex w-100 justify-content-between\">\n          <h5 class=\"mb-1\">Is Condensate Open Source?</h5>\n        </div>\n        Yes, see the about page for details.\n      </li>\n      <li class=\"mb-2\">\n        <div class=\"d-flex w-100 justify-content-between\">\n          <h5 class=\"mb-1\">How can I hide free / unknown / unplayed games?</h5>\n        </div>\n        After finding your profile, click on the green buttons below the search bar to hide free / unknown / unplayed\n        games.\n      </li>\n      <li class=\"mb-2\">\n        <div class=\"d-flex w-100 justify-content-between\">\n          <h5 class=\"mb-1\">Is there a way to export my profile information?</h5>\n        </div>\n        There is currently no way to export your data, but could be a future feature.\n      </li>\n      <li class=\"mb-2\">\n        <div class=\"d-flex w-100 justify-content-between\">\n          <h5 class=\"mb-1\">Is there a way to share my profile information?</h5>\n        </div>\n        Copy the link after searching for a URL and you can give that link to your friends.\n      </li>\n    </ul>\n  </div>\n</main>\n"
 
 /***/ }),
 
@@ -561,7 +500,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoLabelComponent", function() { return InfoLabelComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
 
 
 
@@ -583,7 +522,7 @@ var InfoLabelComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./info-label.component.html */ "./src/app/info-label/info-label.component.html"),
             styles: [__webpack_require__(/*! ./info-label.component.css */ "./src/app/info-label/info-label.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
     ], InfoLabelComponent);
     return InfoLabelComponent;
 }());
@@ -610,7 +549,7 @@ module.exports = ".active {\r\n  background-color: rgb(28, 122, 47) !important;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-center\" *ngIf=\"service.loading$ | async; else done_loading\">\n  <div class=\"spinner-border text-success\" role=\"status\" style=\"width: 5rem; height: 5rem; font-size:30px;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n<ng-template #done_loading>\n  <div *ngIf=\"!(service.success$ | async); else success_div\">\n    <div class=\"alert alert-danger\" role=\"alert\">\n      Unable to get games from this profile. Check the ID / URL and make sure your profile is not private!\n    </div>\n  </div>\n  <ng-template #success_div>\n    <div @fadeIn>\n      <form class=\"form-group\" (change)=\"filterChanged()\" #filterForm=\"ngForm\">\n        <div class=\"btn-group btn-group-toggle\">\n          <label class=\"btn btn-secondary\" ngbButtonLabel>\n            <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeFree\" name=\"includeFree\">Include Free\n          </label>\n          <label class=\"btn btn-secondary\" ngbButtonLabel>\n            <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnknown\" name=\"includeUnknown\">Include Unknown\n          </label>\n          <label class=\"btn btn-secondary\" ngbButtonLabel>\n            <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnplayed\" name=\"includeUnplayed\">Include Unplayed\n          </label>\n        </div>\n      </form>\n      <app-chart></app-chart>\n      <app-info-label></app-info-label>\n      <app-table></app-table>\n    </div>\n  </ng-template>\n</ng-template>\n"
+module.exports = "<div class=\"d-flex justify-content-center\" *ngIf=\"service.loading$ | async; else done_loading\">\n  <div class=\"spinner-border text-success\" role=\"status\" style=\"width: 5rem; height: 5rem; font-size:30px;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n<ng-template #done_loading>\n  <div *ngIf=\"!(service.success$ | async); else success_div\">\n    <div class=\"alert alert-danger\" role=\"alert\">\n      Unable to get games from this profile. Check the ID / URL and make sure your profile is not private!\n    </div>\n  </div>\n  <ng-template #success_div>\n    <div @fadeIn>\n      <div class=\"container\">\n        <app-user-info></app-user-info>\n        <form class=\"form-group my-4 text-center\" (change)=\"filterChanged()\" #filterForm=\"ngForm\">\n          <div class=\"btn-group btn-group-toggle\">\n            <label class=\"btn btn-secondary\" ngbButtonLabel>\n              <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeFree\" name=\"includeFree\">Include Free\n            </label>\n            <label class=\"btn btn-secondary\" ngbButtonLabel>\n              <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnknown\" name=\"includeUnknown\">Include Unknown\n            </label>\n            <label class=\"btn btn-secondary\" ngbButtonLabel>\n              <input type=\"checkbox\" ngbButton [(ngModel)]=\"includeUnplayed\" name=\"includeUnplayed\">Include Unplayed\n            </label>\n          </div>\n        </form>\n\n        <app-chart></app-chart>\n        <app-info-label></app-info-label>\n        <app-table></app-table>\n      </div>\n    </div>\n  </ng-template>\n</ng-template>\n"
 
 /***/ }),
 
@@ -627,7 +566,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
 
 
@@ -686,7 +625,7 @@ var SearchResultsComponent = /** @class */ (function () {
             ],
             styles: [__webpack_require__(/*! ./search-results.component.css */ "./src/app/search-results/search-results.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], SearchResultsComponent);
     return SearchResultsComponent;
 }());
@@ -713,7 +652,7 @@ module.exports = ".ng-valid[required],\r\n.ng-valid.required {\r\n  border-left:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/search'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n  <p class=\"lead\">Enter your Steam ID or profile URL below to see how well you're spending your time and money\n    on Steam!</p>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8 mt-4\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #search_input=\"ngModel\" />\n        <input class=\"btn btn-success col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"search_input.valid || !search_input.dirty\" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n\n  <!-- children of search defined in app-routing will be shown below -->\n  <router-outlet></router-outlet>\n  <hr>\n</div>\n"
+module.exports = "<!-- only show jumbotron if on main page -->\n<div *ngIf=\"router.url =='/search'\" class=\"jumbotron text-center\">\n  <h1>Welcome to Condensate!</h1>\n  <p class=\"lead\">Enter your Steam ID or profile URL below to see how well you're spending your time and money\n    on Steam!</p>\n</div>\n\n<div class=\"container\">\n  <div class=\"row-fluid\">\n    <form class=\"form-group\" (ngSubmit)=\"onSearchSubmit(searchForm.valid)\" #searchForm=\"ngForm\">\n      <label class=\"col-md-8 mt-4\">Steam ID or Steam Profile URL:</label>\n      <div class=\"input-group\">\n        <input class=\"form-control col-md-10\" [(ngModel)]=\"steam_id\" id=\"search_input\" name=\"search_input\" required\n          #search_input=\"ngModel\" />\n        <input class=\"btn btn-success col-md-2\" type=\"submit\" value=\"Search\" />\n      </div>\n      <div [hidden]=\"search_input.valid || !search_input.dirty\" class=\"alert alert-danger\">\n        Steam ID or URL is required\n      </div>\n    </form>\n    <hr>\n  </div>\n\n  <!-- children of search defined in app-routing will be shown below -->\n</div>\n<hr>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -770,153 +709,77 @@ var SearchComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/table/sortable.directive.ts":
-/*!*********************************************!*\
-  !*** ./src/app/table/sortable.directive.ts ***!
-  \*********************************************/
-/*! exports provided: NgbdSortableHeader */
+/***/ "./src/app/services/api.service.ts":
+/*!*****************************************!*\
+  !*** ./src/app/services/api.service.ts ***!
+  \*****************************************/
+/*! exports provided: ApiService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgbdSortableHeader", function() { return NgbdSortableHeader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return ApiService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 
-// original code from https://ng-bootstrap.github.io/#/components/table/examples
 
-var rotate = { 'asc': 'desc', 'desc': '', '': 'asc' };
-var NgbdSortableHeader = /** @class */ (function () {
-    function NgbdSortableHeader() {
-        this.direction = '';
-        this.sort = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+
+
+
+
+var ApiService = /** @class */ (function () {
+    /**
+     * The service that connects the Client App to the API
+     * @param http
+     */
+    function ApiService(http) {
+        this.http = http;
+        this.baseUrl = "api/users";
+        this.getUserUrl = "/GetUserGamesById";
+        if (!Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])()) {
+            this.baseUrl = "https://condensate.me/" + this.baseUrl;
+        }
     }
-    NgbdSortableHeader.prototype.rotate = function () {
-        this.direction = rotate[this.direction];
-        this.sort.emit({ column: this.sortable, direction: this.direction });
+    ApiService.prototype.handleError = function (operation, result) {
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            // TODO: send the error to remote logging infrastructure
+            console.error(error); // log to console instead
+            // Let the app keep running by returning an empty result.
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
     };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], NgbdSortableHeader.prototype, "sortable", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], NgbdSortableHeader.prototype, "direction", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], NgbdSortableHeader.prototype, "sort", void 0);
-    NgbdSortableHeader = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            selector: 'th[sortable]',
-            host: {
-                '[class.asc]': 'direction === "asc"',
-                '[class.desc]': 'direction === "desc"',
-                '(click)': 'rotate()'
+    /**
+     * Given the search query, ping the api for user games
+     * @param searchQuery Should be url to steam profile or steam id
+     */
+    ApiService.prototype.getUserAndGames = function (searchQuery) {
+        return this.http.get(this.baseUrl + this.getUserUrl, {
+            params: {
+                id: searchQuery
             }
-        })
-    ], NgbdSortableHeader);
-    return NgbdSortableHeader;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/table/table.component.css":
-/*!*******************************************!*\
-  !*** ./src/app/table/table.component.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "  /* Sortable table demo */\r\n\r\n  th[sortable] {\r\n    cursor: pointer;\r\n    -moz-user-select: none;\r\n     -ms-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n  }\r\n\r\n  tr {\r\n    height: 50px;\r\n  }\r\n\r\n  th[sortable].desc:before,\r\n  th[sortable].asc:before {\r\n    content: '';\r\n    display: block;\r\n    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmxJREFUeAHtmksrRVEUx72fH8CIGQNJkpGUUmakDEiZSJRIZsRQmCkTJRmZmJgQE0kpX0D5DJKJgff7v+ru2u3O3vvc67TOvsdatdrnnP1Y///v7HvvubdbUiIhBISAEBACQkAICAEhIAQ4CXSh2DnyDfmCPEG2Iv9F9MPlM/LHyAecdyMzHYNwR3fdNK/OH9HXl1UCozD24TCvILxizEDWIEzA0FcM8woCgRrJCoS5PIwrANQSMAJX1LEI9bqpQo4JYNFFKRSvIgsxHDVnqZgIkPnNBM0rIGtYk9YOOsqgbgepRCfdbmFtqhFkVEDVPjJp0+Z6e6hRHhqBKgg6ZDCvYBygVmUoEGoh5JTRvIJwhJo1aUOoh4CLPMyvxxi7EWOMgnCGsXXI1GIXlZUYX7ucU+kbR8NW8lh3O7cue0Pk32MKndfUxQFAwxdirk3fHappAnc0oqDPzDfGTBrCfHP04dM4oTV8cxr0SVzH9FF07xD3ib6xCDE+M+aUcVygtWzzbtGX2rPBrEUYfecfQkaFzYi6HjVnGBdtL7epqAlc1+jRdAap74RrnPc4BCijttY2tRcdN0g17w7HqZrXhdJTYAuS3hd8z+vKgK3V1zWPae0mZDMykadBn1hTQBLnZNwVrJpSe/NwEeDsEwCctEOsJTsgxLvCqUl2ACftEGvJDgjxrnBqkh3ASTvEWrIDQrwrnJpkB3DSDrGW7IAQ7wqnJtkBnLRztejXXVu4+mxz/nQ9jR1w5VB86ejLTFcnnDwhzV+F6T+CHZlx6THSjn76eyyBIOPHyDakhBAQAkJACAgBISAEhIAQYCLwC8JxpAmsEGt6AAAAAElFTkSuQmCC') no-repeat;\r\n    background-size: 22px;\r\n    width: 22px;\r\n    height: 22px;\r\n    float: left;\r\n    margin-left: -22px;\r\n  }\r\n\r\n  th[sortable].desc:before {\r\n    -webkit-transform: rotate(180deg);\r\n            transform: rotate(180deg);\r\n    -ms-transform: rotate(180deg);\r\n  }\r\n\r\n  /* Filtering table demo */\r\n\r\n  ngbd-table-filtering span.ngb-highlight {\r\n    background-color: yellow;\r\n  }\r\n\r\n  /* Complete table demo */\r\n\r\n  ngbd-table-complete span.ngb-highlight {\r\n    background-color: yellow;\r\n  }\r\n\r\n  h5>.badge {\r\n    vertical-align: middle\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGFibGUvdGFibGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiRUFBRSx3QkFBd0I7O0VBRXhCO0lBQ0UsZUFBZTtJQUNmLHNCQUFpQjtLQUFqQixxQkFBaUI7U0FBakIsaUJBQWlCO0lBQ2pCLHlCQUF5QjtFQUMzQjs7RUFFQTtJQUNFLFlBQVk7RUFDZDs7RUFFQTs7SUFFRSxXQUFXO0lBQ1gsY0FBYztJQUNkLDI4QkFBMjhCO0lBQzM4QixxQkFBcUI7SUFDckIsV0FBVztJQUNYLFlBQVk7SUFDWixXQUFXO0lBQ1gsa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0UsaUNBQXlCO1lBQXpCLHlCQUF5QjtJQUN6Qiw2QkFBNkI7RUFDL0I7O0VBRUEseUJBQXlCOztFQUN6QjtJQUNFLHdCQUF3QjtFQUMxQjs7RUFFQSx3QkFBd0I7O0VBQ3hCO0lBQ0Usd0JBQXdCO0VBQzFCOztFQUVBO0lBQ0U7RUFDRiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIgIC8qIFNvcnRhYmxlIHRhYmxlIGRlbW8gKi9cclxuXHJcbiAgdGhbc29ydGFibGVdIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHVzZXItc2VsZWN0OiBub25lO1xyXG4gICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcclxuICB9XHJcblxyXG4gIHRyIHtcclxuICAgIGhlaWdodDogNTBweDtcclxuICB9XHJcblxyXG4gIHRoW3NvcnRhYmxlXS5kZXNjOmJlZm9yZSxcclxuICB0aFtzb3J0YWJsZV0uYXNjOmJlZm9yZSB7XHJcbiAgICBjb250ZW50OiAnJztcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgYmFja2dyb3VuZDogdXJsKCdkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUVBQUFBQkFDQVlBQUFDcWFYSGVBQUFBQVhOU1IwSUFyczRjNlFBQUFteEpSRUZVZUFIdG1rc3JSVkVVeDcyZkg4Q0lHUU5Ka3BHVVVtYWtERWlaU0pSSVpzUlFtQ2tUSlJtWm1KZ1FFMGtwWDBENURKS0pnZmY3ditydTJ1M08zdnZjNjdUT3ZzZGF0ZHJublAxWS8vL3Y3SHZ2dWJkYlVpSWhCSVNBRUJBQ1FrQUlDQUVoSUFRNENYU2gyRG55RGZtQ1BFRzJJdjlGOU1QbE0vTEh5QWVjZHlNekhZTndSM2ZkTksvT0g5SFhsMVVDb3pEMjRUQ3ZJTHhpekVEV0lFekEwRmNNOHdvQ2dSckpDb1M1UEl3ckFOUVNNQUpYMUxFSTlicXBRbzRKWU5GRktSU3ZJZ3N4SERWbnFaZ0lrUG5OQk0wcklHdFlrOVlPT3NxZ2JnZXBSQ2ZkYm1GdHFoRmtWRURWUGpKcDArWjZlNmhSSGhxQktnZzZaREN2WUJ5Z1ZtVW9FR29oNUpUUnZJSndoSm8xYVVPb2g0Q0xQTXl2eHhpN0VXT01nbkNHc1hYSTFHSVhsWlVZWDd1Y1Ura2JSOE5XOGxoM083Y3VlMFBrMzJNS25kZlV4UUZBd3hkaXJrM2ZIYXBwQW5jMG9xRFB6RGZHVEJyQ2ZIUDA0ZE00b1RWOGN4cjBTVnpIOUZGMDd4RDNpYjZ4Q0RFK00rYVVjVnlndFd6emJ0R1gyclBCckVVWWZlY2ZRa2FGellpNkhqVm5HQmR0TDdlcHFBbGMxK2pSZEFhcDc0UnJuUGM0QkNpanR0WTJ0UmNkTjBnMTd3N0hxWnJYaGRKVFlBdVMzaGQ4eit2S2dLM1YxeldQYWUwbVpETXlrYWRCbjFoVFFCTG5aTndWckpwU2UvTndFZURzRXdDY3RFT3NKVHNneEx2Q3FVbDJBQ2Z0RUd2SkRnanhybkJxa2gzQVNUdkVXcklEUXJ3cm5KcGtCM0RTRHJHVzdJQVE3d3FuSnRrQm5MUnp0ZWpYWFZ1NCtteHovblE5alIxdzVWQjg2ZWpMVEZjbm5Ed2h6VitGNlQrQ0habHg2VEhTam43NmV5eUJJT1BIeURha2hCQVFBa0pBQ0FnQklTQUVoSUFRWUNMd0M4SnhwQW1zRUd0NkFBQUFBRWxGVGtTdVFtQ0MnKSBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IDIycHg7XHJcbiAgICB3aWR0aDogMjJweDtcclxuICAgIGhlaWdodDogMjJweDtcclxuICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0yMnB4O1xyXG4gIH1cclxuXHJcbiAgdGhbc29ydGFibGVdLmRlc2M6YmVmb3JlIHtcclxuICAgIHRyYW5zZm9ybTogcm90YXRlKDE4MGRlZyk7XHJcbiAgICAtbXMtdHJhbnNmb3JtOiByb3RhdGUoMTgwZGVnKTtcclxuICB9XHJcblxyXG4gIC8qIEZpbHRlcmluZyB0YWJsZSBkZW1vICovXHJcbiAgbmdiZC10YWJsZS1maWx0ZXJpbmcgc3Bhbi5uZ2ItaGlnaGxpZ2h0IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHllbGxvdztcclxuICB9XHJcblxyXG4gIC8qIENvbXBsZXRlIHRhYmxlIGRlbW8gKi9cclxuICBuZ2JkLXRhYmxlLWNvbXBsZXRlIHNwYW4ubmdiLWhpZ2hsaWdodCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB5ZWxsb3c7XHJcbiAgfVxyXG5cclxuICBoNT4uYmFkZ2Uge1xyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZVxyXG4gIH1cclxuIl19 */"
-
-/***/ }),
-
-/***/ "./src/app/table/table.component.html":
-/*!********************************************!*\
-  !*** ./src/app/table/table.component.html ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = " <!-- code modified from https://ng-bootstrap.github.io/#/components/table/examples -->\n <form>\n   <div class=\"form-group form-inline\">\n     Search Games: <input class=\"form-control ml-2\" type=\"text\" name=\"searchTerm\" [(ngModel)]=\"service.searchTerm\" />\n   </div>\n\n   <table class=\"table table-striped\">\n     <thead>\n       <tr>\n         <th scope=\"col\" sortable=\"appid\" (sort)=\"onSort($event)\">#</th>\n         <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Game</th>\n         <th scope=\"col\" sortable=\"playtime\" (sort)=\"onSort($event)\">Hours Played</th>\n         <th scope=\"col\" sortable=\"price\" (sort)=\"onSort($event)\">Price</th>\n         <th scope=\"col\" sortable=\"ratio\" (sort)=\"onSort($event)\">Hours Per Dollar</th>\n       </tr>\n     </thead>\n     <tbody>\n       <tr *ngFor=\"let gamePlaytime of gamePlaytimes\">\n         <th scope=\"row\">{{ gamePlaytime.game.appid }}</th>\n         <td>\n           <img [src]=\"gamePlaytime.game.header_image\" class=\"mr-2\" style=\"width: 80px\">\n           <a href=\"{{gamePlaytime.game.store_link}}\" target=\"_blank\">\n             <ngb-highlight [result]=\"gamePlaytime.game.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n           </a>\n         </td>\n         <td>\n           <!-- Transform playtime from minutes to hours and limit the number of decimal places to 2 -->\n           <ngb-highlight [result]=\"(gamePlaytime.playtime  | number : '1.0-2')\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"(gamePlaytime.game.price | number)\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"gamePlaytime.ratio\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n       </tr>\n     </tbody>\n   </table>\n\n   <div class=\"d-flex justify-content-between p-2\">\n     <ngb-pagination [collectionSize]=\"total\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n     </ngb-pagination>\n\n     <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n       <option [ngValue]=\"6\">6 items per page</option>\n       <option [ngValue]=\"8\">8 items per page</option>\n       <option [ngValue]=\"10\">10 items per page</option>\n     </select>\n   </div>\n\n </form>\n"
-
-/***/ }),
-
-/***/ "./src/app/table/table.component.ts":
-/*!******************************************!*\
-  !*** ./src/app/table/table.component.ts ***!
-  \******************************************/
-/*! exports provided: TableComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableComponent", function() { return TableComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
-/* harmony import */ var _sortable_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sortable.directive */ "./src/app/table/sortable.directive.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
-
-
-
-
-var TableComponent = /** @class */ (function () {
-    function TableComponent(service, route, router) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-    }
-    TableComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.service.gamePlaytimes$.subscribe(function (gamePlaytimes) {
-            _this.gamePlaytimes = gamePlaytimes;
-        });
-        this.service.total$.subscribe(function (total) {
-            _this.total = total;
-        });
+        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUserGames", null)));
     };
-    TableComponent.prototype.onSort = function (_a) {
-        var column = _a.column, direction = _a.direction;
-        // resetting other headers
-        this.headers.forEach(function (header) {
-            if (header.sortable !== column) {
-                header.direction = '';
-            }
-        });
-        this.service.page = 1;
-        this.service.sortColumn = column;
-        this.service.sortDirection = direction;
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"])(_sortable_directive__WEBPACK_IMPORTED_MODULE_3__["NgbdSortableHeader"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
-    ], TableComponent.prototype, "headers", void 0);
-    TableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-table',
-            template: __webpack_require__(/*! ./table.component.html */ "./src/app/table/table.component.html"),
-            providers: [],
-            styles: [__webpack_require__(/*! ./table.component.css */ "./src/app/table/table.component.css")]
+    ApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
-    ], TableComponent);
-    return TableComponent;
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], ApiService);
+    return ApiService;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/user.service.ts":
-/*!*********************************!*\
-  !*** ./src/app/user.service.ts ***!
-  \*********************************/
+/***/ "./src/app/services/user.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/user.service.ts ***!
+  \******************************************/
 /*! exports provided: UserService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -928,8 +791,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./api.service */ "./src/app/api.service.ts");
-/* harmony import */ var _classes_ChartData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./classes/ChartData */ "./src/app/classes/ChartData.ts");
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./api.service */ "./src/app/services/api.service.ts");
+/* harmony import */ var _classes_ChartData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../classes/ChartData */ "./src/app/classes/ChartData.ts");
 
 // original code from https://ng-bootstrap.github.io/#/components/table/examples
 
@@ -1024,6 +887,7 @@ var UserService = /** @class */ (function () {
         this._search$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this._gamePlaytimes$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
         this._total$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](0);
+        this._user$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
         this._stats$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ avg_ratio: 0, total_playtime: 0, total_value: 0 });
         this._categories$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
         this._gpts = [];
@@ -1033,6 +897,12 @@ var UserService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(UserService.prototype, "user$", {
+        get: function () { return this._user$.asObservable(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     Object.defineProperty(UserService.prototype, "gamePlaytimes$", {
         get: function () { return this._gamePlaytimes$.asObservable(); },
         enumerable: true,
@@ -1123,9 +993,9 @@ var UserService = /** @class */ (function () {
     UserService.prototype.aquire_games = function (steam_id) {
         var _this = this;
         this._loading$.next(true);
-        this._api_service.getUserGames(steam_id).subscribe(function (resp) {
+        this._api_service.getUserAndGames(steam_id).subscribe(function (resp) {
             if (resp) {
-                _this._gpts = resp.map(function (gp) {
+                _this._gpts = resp.gamePlaytimes.map(function (gp) {
                     //set the ratio of hours per dollar here as a string and avoid divide by 0
                     if (gp.game.price == 0)
                         gp.ratio = 'free';
@@ -1133,11 +1003,11 @@ var UserService = /** @class */ (function () {
                         gp.ratio = _this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
                     return gp;
                 });
+                _this._user$.next(resp.user);
                 _this._success$.next(true);
             }
             else
                 _this._success$.next(false);
-            console.log(_this._success$.getValue());
             // calling next on search updates the categories and info
             _this._search$.next();
             _this._loading$.next(false);
@@ -1207,6 +1077,212 @@ var UserService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_3__["DecimalPipe"], _api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"]])
     ], UserService);
     return UserService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/table/sortable.directive.ts":
+/*!*********************************************!*\
+  !*** ./src/app/table/sortable.directive.ts ***!
+  \*********************************************/
+/*! exports provided: NgbdSortableHeader */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgbdSortableHeader", function() { return NgbdSortableHeader; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+// original code from https://ng-bootstrap.github.io/#/components/table/examples
+
+var rotate = { 'asc': 'desc', 'desc': '', '': 'asc' };
+var NgbdSortableHeader = /** @class */ (function () {
+    function NgbdSortableHeader() {
+        this.direction = '';
+        this.sort = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    NgbdSortableHeader.prototype.rotate = function () {
+        this.direction = rotate[this.direction];
+        this.sort.emit({ column: this.sortable, direction: this.direction });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], NgbdSortableHeader.prototype, "sortable", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], NgbdSortableHeader.prototype, "direction", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgbdSortableHeader.prototype, "sort", void 0);
+    NgbdSortableHeader = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+            selector: 'th[sortable]',
+            host: {
+                '[class.asc]': 'direction === "asc"',
+                '[class.desc]': 'direction === "desc"',
+                '(click)': 'rotate()'
+            }
+        })
+    ], NgbdSortableHeader);
+    return NgbdSortableHeader;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/table/table.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/table/table.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "  /* Sortable table demo */\r\n\r\n  th[sortable] {\r\n    cursor: pointer;\r\n    -moz-user-select: none;\r\n     -ms-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n  }\r\n\r\n  tr {\r\n    height: 50px;\r\n  }\r\n\r\n  th[sortable].desc:before,\r\n  th[sortable].asc:before {\r\n    content: '';\r\n    display: block;\r\n    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmxJREFUeAHtmksrRVEUx72fH8CIGQNJkpGUUmakDEiZSJRIZsRQmCkTJRmZmJgQE0kpX0D5DJKJgff7v+ru2u3O3vvc67TOvsdatdrnnP1Y///v7HvvubdbUiIhBISAEBACQkAICAEhIAQ4CXSh2DnyDfmCPEG2Iv9F9MPlM/LHyAecdyMzHYNwR3fdNK/OH9HXl1UCozD24TCvILxizEDWIEzA0FcM8woCgRrJCoS5PIwrANQSMAJX1LEI9bqpQo4JYNFFKRSvIgsxHDVnqZgIkPnNBM0rIGtYk9YOOsqgbgepRCfdbmFtqhFkVEDVPjJp0+Z6e6hRHhqBKgg6ZDCvYBygVmUoEGoh5JTRvIJwhJo1aUOoh4CLPMyvxxi7EWOMgnCGsXXI1GIXlZUYX7ucU+kbR8NW8lh3O7cue0Pk32MKndfUxQFAwxdirk3fHappAnc0oqDPzDfGTBrCfHP04dM4oTV8cxr0SVzH9FF07xD3ib6xCDE+M+aUcVygtWzzbtGX2rPBrEUYfecfQkaFzYi6HjVnGBdtL7epqAlc1+jRdAap74RrnPc4BCijttY2tRcdN0g17w7HqZrXhdJTYAuS3hd8z+vKgK3V1zWPae0mZDMykadBn1hTQBLnZNwVrJpSe/NwEeDsEwCctEOsJTsgxLvCqUl2ACftEGvJDgjxrnBqkh3ASTvEWrIDQrwrnJpkB3DSDrGW7IAQ7wqnJtkBnLRztejXXVu4+mxz/nQ9jR1w5VB86ejLTFcnnDwhzV+F6T+CHZlx6THSjn76eyyBIOPHyDakhBAQAkJACAgBISAEhIAQYCLwC8JxpAmsEGt6AAAAAElFTkSuQmCC') no-repeat;\r\n    background-size: 22px;\r\n    width: 22px;\r\n    height: 22px;\r\n    float: left;\r\n    margin-left: -22px;\r\n  }\r\n\r\n  th[sortable].desc:before {\r\n    -webkit-transform: rotate(180deg);\r\n            transform: rotate(180deg);\r\n    -ms-transform: rotate(180deg);\r\n  }\r\n\r\n  /* Filtering table demo */\r\n\r\n  ngbd-table-filtering span.ngb-highlight {\r\n    background-color: yellow;\r\n  }\r\n\r\n  /* Complete table demo */\r\n\r\n  ngbd-table-complete span.ngb-highlight {\r\n    background-color: yellow;\r\n  }\r\n\r\n  h5>.badge {\r\n    vertical-align: middle\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGFibGUvdGFibGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiRUFBRSx3QkFBd0I7O0VBRXhCO0lBQ0UsZUFBZTtJQUNmLHNCQUFpQjtLQUFqQixxQkFBaUI7U0FBakIsaUJBQWlCO0lBQ2pCLHlCQUF5QjtFQUMzQjs7RUFFQTtJQUNFLFlBQVk7RUFDZDs7RUFFQTs7SUFFRSxXQUFXO0lBQ1gsY0FBYztJQUNkLDI4QkFBMjhCO0lBQzM4QixxQkFBcUI7SUFDckIsV0FBVztJQUNYLFlBQVk7SUFDWixXQUFXO0lBQ1gsa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0UsaUNBQXlCO1lBQXpCLHlCQUF5QjtJQUN6Qiw2QkFBNkI7RUFDL0I7O0VBRUEseUJBQXlCOztFQUN6QjtJQUNFLHdCQUF3QjtFQUMxQjs7RUFFQSx3QkFBd0I7O0VBQ3hCO0lBQ0Usd0JBQXdCO0VBQzFCOztFQUVBO0lBQ0U7RUFDRiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIgIC8qIFNvcnRhYmxlIHRhYmxlIGRlbW8gKi9cclxuXHJcbiAgdGhbc29ydGFibGVdIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHVzZXItc2VsZWN0OiBub25lO1xyXG4gICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTtcclxuICB9XHJcblxyXG4gIHRyIHtcclxuICAgIGhlaWdodDogNTBweDtcclxuICB9XHJcblxyXG4gIHRoW3NvcnRhYmxlXS5kZXNjOmJlZm9yZSxcclxuICB0aFtzb3J0YWJsZV0uYXNjOmJlZm9yZSB7XHJcbiAgICBjb250ZW50OiAnJztcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgYmFja2dyb3VuZDogdXJsKCdkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUVBQUFBQkFDQVlBQUFDcWFYSGVBQUFBQVhOU1IwSUFyczRjNlFBQUFteEpSRUZVZUFIdG1rc3JSVkVVeDcyZkg4Q0lHUU5Ka3BHVVVtYWtERWlaU0pSSVpzUlFtQ2tUSlJtWm1KZ1FFMGtwWDBENURKS0pnZmY3ditydTJ1M08zdnZjNjdUT3ZzZGF0ZHJublAxWS8vL3Y3SHZ2dWJkYlVpSWhCSVNBRUJBQ1FrQUlDQUVoSUFRNENYU2gyRG55RGZtQ1BFRzJJdjlGOU1QbE0vTEh5QWVjZHlNekhZTndSM2ZkTksvT0g5SFhsMVVDb3pEMjRUQ3ZJTHhpekVEV0lFekEwRmNNOHdvQ2dSckpDb1M1UEl3ckFOUVNNQUpYMUxFSTlicXBRbzRKWU5GRktSU3ZJZ3N4SERWbnFaZ0lrUG5OQk0wcklHdFlrOVlPT3NxZ2JnZXBSQ2ZkYm1GdHFoRmtWRURWUGpKcDArWjZlNmhSSGhxQktnZzZaREN2WUJ5Z1ZtVW9FR29oNUpUUnZJSndoSm8xYVVPb2g0Q0xQTXl2eHhpN0VXT01nbkNHc1hYSTFHSVhsWlVZWDd1Y1Ura2JSOE5XOGxoM083Y3VlMFBrMzJNS25kZlV4UUZBd3hkaXJrM2ZIYXBwQW5jMG9xRFB6RGZHVEJyQ2ZIUDA0ZE00b1RWOGN4cjBTVnpIOUZGMDd4RDNpYjZ4Q0RFK00rYVVjVnlndFd6emJ0R1gyclBCckVVWWZlY2ZRa2FGellpNkhqVm5HQmR0TDdlcHFBbGMxK2pSZEFhcDc0UnJuUGM0QkNpanR0WTJ0UmNkTjBnMTd3N0hxWnJYaGRKVFlBdVMzaGQ4eit2S2dLM1YxeldQYWUwbVpETXlrYWRCbjFoVFFCTG5aTndWckpwU2UvTndFZURzRXdDY3RFT3NKVHNneEx2Q3FVbDJBQ2Z0RUd2SkRnanhybkJxa2gzQVNUdkVXcklEUXJ3cm5KcGtCM0RTRHJHVzdJQVE3d3FuSnRrQm5MUnp0ZWpYWFZ1NCtteHovblE5alIxdzVWQjg2ZWpMVEZjbm5Ed2h6VitGNlQrQ0habHg2VEhTam43NmV5eUJJT1BIeURha2hCQVFBa0pBQ0FnQklTQUVoSUFRWUNMd0M4SnhwQW1zRUd0NkFBQUFBRWxGVGtTdVFtQ0MnKSBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IDIycHg7XHJcbiAgICB3aWR0aDogMjJweDtcclxuICAgIGhlaWdodDogMjJweDtcclxuICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0yMnB4O1xyXG4gIH1cclxuXHJcbiAgdGhbc29ydGFibGVdLmRlc2M6YmVmb3JlIHtcclxuICAgIHRyYW5zZm9ybTogcm90YXRlKDE4MGRlZyk7XHJcbiAgICAtbXMtdHJhbnNmb3JtOiByb3RhdGUoMTgwZGVnKTtcclxuICB9XHJcblxyXG4gIC8qIEZpbHRlcmluZyB0YWJsZSBkZW1vICovXHJcbiAgbmdiZC10YWJsZS1maWx0ZXJpbmcgc3Bhbi5uZ2ItaGlnaGxpZ2h0IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHllbGxvdztcclxuICB9XHJcblxyXG4gIC8qIENvbXBsZXRlIHRhYmxlIGRlbW8gKi9cclxuICBuZ2JkLXRhYmxlLWNvbXBsZXRlIHNwYW4ubmdiLWhpZ2hsaWdodCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB5ZWxsb3c7XHJcbiAgfVxyXG5cclxuICBoNT4uYmFkZ2Uge1xyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZVxyXG4gIH1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/table/table.component.html":
+/*!********************************************!*\
+  !*** ./src/app/table/table.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = " <!-- code modified from https://ng-bootstrap.github.io/#/components/table/examples -->\n <form>\n   <div class=\"form-group form-inline\">\n     Search Games: <input class=\"form-control ml-2\" type=\"text\" name=\"searchTerm\" [(ngModel)]=\"service.searchTerm\" />\n   </div>\n\n   <table class=\"table table-striped\">\n     <thead>\n       <tr>\n         <th scope=\"col\" sortable=\"appid\" (sort)=\"onSort($event)\">#</th>\n         <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Game</th>\n         <th scope=\"col\" sortable=\"playtime\" (sort)=\"onSort($event)\">Hours Played</th>\n         <th scope=\"col\" sortable=\"price\" (sort)=\"onSort($event)\">Price</th>\n         <th scope=\"col\" sortable=\"ratio\" (sort)=\"onSort($event)\">Hours Per Dollar</th>\n       </tr>\n     </thead>\n     <tbody>\n       <tr *ngFor=\"let gamePlaytime of gamePlaytimes\">\n         <th scope=\"row\">{{ gamePlaytime.game.appid }}</th>\n         <td>\n           <img [src]=\"gamePlaytime.game.header_image\" class=\"mr-2\" style=\"width: 80px\">\n           <a href=\"{{gamePlaytime.game.store_link}}\" target=\"_blank\">\n             <ngb-highlight [result]=\"gamePlaytime.game.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n           </a>\n         </td>\n         <td>\n           <!-- Transform playtime from minutes to hours and limit the number of decimal places to 2 -->\n           <ngb-highlight [result]=\"(gamePlaytime.playtime  | number : '1.0-2')\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"(gamePlaytime.game.price | number)\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n         <td>\n           <ngb-highlight [result]=\"gamePlaytime.ratio\" [term]=\"service.searchTerm\">\n           </ngb-highlight>\n         </td>\n       </tr>\n     </tbody>\n   </table>\n\n   <div class=\"d-flex justify-content-between p-2\">\n     <ngb-pagination [collectionSize]=\"total\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n     </ngb-pagination>\n\n     <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n       <option [ngValue]=\"6\">6 items per page</option>\n       <option [ngValue]=\"8\">8 items per page</option>\n       <option [ngValue]=\"10\">10 items per page</option>\n     </select>\n   </div>\n\n </form>\n"
+
+/***/ }),
+
+/***/ "./src/app/table/table.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/table/table.component.ts ***!
+  \******************************************/
+/*! exports provided: TableComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableComponent", function() { return TableComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _sortable_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sortable.directive */ "./src/app/table/sortable.directive.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+
+var TableComponent = /** @class */ (function () {
+    function TableComponent(service, route, router) {
+        this.service = service;
+        this.route = route;
+        this.router = router;
+    }
+    TableComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.gamePlaytimes$.subscribe(function (gamePlaytimes) {
+            _this.gamePlaytimes = gamePlaytimes;
+        });
+        this.service.total$.subscribe(function (total) {
+            _this.total = total;
+        });
+        // default sort direction
+        this.service.sortColumn = "appid";
+    };
+    TableComponent.prototype.onSort = function (_a) {
+        var column = _a.column, direction = _a.direction;
+        // resetting other headers
+        this.headers.forEach(function (header) {
+            if (header.sortable !== column) {
+                header.direction = '';
+            }
+        });
+        this.service.page = 1;
+        this.service.sortColumn = column;
+        this.service.sortDirection = direction;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"])(_sortable_directive__WEBPACK_IMPORTED_MODULE_3__["NgbdSortableHeader"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
+    ], TableComponent.prototype, "headers", void 0);
+    TableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-table',
+            template: __webpack_require__(/*! ./table.component.html */ "./src/app/table/table.component.html"),
+            providers: [],
+            styles: [__webpack_require__(/*! ./table.component.css */ "./src/app/table/table.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+    ], TableComponent);
+    return TableComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/user-info/user-info.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/user-info/user-info.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXItaW5mby91c2VyLWluZm8uY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/user-info/user-info.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/user-info/user-info.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"text-center\">\n  <img src={{user.iconURL}} class=\"img-thumbnail\" alt=\"profile image\" />\n  <div class=\"caption\">\n    <h3><span class=\"badge\" style=\"background-color:rgb(23, 97, 23); color:white\">{{user.personaname}}</span></h3>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/user-info/user-info.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/user-info/user-info.component.ts ***!
+  \**************************************************/
+/*! exports provided: UserInfoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserInfoComponent", function() { return UserInfoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+
+
+
+var UserInfoComponent = /** @class */ (function () {
+    function UserInfoComponent(service) {
+        this.service = service;
+    }
+    UserInfoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.user$.subscribe(function (usr) { return _this.user = usr; });
+    };
+    UserInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-user-info',
+            template: __webpack_require__(/*! ./user-info.component.html */ "./src/app/user-info/user-info.component.html"),
+            styles: [__webpack_require__(/*! ./user-info.component.css */ "./src/app/user-info/user-info.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+    ], UserInfoComponent);
+    return UserInfoComponent;
 }());
 
 

@@ -3,12 +3,13 @@ import { Injectable, PipeTransform, Input } from '@angular/core';
 
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 
-import { GamePlaytime } from './classes/GamePlaytime';
+import { UserGPs, GamePlaytime } from '../classes/GamePlaytime';
 import { DecimalPipe } from '@angular/common';
 import { switchMap, tap } from 'rxjs/operators';
-import { SortDirection } from './table/sortable.directive';
+import { SortDirection } from '../table/sortable.directive';
 import { ApiService } from './api.service';
-import { ChartData, PieMaker } from './classes/ChartData';
+import { ChartData, PieMaker } from '../classes/ChartData';
+import { User } from '../classes/User';
 
 interface SearchResult {
   filtered_gamePlaytimes: GamePlaytime[];
@@ -104,6 +105,7 @@ export class UserService {
   private _success$: BehaviorSubject<boolean>;
   private _search$: Subject<void>;
   private _gamePlaytimes$: BehaviorSubject<GamePlaytime[]>;
+  private _user$: BehaviorSubject<User>;
   private _total$: BehaviorSubject<number>;
   private _categories$: BehaviorSubject<ChartData[]>;
   private _stats$: BehaviorSubject<Stats>;
@@ -151,6 +153,7 @@ export class UserService {
     this._search$ = new Subject<void>();
     this._gamePlaytimes$ = new BehaviorSubject<GamePlaytime[]>([]);
     this._total$ = new BehaviorSubject<number>(0);
+    this._user$ = new BehaviorSubject<User>(null);
 
     this._stats$ = new BehaviorSubject<Stats>({ avg_ratio: 0, total_playtime: 0, total_value: 0 });
     this._categories$ = new BehaviorSubject<ChartData[]>([]);
@@ -158,6 +161,7 @@ export class UserService {
   }
 
   get categories$() { return this._categories$.asObservable(); }
+  get user$() { return this._user$.asObservable() };
   get gamePlaytimes$() { return this._gamePlaytimes$.asObservable(); }
   get stats$() { return this._stats$.asObservable(); }
   get total$() { return this._total$.asObservable(); }
@@ -201,10 +205,9 @@ export class UserService {
    */
   aquire_games(steam_id: string) {
     this._loading$.next(true);
-    this._api_service.getUserGames(steam_id).subscribe(resp => {
-
+    this._api_service.getUserAndGames(steam_id).subscribe(resp => {
       if (resp) {
-        this._gpts = resp.map(gp => {
+        this._gpts = resp.gamePlaytimes.map(gp => {
           //set the ratio of hours per dollar here as a string and avoid divide by 0
           if (gp.game.price == 0)
             gp.ratio = 'free';
@@ -212,12 +215,13 @@ export class UserService {
             gp.ratio = this.pipe.transform((gp.playtime / gp.game.price), "1.0-2");
           return gp;
         });
+
+        this._user$.next(resp.user);
         this._success$.next(true);
       }
       else
         this._success$.next(false);
 
-      console.log(this._success$.getValue());
       // calling next on search updates the categories and info
       this._search$.next();
       this._loading$.next(false);

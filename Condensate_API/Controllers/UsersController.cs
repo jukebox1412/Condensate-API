@@ -19,8 +19,6 @@ namespace Condensate_API.Controllers
         private readonly GameCacheService _gameCacheService;
 
 
-
-
         public UsersController(GameService gameService, GameCacheService gameCacheService, IHttpClientFactory clientFactory, ILogger<UsersController> logger)
         {
             _gameService = gameService;
@@ -35,7 +33,7 @@ namespace Condensate_API.Controllers
         //    return null;
         //}
 
-        public static string GetSteamID(string input)
+        private static string GetSteamID(string input)
         {
             string digit_pattern = @"^\d+$";
             string user_homePattern = @"steamcommunity.com/id/([A-Za-z0-9\-]+)";
@@ -73,24 +71,49 @@ namespace Condensate_API.Controllers
             return null;
         }
 
+        private static User GetSteamProfile(string id)
+        {
+
+            using (dynamic steam = WebAPI.GetInterface("ISteamUser", Environment.GetEnvironmentVariable("STEAM_API_KEY")))
+            {
+                KeyValue res = steam.GetPlayerSummaries(steamids: id);
+                if (res["players"] != null)
+                {
+                    User user = new User();
+                    user.user_id = id;
+                    user.personaname = res["players"]["player"].Children[0]["personaname"].AsString();
+                    user.IconURL = res["players"]["player"].Children[0]["avatarfull"].AsString();
+                    return user;
+                }
+            }
+
+            return null;
+        }
+
         // GET: api/users/GetUserGamesById?id=5
         [HttpGet("GetUserGamesById")]
-        public ActionResult<IEnumerable<GamePlaytime>> GetUserGamesById(string id)
+        public ActionResult<UserGPs> GetUserGamesById(string id)
         {
-            HashSet<GamePlaytime> gamePlaytimes = new HashSet<GamePlaytime>();
+            UserGPs ugps = new UserGPs();
+            ugps.gamePlaytimes = new HashSet<GamePlaytime>();
+
             using (dynamic steam = WebAPI.GetInterface("IPlayerService", Environment.GetEnvironmentVariable("STEAM_API_KEY")))
             {
                 // note the usage of c#'s dynamic feature, which can be used
                 // to make the api a breeze to use
                 try
                 {
-                    KeyValue res = steam.GetOwnedGames(steamid: GetSteamID(id));
+                    string user_id = GetSteamID(id);
+
+                    KeyValue res = steam.GetOwnedGames(steamid: user_id);
 
                     // check if we can get games; maybe profile is private or bad id
                     if (res.Children.Find(kv => kv.Name == "games") == null)
                         // same as returning null
                         return NoContent();
-                    
+
+                    ugps.user = GetSteamProfile(user_id);
+
                     // get hashset of known games to compare to 
                     HashSet<Game> games;
                     // use the cached games to save on time
@@ -108,9 +131,9 @@ namespace Condensate_API.Controllers
                         double playtime = game["playtime_forever"].AsUnsignedInteger() / 60.0;
 
                         if (games.TryGetValue(g, out Game f))
-                            gamePlaytimes.Add(new GamePlaytime(f, playtime));
+                            ugps.gamePlaytimes.Add(new GamePlaytime(f, playtime));
                         else
-                            gamePlaytimes.Add(new GamePlaytime(g, playtime));
+                            ugps.gamePlaytimes.Add(new GamePlaytime(g, playtime));
                     }
                 }
                 catch (Exception e)
@@ -120,8 +143,7 @@ namespace Condensate_API.Controllers
                 }
             }
 
-            return gamePlaytimes;
-
+            return ugps;
         }
     }
 }

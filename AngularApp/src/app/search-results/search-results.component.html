@@ -11,22 +11,26 @@
   </div>
   <ng-template #success_div>
     <div @fadeIn>
-      <form class="form-group" (change)="filterChanged()" #filterForm="ngForm">
-        <div class="btn-group btn-group-toggle">
-          <label class="btn btn-secondary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="includeFree" name="includeFree">Include Free
-          </label>
-          <label class="btn btn-secondary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="includeUnknown" name="includeUnknown">Include Unknown
-          </label>
-          <label class="btn btn-secondary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="includeUnplayed" name="includeUnplayed">Include Unplayed
-          </label>
-        </div>
-      </form>
-      <app-chart></app-chart>
-      <app-info-label></app-info-label>
-      <app-table></app-table>
+      <div class="container">
+        <app-user-info></app-user-info>
+        <form class="form-group my-4 text-center" (change)="filterChanged()" #filterForm="ngForm">
+          <div class="btn-group btn-group-toggle">
+            <label class="btn btn-secondary" ngbButtonLabel>
+              <input type="checkbox" ngbButton [(ngModel)]="includeFree" name="includeFree">Include Free
+            </label>
+            <label class="btn btn-secondary" ngbButtonLabel>
+              <input type="checkbox" ngbButton [(ngModel)]="includeUnknown" name="includeUnknown">Include Unknown
+            </label>
+            <label class="btn btn-secondary" ngbButtonLabel>
+              <input type="checkbox" ngbButton [(ngModel)]="includeUnplayed" name="includeUnplayed">Include Unplayed
+            </label>
+          </div>
+        </form>
+
+        <app-chart></app-chart>
+        <app-info-label></app-info-label>
+        <app-table></app-table>
+      </div>
     </div>
   </ng-template>
 </ng-template>

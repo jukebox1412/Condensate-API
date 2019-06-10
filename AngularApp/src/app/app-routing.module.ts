@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,7 @@ const routes: Routes = [
       { path: 'results', component: SearchResultsComponent }]
   },
   { path: 'about', component: AboutComponent },
+  { path: 'faq', component: FaqComponent },
   { path: '', redirectTo: '/search', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent },
 ]

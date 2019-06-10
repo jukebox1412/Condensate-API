@@ -12,18 +12,18 @@ namespace Condensate_API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-       // GET api/values
-       //[HttpGet]
-       // public ActionResult<IEnumerable<string>> Get()
-       // {
-       //     using (MiniProfiler.Current.Step("Get method"))
-       //     {
+        // GET api/values
+        //[HttpGet]
+        // public ActionResult<IEnumerable<string>> Get()
+        // {
+        //     using (MiniProfiler.Current.Step("Get method"))
+        //     {
 
-       //         return new string[] { "value1", "value2" };
-       //     }
-       // }
+        //         return new string[] { "value1", "value2" };
+        //     }
+        // }
 
-       // GET api/values? id = 5
+        // GET api/values? id = 5
         private ILogger<ValuesController> _logger;
         public ValuesController(ILogger<ValuesController> logger)
         {
@@ -32,14 +32,14 @@ namespace Condensate_API.Controllers
         [HttpGet]
         public ActionResult<string> Get(string id)
         {
-            return UsersController.GetSteamID(id);
+            return id;
         }
 
         // POST api/values
         [HttpPost]
         public string Post([FromBody] string id)
         {
-            return UsersController.GetSteamID(id);
+            return id;
         }
 
         // PUT api/values/5

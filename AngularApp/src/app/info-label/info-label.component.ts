@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService, Stats } from '../user.service';
+import { UserService, Stats } from '../services/user.service';
 
 @Component({
   selector: 'app-info-label',

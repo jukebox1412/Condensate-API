@@ -4,7 +4,7 @@ import { Component, QueryList, ViewChildren, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { GamePlaytime } from '../classes/GamePlaytime';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 import { NgbdSortableHeader, SortEvent } from './sortable.directive';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -34,6 +34,8 @@ export class TableComponent {
     this.service.total$.subscribe(total => {
       this.total = total;
     });
+    // default sort direction
+    this.service.sortColumn = "appid";
   }
 
   onSort({ column, direction }: SortEvent) {
