@@ -52,8 +52,16 @@ namespace Condensate_API.Services
             App app = _appService.GetLeastScrapedGame();
             if (app != null)
             {
-
-                var response = await _client.GetAsync(_URL_PARAMETERS + app.appid);
+                HttpResponseMessage response;
+                try
+                {
+                    response = await _client.GetAsync(_URL_PARAMETERS + app.appid);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Something went wrong while scraping games from steam!");
+                    return;
+                }
 
                 Game g = new Game();
                 if (response.IsSuccessStatusCode)
