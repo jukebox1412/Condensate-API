@@ -14,8 +14,7 @@ namespace Condensate_API.Services
 
         public MongoClientService(IConfiguration config)
         {
-            string cn = config.GetConnectionString("CondensateDB").Replace("<password>", Environment.GetEnvironmentVariable("MONGO_DROPLET0_PW"));
-            client = new MongoClient(cn);
+            client = new MongoClient(config.GetConnectionString("CondensateDB"));
             database = client.GetDatabase("CondensateDB");
         }
     }
